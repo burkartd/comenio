@@ -472,18 +472,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.m-12{
+  margin: 3rem;
+}
+
 .m-4{
   margin: 1rem;
-}
-
-.mx-8{
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .mx-\[30\%\]{
@@ -491,49 +485,58 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 30%;
 }
 
-.mx-\[40\%\]{
-  margin-left: 40%;
-  margin-right: 40%;
+.my-20{
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
-.mx-\[35\%\]{
-  margin-left: 35%;
-  margin-right: 35%;
+.mx-20{
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
-.mx-\[32\%\]{
-  margin-left: 32%;
-  margin-right: 32%;
+.mx-\[10\%\]{
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.mx-\[25\%\]{
-  margin-left: 25%;
-  margin-right: 25%;
+.mx-\[6\%\]{
+  margin-left: 6%;
+  margin-right: 6%;
 }
 
-.mx-\[27\%\]{
-  margin-left: 27%;
-  margin-right: 27%;
+.mx-\[5\%\]{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.mx-\[7\%\]{
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+.my-12{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-16{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.my-32{
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.my-\[30\%\]{
+  margin-top: 30%;
+  margin-bottom: 30%;
 }
 
 .mt-52{
   margin-top: 13rem;
-}
-
-.ml-auto{
-  margin-left: auto;
-}
-
-.ml-\[20\%\]{
-  margin-left: 20%;
-}
-
-.ml-\[30\%\]{
-  margin-left: 30%;
-}
-
-.ml-\[32\%\]{
-  margin-left: 32%;
 }
 
 .block{
@@ -564,16 +567,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.5rem;
 }
 
-.h-\[92\%\]{
-  height: 92%;
-}
-
 .w-6{
   width: 1.5rem;
 }
 
 .w-full{
   width: 100%;
+}
+
+.w-\[40\%\]{
+  width: 40%;
 }
 
 .flex-shrink-0{
@@ -590,6 +593,10 @@ Ensure the default browser behavior of the `hidden` attribute.
           appearance: none;
 }
 
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-cols-3{
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -600,10 +607,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-start{
   justify-content: flex-start;
-}
-
-.justify-end{
-  justify-content: flex-end;
 }
 
 .justify-center{
@@ -697,6 +700,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 3rem;
 }
 
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .pr-2{
   padding-right: 0.5rem;
 }
@@ -769,6 +777,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 174 201 / var(--tw-text-opacity));
 }
 
+.underline{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .tlacitko{
   margin: 3rem;
   display: block;
@@ -788,6 +801,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 0.25rem;
 }
 
+.hover\:underline:hover{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .hover\:shadow:hover{
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -799,31 +817,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline-offset: 2px;
 }
 
+@media (min-width: 640px){
+  .sm\:mx-\[15\%\]{
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
 @media (min-width: 768px){
-  .md\:m-8{
-    margin: 2rem;
-  }
-
-  .md\:mx-\[32\%\]{
-    margin-left: 32%;
-    margin-right: 32%;
-  }
-
-  .md\:mx-\[30\%\]{
-    margin-left: 30%;
-    margin-right: 30%;
-  }
-
-  .md\:mx-\[27\%\]{
-    margin-left: 27%;
-    margin-right: 27%;
-  }
-
-  .md\:mx-\[28\%\]{
-    margin-left: 28%;
-    margin-right: 28%;
-  }
-
   .md\:mx-8{
     margin-left: 2rem;
     margin-right: 2rem;
@@ -832,6 +833,50 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:my-4{
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .md\:mx-\[28\%\]{
+    margin-left: 28%;
+    margin-right: 28%;
+  }
+
+  .md\:mx-\[30\%\]{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  .md\:mx-\[35\%\]{
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
+  .md\:mx-6{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .md\:my-32{
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+  }
+
+  .md\:my-40{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
+  .md\:mx-\[25\%\]{
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  .md\:mx-\[20\%\]{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .md\:mb-8{
+    margin-bottom: 2rem;
   }
 
   .md\:block{
@@ -854,8 +899,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 9%;
   }
 
-  .md\:h-\[91\%\]{
-    height: 91%;
+  .md\:h-screen{
+    height: 100vh;
+  }
+
+  .md\:w-\[50\%\]{
+    width: 50%;
   }
 
   .md\:items-center{
@@ -879,6 +928,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 3rem;
   }
 
+  .md\:p-10{
+    padding: 2.5rem;
+  }
+
+  .md\:p-8{
+    padding: 2rem;
+  }
+
   .md\:px-12{
     padding-left: 3rem;
     padding-right: 3rem;
@@ -892,11 +949,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .md\:py-6{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 
   .md\:pt-6{
@@ -924,6 +976,25 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:text-comeniodark{
     --tw-text-opacity: 1;
     color: rgb(48 2 234 / var(--tw-text-opacity));
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:mx-\[35\%\]{
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
+  .lg\:mx-\[30\%\]{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:mx-\[35\%\]{
+    margin-left: 35%;
+    margin-right: 35%;
   }
 }
 
