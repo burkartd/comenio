@@ -43,17 +43,17 @@
             <h1>Upozornit učitele</h1>
         </div>
         <div id = "rtlacitka" class="text-xl py-20 text-comeniowhiteblue grid grid-cols-3"><!--tlacitka-->
-            <div id="btnTempo" onclick="test()" class="tlacitko">
+            <div id="btnTempo" onclick="actTlacitka('tempo')" class="tlacitko">
                 <h4 class="py-10 px-12">
                     <a href="#">Tempo hodiny</a>
                 </h4>
             </div>
-            <div onclick="rmenu(2)" class='tlacitko'>
+            <div id = "btnProblem" onclick="actTlacitka('problem')" class='tlacitko'>
                 <h4 class="py-10 px-12 hover:shadow">
                     <a href="#">Problémy s učivem</a>
                 </h4>
             </div>
-            <div onclick="rmenu(3)" class="tlacitko">
+            <div id = "btnReakce" onclick="actTlacitka('reakce')" class="tlacitko">
                 <h4 class="py-10 px-12">
                     <a href="#">Reakce na otázku</a>
                 </h4>
