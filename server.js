@@ -14,6 +14,16 @@ app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístu
 //když se připojí klient
 io.on('connection', socket => {
     console.log('novy pripojeni...');
+
+    //příchozí zpráva od žáka
+    io.on('zpravaUciteli', (msg) =>{
+        console.log(msg);
+    })
+
+    //když se klient odpojí
+    io.on('disconnect', ()=>{
+        console.log('typek to leavnul :(');
+    })
 });
 
 
