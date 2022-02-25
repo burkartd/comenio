@@ -42,18 +42,18 @@
         <div class="text-4xl font-bold p-8 flex justify-center"><!--main_nadpis-->
             <h1>Upozornit učitele</h1>
         </div>
-        <div id = "rtlacitka" class="text-xl py-20 text-comeniowhiteblue grid grid-cols-3"><!--tlacitka-->
-            <div id="btnTempo" onclick="actTlacitka('tempo')" class="tlacitko">
+        <div class="text-xl py-20 text-comeniowhiteblue grid grid-cols-3"><!--tlacitka-->
+            <div class="tlacitko">
                 <h4 class="py-10 px-12">
                     <a href="#">Tempo hodiny</a>
                 </h4>
             </div>
-            <div id = "btnProblem" onclick="actTlacitka('problem')" class='tlacitko'>
+            <div class='tlacitko'>
                 <h4 class="py-10 px-12 hover:shadow">
                     <a href="#">Problémy s učivem</a>
                 </h4>
             </div>
-            <div id = "btnReakce" onclick="actTlacitka('reakce')" class="tlacitko">
+            <div class="tlacitko">
                 <h4 class="py-10 px-12">
                     <a href="#">Reakce na otázku</a>
                 </h4>
@@ -65,8 +65,6 @@
             </h4>
         </div>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/zak.js"></script>
-    
+    <script src="index.js"></script>
 </body>
 </html>
