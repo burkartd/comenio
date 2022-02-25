@@ -6,10 +6,9 @@
 @tailwind utilities;
 
 .tlacitko{
-    @apply bg-comeniodark m-12 flex justify-center rounded-xl shadow block;
+    @apply bg-comeniodark m-12  flex justify-center rounded-xl shadow block;
 }
 
 .menuicon{
     @apply w-6 inline-block pr-1;  
 }
-
