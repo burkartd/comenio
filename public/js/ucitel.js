@@ -9,10 +9,12 @@ var id; // id sockety
 const divRoomNumber = document.getElementById('roomNumber');
 
 
+
+
 socket.on('connect', () =>
 {
     socket.emit('hostConnect', data => {
-        roomNumber = data;
+        roomNumber = data.substring(4);
         divRoomNumber.innerHTML = ('#' + roomNumber);
     });
     

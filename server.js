@@ -109,7 +109,7 @@ function generateRoom()
     var opakuj = true;
     while(opakuj){
         //dokud roomky existujou
-        num = Math.floor(Math.random() * 89) + 10; //vygeneruje číslo roomky
+        num = Math.floor(Math.random() * 899) + 100; //vygeneruje číslo roomky
         name = "room" + num; //poskládá název roomky
         //console.log(name);
         opakuj = io.sockets.adapter.rooms.has(name);
