@@ -6,7 +6,11 @@
 @tailwind utilities;
 
 .tlacitko{
-    @apply bg-comeniodark m-12  flex justify-center rounded-xl shadow block;
+    @apply bg-comeniodark mx-8 my-4 flex justify-center rounded-xl block;
+}
+
+.tlacnadpis{
+    @apply py-6 px-8 text-lg md:text-lg md:py-8 md:px-12 lg:text-xl lg:py-10 lg:px-14 xl:text-2xl;
 }
 
 .menuicon{

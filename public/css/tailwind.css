@@ -508,8 +508,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
-.mt-52{
-  margin-top: 13rem;
+.mt-\[1\%\]{
+  margin-top: 1%;
 }
 
 .flex{
@@ -538,10 +538,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-52{
   height: 13rem;
-}
-
-.h-12{
-  height: 3rem;
 }
 
 .w-6{
@@ -589,10 +585,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .items-center{
@@ -710,21 +702,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 0.5rem;
 }
 
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.px-12{
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
 .pr-2{
   padding-right: 0.5rem;
 }
@@ -743,6 +720,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-2{
   padding-left: 0.5rem;
+}
+
+.pt-14{
+  padding-top: 3.5rem;
 }
 
 .text-left{
@@ -775,11 +756,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-xl{
@@ -849,16 +825,66 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .tlacitko{
-  margin: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: block;
   display: flex;
   justify-content: center;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(48 2 234 / var(--tw-bg-opacity));
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.tlacnadpis{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 768px){
+  .tlacnadpis{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .tlacnadpis{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .tlacnadpis{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .tlacnadpis{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .tlacnadpis{
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+
+  .tlacnadpis{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .tlacnadpis{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .menuicon{
@@ -909,12 +935,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:shadow-xl:hover{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:shadow:hover{
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1076,8 +1096,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 18rem;
   }
 
-  .lg\:h-14{
-    height: 3.5rem;
+  .lg\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:pt-20{
+    padding-top: 5rem;
+  }
+
+  .lg\:pt-\[5\%\]{
+    padding-top: 5%;
   }
 
   .lg\:text-4xl{
@@ -1085,9 +1113,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 2.5rem;
   }
 
-  .lg\:text-base{
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .lg\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
@@ -1145,10 +1173,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 95%;
   }
 
-  .xl\:h-16{
-    height: 4rem;
-  }
-
   .xl\:h-\[60vh\]{
     height: 60vh;
   }
@@ -1167,11 +1191,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .xl\:p-4{
     padding: 1rem;
-  }
-
-  .xl\:px-20{
-    padding-left: 5rem;
-    padding-right: 5rem;
   }
 
   .xl\:px-10{
@@ -1194,11 +1213,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .xl\:text-xl{
     font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .xl\:text-lg{
-    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 

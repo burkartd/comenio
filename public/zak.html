@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body>
-    <div class="text-comeniodark font-nunito"><!--container-->
-        <div class="bg-blue-100 text-comeniodark font-nunito "><!--navigace-->
-            <div class="flex py-6 justify-between px-5 border-b-2 border-comeniodark md:hidden"><!--nadpis+mobilmenu-->
+    <div class="text-comeniodark font-nunito h-screen"><!--container-->
+
+        <!--navigace schovana<div class="bg-blue-100 text-comeniodark font-nunito ">
+            <div class="flex py-6 justify-between px-5 border-b-2 border-comeniodark md:hidden">
                 <div class="cursor-pointer" id="check">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </div>
                 <h1 class="font-semibold text-lg">Comenio</h1>
             </div>
             
-            <div class="justify-start pr-2 font-semibold flex text-left hidden md:block md:justify-end md:items-center md:pt-6 md:pb-4 md:border-b-2 md:border-comeniodark" id="menu"><!--actual navigace-->    
+            <div class="justify-start pr-2 font-semibold flex text-left hidden md:block md:justify-end md:items-center md:pt-6 md:pb-4 md:border-b-2 md:border-comeniodark" id="menu">    
             <ul class="md:justify-end md:text-lg md:flex md:pr-8">
                 <li class="py-2 pl-5 md:inline md:px-12">
                     <a href="#" class="items-center">
@@ -38,33 +39,32 @@
                 </li>
             </ul>
             </div>
-        </div>
-        <div class="text-4xl font-bold p-8 flex justify-center"><!--main_nadpis-->
+        </div>-->
+        <div class="text-3xl font-bold p-8 pt-14 flex justify-center lg:text-5xl lg:pt-20"><!--main_nadpis-->
             <h1>Upozornit učitele</h1>
         </div>
-        <div class="text-xl py-20 text-comeniowhiteblue grid grid-cols-3"><!--tlacitka-->
+        <div class="text-xl py-6 text-comeniowhiteblue grid grid-cols-1 lg:grid-cols-3 lg:pt-[5%]"><!--tlacitka-->
             <div class="tlacitko">
-                <h4 class="py-10 px-12">
+                <h4 class="tlacnadpis">
                     <a href="#">Tempo hodiny</a>
                 </h4>
             </div>
             <div class='tlacitko'>
-                <h4 class="py-10 px-12 hover:shadow">
+                <h4 class="tlacnadpis">
                     <a href="#">Problémy s učivem</a>
                 </h4>
             </div>
             <div class="tlacitko">
-                <h4 class="py-10 px-12">
+                <h4 class="tlacnadpis">
                     <a href="#">Reakce na otázku</a>
                 </h4>
             </div>
         </div>
-        <div class="text-base text-comenioblue font-semibold flex justify-center mt-52"><!--custom pole-->
+        <div class="text-base text-comenioblue font-semibold flex justify-center mt-[1%]"><!--custom pole-->
             <h4>
                 <a href="#">Jiný problém, se kterým se chci ozvat učiteli</a>
             </h4>
         </div>
     </div>
-    <script src="index.js"></script>
 </body>
 </html>
