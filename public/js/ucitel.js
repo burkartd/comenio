@@ -28,11 +28,7 @@ socket.on('connect', () =>
 });
 
 socket.on('newUser', (user) => {
-    var jmeno = user.userName;
-    zaci.push(user);
-    novyZak(jmeno);
-
-    console.log(zaci);
+    prihlaseni(user);
 });
 
 socket.on('userLeft', (id) => {
