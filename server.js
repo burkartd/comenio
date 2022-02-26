@@ -69,6 +69,10 @@ io.on('connection', socket => {
                 socket.broadcast.to(roomka).emit('userLeft', socket.id);
             });
 
+            socket.on('upozorneni', (msg, jmeno) => {
+                console.log('zprava: ' + msg + jmeno);
+                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno);
+            });
             
         }
         else cb(false);
