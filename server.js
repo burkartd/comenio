@@ -22,31 +22,6 @@ io.on('connection', socket => {
     usersCount++; //zvětšení počtu přihlášených
     console.log('počet přihlášených ' + usersCount);
 
-    // io.on('join room', (username, role) => {
-    //     const user = {
-    //         username,
-    //         role,
-    //         id: socket.id
-    //     };
-    //     users.push(user);
-    //     io.emit('new user', users);
-    // });
-
-    //příchozí zpráva od žáka
-    socket.on('zpravaUciteli', (msg) =>{
-        console.log(msg);
-    });
-
-    //když se klient odpojí
-    socket.on('disconnect', ()=>{
-        console.log('typek to leavnul :(');
-        usersCount--; //zmenšení počtu přihlášeních
-        console.log('počet přihlášených ' + usersCount);
-    });
-
-    socket.on('test', (data)=>{
-        console.log(data);
-    });
 
     //připojí se učitel a založí roomku
     socket.on('hostConnect', (cb) => {
@@ -60,20 +35,15 @@ io.on('connection', socket => {
         };
         users.push(user);
   
-        console.log('nova roomka: ' + room); //do konzole serveru jmeno roomky
         cb(room); //callback funkce pro poslání čísla roomky
     });
 
     //když se připojí žák
     socket.on('userConnect', (userName, roomNumber, cb) => {        
         
-        var roomka = 'room' + roomNumber;
-        
-        var xd = io.sockets.adapter.rooms.has(roomka);
-
-        console.log(roomka, xd);
-
-        if(xd)
+        var roomka = 'room' + roomNumber;        
+        var prihlasit = io.sockets.adapter.rooms.has(roomka);
+        if(prihlasit)
         {
             socket.join(roomka);
             const user = {
@@ -83,17 +53,35 @@ io.on('connection', socket => {
                 roomnumber: roomka
             };
             users.push(user);
-            
-            console.log('přihlášení do roomky: ' + roomka);
-            cb(true);
-        }
-        else
-        {
-            //socket.emit('wrongRoom'); //pošle event že je špatné číslo roomky
-            cb(false) ;
-        }
 
+            socket.broadcast.to(roomka).emit('newUser', user); //ohlásí nového uživatele
+
+            socket.on('userLeave', () => {
+                console.log('ahoj');
+                socket.broadcast.to(roomka).emit('userLeft', user.id);
+            })
+
+            cb(true);
+
+            socket.on('disconnect', ()=>{
+                console.log('typek to leavnul :(');
+                
+                socket.broadcast.to(roomka).emit('userLeft', socket.id);
+            });
+
+            
+        }
+        else cb(false);
+
+        //když se klient odpojí
+        
+        
     });
+
+        //příchozí zpráva od žáka
+        socket.on('zpravaUciteli', (msg) =>{
+            console.log(msg);
+        });
 });
 
 

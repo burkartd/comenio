@@ -2,7 +2,7 @@ const socket = io();
 
 var zaci = []; //kolekce připojených žáků
 
-var id; // id sockety
+var id = socket.id; // id sockety
 
 const divRoomNumber = document.getElementById('roomNumber');
 
@@ -12,6 +12,9 @@ const { userName, roomNumber} = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
 
+
+
+var roomName = 'room' + roomNumber; //jméno roomky
 
 
 socket.on('connect', () => {
@@ -26,8 +29,13 @@ socket.on('connect', () => {
         divRoomNumber.innerHTML = '#' + roomNumber;
        }
     });
+
+    socket.emit('userJoin', userName, id, roomName); 
 });
 
+socket.on('disconnect', () => {
+    socket.emit('userLeave');
+})
 
 
 const tlacitka = document.getElementById('rtlacitka');
