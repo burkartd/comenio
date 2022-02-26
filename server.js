@@ -20,34 +20,65 @@ app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístu
 io.on('connection', socket => {
     console.log('novy pripojeni...');
     usersCount++; //zvětšení počtu přihlášených
+    console.log('počet přihlášených ' + usersCount);
+
+    io.on('join room', (username, role) => {
+        const user = {
+            username,
+            role,
+            id: socket.id
+        };
+        users.push(user);
+        io.emit('new user', users);
+    });
 
     //příchozí zpráva od žáka
     io.on('zpravaUciteli', (msg) =>{
         console.log(msg);
-    })
+    });
 
     //když se klient odpojí
-    io.on('disconnect', ()=>{
+    socket.on('disconnect', ()=>{
         console.log('typek to leavnul :(');
         usersCount--; //zmenšení počtu přihlášeních
-    })
+        console.log('počet přihlášených ' + usersCount);
+    });
 
+    socket.on('test', (data)=>{
+        console.log(data);
+    });
 
     //připojí se učitel a založí roomku
-    io.on('hostConnect', (socket, user) => {
+    io.on('hostConnect', cb => {
         var room = generateRoom();
-        socket.join(room); //připojí učitele do nové roomky
+        socket.join('room'+room); //připojí učitele do nové roomky
+        const user = {
+            username: 'ucitel',
+            role: 1,
+            id: socket.id,
+            roomnumber: room
+        };
         users.push(user);
+
+        cb(room); //callback funkce pro poslání čísla roomky
+        
         console.log('nova roomka: ' + room); //do konzole serveru jmeno roomky
-    })
+    });
 
     //když se připojí žák
-    io.on('userConnect', (socket, user, roomname) => {
+    io.on('userConnect', (username, roomname) => {
 
-        if(io.sockets.adapter.rooms[roomname])
+        if(io.sockets.adapter.rooms['room'+roomname])
         {
-            socket.join(roomname);
+            socket.join('room'+roomname);
+            const user = {
+                username,
+                role: 2,
+                id: socket.id,
+                roomnumber: roomname
+            };
             users.push(user);
+            
             console.log('přihlášení do roomky: ' + roomname);
         }
         else
@@ -55,7 +86,7 @@ io.on('connection', socket => {
             socket.emit('wrongRoom'); //pošle event že je špatné číslo roomky
         }
 
-    })
+    });
 });
 
 
@@ -74,5 +105,5 @@ function generateRoom()
         num = Math.floor(Math.random() * 89) + 10; //vygeneruje číslo roomky
         name = "room" + num; //poskládá název roomky
     }
-    return name;
+    return num;
 }
