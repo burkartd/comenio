@@ -533,6 +533,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1%;
 }
 
+.ml-auto{
+  margin-left: auto;
+}
+
+.mr-4{
+  margin-right: 1rem;
+}
+
 .block{
   display: block;
 }
@@ -634,6 +642,29 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-between{
   justify-content: space-between;
+}
+
+.overflow-auto{
+  overflow: auto;
+}
+
+.overscroll-auto{
+  -ms-scroll-chaining: chained;
+      overscroll-behavior: auto;
+}
+
+.overscroll-contain{
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+}
+
+.overscroll-none{
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
+
+.overscroll-y-none{
+  overscroll-behavior-y: none;
 }
 
 .rounded-xl{
@@ -781,10 +812,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-center{
   text-align: center;
-}
-
-.text-right{
-  text-align: right;
 }
 
 .font-nunito{
