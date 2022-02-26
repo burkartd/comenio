@@ -495,19 +495,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 1rem;
 }
 
-.mx-8{
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.mx-\[15\%\]{
-  margin-left: 15%;
-  margin-right: 15%;
 }
 
 .mx-\[10\%\]{
@@ -531,32 +521,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
-.mt-\[1\%\]{
-  margin-top: 1%;
-}
-
-.mt-\[20\%\]{
-  margin-top: 20%;
-}
-
-.mt-24{
-  margin-top: 6rem;
-}
-
 .mt-44{
   margin-top: 11rem;
 }
 
-.mt-12{
-  margin-top: 3rem;
-}
-
-.mt-8{
-  margin-top: 2rem;
-}
-
 .mt-6{
   margin-top: 1.5rem;
+}
+
+.mt-\[1\%\]{
+  margin-top: 1%;
 }
 
 .block{
@@ -725,19 +699,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-slate-50{
+.bg-sky-700{
   --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
 }
 
 .bg-blue-100{
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
-}
-
-.bg-sky-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
 }
 
 .p-6{
@@ -777,16 +746,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 0.5rem;
 }
 
-.px-8{
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.px-16{
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -824,6 +783,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
+.text-right{
+  text-align: right;
+}
+
 .font-nunito{
   font-family: Nunito;
 }
@@ -852,14 +815,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.5rem;
 }
 
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold{
@@ -1171,11 +1134,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 2rem;
   }
 
-  .md\:py-8{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
   .md\:pt-6{
     padding-top: 1.5rem;
   }
@@ -1210,23 +1168,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: 30%;
   }
 
-  .lg\:my-\[30\%\]{
-    margin-top: 30%;
-    margin-bottom: 30%;
-  }
-
-  .lg\:mx-\[33\%\]{
-    margin-left: 33%;
-    margin-right: 33%;
-  }
-
   .lg\:mx-\[35\%\]{
     margin-left: 35%;
     margin-right: 35%;
-  }
-
-  .lg\:mt-12{
-    margin-top: 3rem;
   }
 
   .lg\:mt-10{
@@ -1239,21 +1183,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:py-10{
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .lg\:px-14{
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
-  }
-
-  .lg\:py-8{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 
   .lg\:py-6{
@@ -1269,9 +1198,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 5%;
   }
 
+  .lg\:text-left{
+    text-align: left;
+  }
+
   .lg\:text-4xl{
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .lg\:text-5xl{
@@ -1279,14 +1217,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 1;
   }
 
-  .lg\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .lg\:text-lg{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+  .lg\:text-6xl{
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
@@ -1420,11 +1353,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .xl\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .xl\:text-2xl{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .xl\:font-bold{
