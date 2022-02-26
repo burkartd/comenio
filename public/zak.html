@@ -49,14 +49,27 @@
             </div>
         </div>
         <div id = "divMenu" class="text-xl py-6 text-comeniowhiteblue grid grid-cols-1 lg:grid-cols-3 lg:pt-[5%]"><!--tlacitka-->
-            <div onclick="TempoHodiny()" class="tlacitko">
+            <div id="Tlacitko1" class="tlacitko">
                 <h4 class="tlacnadpis">Tempo hodiny</h4>
             </div>
-            <div class='tlacitko'>
+            <div id="Tlacitko2" class='tlacitko'>
                 <h4 class="tlacnadpis">Problémy s učivem</h4>
             </div>
-            <div class="tlacitko">
+            <div id="Tlacitko3" class="tlacitko">
                 <h4 class="tlacnadpis">Reakce na otázku </h4>
+            </div>
+            <!-- Tome tohle předělej ale nech tam id a tak dik :-* -->
+            <div id="VlasniZprava" class="tlacitko">
+                <form id="VlastniZpravaForm" class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark">
+                    <input
+                    id="msg"
+                    type="text"
+                    placeholder="Vlastní zpráva"
+                    required
+                    autocomplete="off"
+                    />
+                    <button>Odeslat</button>
+                </form>
             </div>
         </div>
         <div class="text-base text-comenioblue font-semibold flex justify-center mt-[1%]"><!--custom pole-->

@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
+const { disconnect } = require('process');
 
 const app = express();
 const server = http.createServer(app);
@@ -36,6 +37,10 @@ io.on('connection', socket => {
         users.push(user);
   
         cb(room); //callback funkce pro poslání čísla roomky
+
+        socket.on('disconnect', () => {
+            socket.broadcast.to(room).emit('roomEnded');
+        })
     });
 
     //když se připojí žák
@@ -59,6 +64,7 @@ io.on('connection', socket => {
             socket.on('userLeave', () => {
                 console.log('ahoj');
                 socket.broadcast.to(roomka).emit('userLeft', user.id);
+
             })
 
             cb(true);

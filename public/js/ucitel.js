@@ -42,7 +42,8 @@ socket.on('upozorneni', (msg, name) => {
 function odhlaseni(id)
 {
     const index = zaci.findIndex(zaci => zaci.id === id);
-
+    const jmeno = zaci[index].userName;
+    Zprava('odhlasil jsem se', jmeno);
     if(index !== -1)
     {
         zaci.splice(index, 1);
@@ -72,7 +73,7 @@ function zaciUpdate()
                         </path></svg>`
     
         seznamZaku.appendChild(div);
-
+        
 
     });
 }
@@ -87,4 +88,5 @@ function Zprava(msg, jmeno)
                     <span class="text-gray-900 ">${msg}</span>`
 
     seznamUpozorneni.appendChild(div);
+    seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
 }

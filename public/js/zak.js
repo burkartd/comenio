@@ -14,7 +14,24 @@ const { userName, roomNumber} = Qs.parse(location.search, {
 
 
 
+
+
 var roomName = 'room' + roomNumber; //jméno roomky
+
+const Tlacitko1 = document.getElementById('Tlacitko1');
+const Tlacitko2 = document.getElementById('Tlacitko2');
+const Tlacitko3 = document.getElementById('Tlacitko3');
+const vlastni = document.getElementById('VlastniZpravaForm');
+
+Tlacitko1.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nestíhám zápis', userName);
+});
+Tlacitko2.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nerozumím učivu', userName);
+});
+Tlacitko3.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nezvladam tempo', userName)
+});
 
 
 socket.on('connect', () => {
@@ -38,10 +55,29 @@ socket.on('disconnect', () => {
     socket.emit('userLeave');
 })
 
+socket.on('roomEnded', () => {
+    window.location.href = 'ukonceni.html';
+})
+
+vlastni.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    // Get message text
+    let msg = e.target.elements.msg.value;
+  
+    msg = msg.trim();
+  
+    if (!msg) {
+      return false;
+    }
+  
+    PoslatZpravu(msg);
+    e.target.elements.msg.value = '';
+  });
 
 
-function TempoHodiny()
+
+function PoslatZpravu(msg)
 {
-    
-    socket.emit('upozorneni', 'ahoj pane uciteli', userName);
+    socket.emit('upozorneni', msg, userName);
 }
