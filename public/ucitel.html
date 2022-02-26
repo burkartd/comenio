@@ -1,57 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comenio</title>
+    <title>Comenio učitel</title>
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body>
-    <div class="bg-comenioblue font-nunito h-screen grid grid-cols-2 auto-rows-min"> <!--container-->
-        <div class="p-8"> <!--mistnost-->
-            <h1 id="roomNumber" class="text-comeniowhiteblue text-3xl font-semibold">
-                
+    <div class="bg-comeniowhiteblue font-nunito h-screen grid grid-cols-2 xl:grid-cols-10 auto-rows-min"> <!--container-->
+        <div class="p-8 xl:col-start-5 xl:col-span-2 xl:flex xl:justify-center xl:pt-8 xl:pb-2"> <!--mistnost-->
+            <h1 class="text-sky-700 text-3xl font-semibold xl:text-6xl lg:text-4xl xl:font-bold">
+                #2222
             </h1>
         </div>
-        <div class="flex justify-end p-4 items-center pr-6"> <!--konec mistnosti-->
+        <div class="flex justify-end xl:justify-center p-4 items-center xl:text-center pr-6 xl:px-4 xl:col-start-10 xl:pt-8 xl:pb-2"> <!--konec mistnosti-->
             <a href="index.html">
-            <svg class="w-12 text-comeniodark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <svg class="h-12 text-sky-900 xl:self-center xl:mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span class="text-black text-sm px-2 hidden xl:block">Ukončit místnost</span>
             </a>
         </div>
-        <div class="col-span-2 mt-2 mb-4 mx-4"><!--databaze zaku celkove-->
-            <div class="text-comeniowhiteblue text-base font-medium pb-2 ">
+        <div class="xl:bg-white col-span-2 mt-2 mb-4 mx-4 xl:col-span-2 xl:row-span-6 xl:row-start-1 xl:h-[100vh] xl:m-0 xl:p-4 xl:border-r-2 border-sky-800"><!--databaze zaku celkove-->
+            <div class="text-sky-900 text-base font-medium pb-2 xl:text-xl">
                 <span>Přehled žáků:</span>
             </div>
-            <div class="bg-comeniowhiteblue h-52 rounded-lg border-2 border-comeniodark"><!--actuall databaze zaku-->
-                <div class="w-full h-12 border-b-2 border-comeniodark items-center flex text-sm">
-                    <span class="text-gray-700 px-2">Kája Vomáčka </span>
+            <div class="bg-white h-52 rounded-lg border-2 border-comeniodark md:h-64 lg:h-72 xl:h-[95%] xl:border-0"><!--actuall databaze zaku-->
+                <div class="zaznam">
+                    <span class="text-black px-2">Kája Vomáčka </span>
                     <svg class="w-6 text-comeniodark rounded-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
                 </div>
             </div>
             
         </div>
-        <div class="col-span-2 mt-2 mb-4 mx-4"><!--databaze upozorneni celkove-->
-            <div class="text-comeniowhiteblue text-base font-medium pb-2 ">
+        <div class="col-span-2 mt-2 mb-4 mx-4 xl:col-span-6 xl:row-span-3 xl:row-start-2 xl:h-[60vh] xl:mx-16 "><!--databaze upozorneni celkove-->
+            <div class="text-sky-900 text-base font-medium pb-2 xl:text-xl">
                 <span>Přehled upozornění:</span>
             </div>
-            <div class="bg-comeniowhiteblue h-52 rounded-lg border-2 border-comeniodark"><!--actuall databaze upozorneni-->
-                <div class="w-full h-12 border-b-2 border-comeniodark items-center flex text-sm">
+            <div class="bg-white h-52 rounded-lg border-2 border-sky-700 md:h-64 lg:h-72 xl:h-[50vh] xl:shadow-xl xl:border-0"><!--actuall databaze upozorneni-->
+                <div class="zaznam">
                     <svg class="w-8 text-sky-800 pl-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
-                    <span class="text-gray-700 px-2">Kája Vomáčka:</span>
-                    <span class="text-gray-700 ">Chci probirat rychleji</span>
+                    <span class="text-gray-900 px-2 xl:font-medium">Kája Vomáčka:</span>
+                    <span class="text-gray-900 ">Chci probirat rychleji</span>
                 </div>
-                <div class="w-full h-12 border-b-2 border-comeniodark items-center flex text-sm">
+                <div class="zaznam">
                     <svg class="w-8 text-red-600 pl-2 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    <span class="text-gray-700 px-2">Kája Vomáčka:</span>
-                    <span class="text-gray-700 ">Chci probirat rychleji</span>
+                    <span class="text-gray-900 px-2 xl:font-medium">Kája Vomáčka:</span>
+                    <span class="text-gray-900 ">Chci probirat rychleji</span>
                 </div>
             </div>
             
         </div>
 
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/ucitel.js"></script>
+
 </body>
 </html>
