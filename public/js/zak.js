@@ -4,12 +4,15 @@ var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
 
-//var userName = 'kunda';
-//var roomNumber = 56;
+const divRoomNumber = document.getElementById('roomNumber');
 
-const { userName, roomNumber } = Qs.parse(location.search, {
+divRoomNumber.innerHTML = '#';
+
+const { userName, roomNumber} = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
+
+
 
 socket.on('connect', () => {
     socket.emit('userConnect', userName, roomNumber, (data) => {
@@ -18,6 +21,10 @@ socket.on('connect', () => {
        {
            window.location.href = 'index.html';
        } 
+       else{
+        console.log('tady');
+        divRoomNumber.innerHTML = '#' + roomNumber;
+       }
     });
 });
 

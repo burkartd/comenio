@@ -1,6 +1,6 @@
 const socket = io();
 
-var roomNumber = -1; //číslo roomky, získá se v callback funkci
+var roomNum = -1; //číslo roomky, získá se v callback funkci
 var roomName = '';
 
 var zaci = []; //kolekce připojených žáků
@@ -16,8 +16,8 @@ socket.on('connect', () =>
 {
     socket.emit('hostConnect', data => {
         roomName = data;
-        roomNumber = data.substring(4);
-        divRoomNumber.innerHTML = ('#' + roomNumber);
+        roomNum = data.substring(4);
+        divRoomNumber.innerHTML = ('#' + roomNum);
     });
     
     id = socket.id; 
