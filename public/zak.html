@@ -40,7 +40,7 @@
             </ul>
             </div>
         </div>-->
-        <div class="grid lg:grid-cols-3 text-3xl font-bold p-8 pt-14 flex justify-center lg:text-5xl lg:pt-20 items-center"><!--main_nadpis-->
+        <div class="grid lg:grid-cols-3 text-3xl font-bold p-8 pt-12 flex justify-center lg:text-5xl lg:pt-20 items-center"><!--main_nadpis-->
             <div class="font-ubuntu justify-end text-center lg:text-left lg:text-6xl">
             <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
@@ -48,7 +48,7 @@
             <h1>Upozornit učitele</h1>
             </div>
         </div>
-        <div id = "divMenu" class="text-xl py-6 text-comeniowhiteblue grid grid-cols-1 lg:grid-cols-3 lg:pt-[5%]"><!--tlacitka-->
+        <div id = "divMenu" class="text-xl py-1 text-comeniowhiteblue grid grid-cols-1 lg:grid-cols-3 lg:pt-[5%]"><!--tlacitka-->
             <div id="Tlacitko1" class="tlacitko">
                 <h4 class="tlacnadpis">Tempo hodiny</h4>
             </div>
@@ -59,20 +59,21 @@
                 <h4 class="tlacnadpis">Reakce na otázku </h4>
             </div>
             <!-- Tome tohle předělej ale nech tam id a tak dik :-* -->
-            <div id="VlasniZprava" class="tlacitko">
-                <form id="VlastniZpravaForm" class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark">
+            <div id="VlasniZprava" class="justify-center lg:col-start-2 lg:col-span-1">
+                <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-4 px-auto mx-auto text-center md:px-8 text-lg lg:mx-20 text-comenioblue block">
                     <input
                     id="msg"
                     type="text"
+                    class="border-2 block border-comenioblue rounded-xl p-6 py-4 focus:border-2 focus:border-comeniodark mx-auto text-center "
                     placeholder="Vlastní zpráva"
                     required
                     autocomplete="off"
                     />
-                    <button>Odeslat</button>
+                    <button class="pt-2 hover:underline">Odeslat</button>
                 </form>
             </div>
         </div>
-        <div class="text-base text-comenioblue font-semibold flex justify-center mt-[1%]"><!--custom pole-->
+        <div class="text-base text-comenioblue font-semibold flex justify-center mt-[0.5%]"><!--custom pole-->
             <h4>
                 <a href="index.html">Odhlásit se z místnosti</a>
             </h4>
