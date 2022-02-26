@@ -22,18 +22,18 @@ io.on('connection', socket => {
     usersCount++; //zvětšení počtu přihlášených
     console.log('počet přihlášených ' + usersCount);
 
-    io.on('join room', (username, role) => {
-        const user = {
-            username,
-            role,
-            id: socket.id
-        };
-        users.push(user);
-        io.emit('new user', users);
-    });
+    // io.on('join room', (username, role) => {
+    //     const user = {
+    //         username,
+    //         role,
+    //         id: socket.id
+    //     };
+    //     users.push(user);
+    //     io.emit('new user', users);
+    // });
 
     //příchozí zpráva od žáka
-    io.on('zpravaUciteli', (msg) =>{
+    socket.on('zpravaUciteli', (msg) =>{
         console.log(msg);
     });
 
@@ -49,7 +49,7 @@ io.on('connection', socket => {
     });
 
     //připojí se učitel a založí roomku
-    io.on('hostConnect', cb => {
+    socket.on('hostConnect', (cb) => {
         var room = generateRoom();
         socket.join('room'+room); //připojí učitele do nové roomky
         const user = {
@@ -59,18 +59,18 @@ io.on('connection', socket => {
             roomnumber: room
         };
         users.push(user);
-
-        cb(room); //callback funkce pro poslání čísla roomky
-        
+  
         console.log('nova roomka: ' + room); //do konzole serveru jmeno roomky
+        cb(room); //callback funkce pro poslání čísla roomky
     });
 
     //když se připojí žák
-    io.on('userConnect', (username, roomname) => {
+    socket.on('userConnect', (username, roomNumber, cb) => {
 
-        if(io.sockets.adapter.rooms['room'+roomname])
+        
+        if(io.sockets.adapter.rooms.has('room'+roomNumber))
         {
-            socket.join('room'+roomname);
+            socket.join('room'+roomNumber);
             const user = {
                 username,
                 role: 2,
@@ -80,10 +80,12 @@ io.on('connection', socket => {
             users.push(user);
             
             console.log('přihlášení do roomky: ' + roomname);
+            cb('jo kokote');
         }
         else
         {
             socket.emit('wrongRoom'); //pošle event že je špatné číslo roomky
+            cb('ne kokote');
         }
 
     });
@@ -98,12 +100,15 @@ server.listen(PORT, () => console.log(`Servr frci na portu ${PORT} vole`));
 function generateRoom()
 {
     var num;
-    var name;
-    while(io.sockets.adapter.rooms[name])
-    {
+    var name = "kundomrd";
+    var opakuj = true;
+    while(opakuj){
         //dokud roomky existujou
         num = Math.floor(Math.random() * 89) + 10; //vygeneruje číslo roomky
         name = "room" + num; //poskládá název roomky
+        //console.log(name);
+        opakuj = io.sockets.adapter.rooms.has(name);
     }
-    return num;
+    
+    return name;
 }

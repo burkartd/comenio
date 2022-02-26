@@ -1,5 +1,18 @@
 const socket = io();
 
+var zaci = []; //kolekce připojených žáků
+
+var id; // id sockety
+
+var userName = 'kunda';
+var roomNumber = 56;
+
+socket.on('connect', () => {
+    socket.emit('userConnect', userName, roomNumber, (data) => {
+        alert(data);
+    })
+});
+
 
 
 const tlacitka = document.getElementById('rtlacitka');

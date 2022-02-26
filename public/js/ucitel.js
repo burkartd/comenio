@@ -6,15 +6,17 @@ var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
 
-socket.on('connect')
+socket.on('connect', () =>
 {
     socket.emit('hostConnect', data => {
         roomNumber = data;
+        console.log('zdar');
+        console.log(roomNumber);
     });
-    console.log(roomNumber);
-    socket.emit('test', 'kokot');
-}
+    
+    id = socket.id; 
+});
 
-socket.emit('test', 5);
-console.log('zdar');
+//socket.emit('test', 5);
+
 
