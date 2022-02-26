@@ -1,0 +1,24 @@
+
+<<<<<<< HEAD
+check.addEventListener('click', () => {
+    if(menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+    }else{
+        menu.classList.add('hidden');
+    }
+}
+)
+=======
+
+// const check = document.querySelector('#check');
+// const menu = document.querySelector('#menu');
+
+// check.addEventListener('click', () => {
+//     if(menu.classList.contains('hidden')) {
+//         menu.classList.remove('hidden');
+//     }else{
+//         menu.classList.add('hidden');
+//     }
+// }
+// )
+>>>>>>> 42164cd192bae3132cbb8bbe890d3f178f353952
