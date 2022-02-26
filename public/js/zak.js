@@ -1,5 +1,26 @@
 const socket = io();
 
+var zaci = []; //kolekce připojených žáků
+
+var id; // id sockety
+
+//var userName = 'kunda';
+//var roomNumber = 56;
+
+const { userName, roomNumber } = Qs.parse(location.search, {
+    ignoreQueryPrefix: true,
+  });
+
+socket.on('connect', () => {
+    socket.emit('userConnect', userName, roomNumber, (data) => {
+       //alert(data);
+       if(data == false)
+       {
+           window.location.href = 'index.html';
+       } 
+    });
+});
+
 
 
 const tlacitka = document.getElementById('rtlacitka');

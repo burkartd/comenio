@@ -2,10 +2,11 @@
   "name": "test_tailwind",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./public/css/style.css -o ./public/css/tailwind.css --watch"
+    "build": "npx tailwindcss -i ./public/css/style.css -o ./public/css/tailwind.css --watch",
+    "dev" : "nodemon sever.js" 
   },
   "keywords": [],
   "author": "",
