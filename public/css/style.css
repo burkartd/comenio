@@ -12,3 +12,7 @@
 .menuicon{
     @apply w-6 inline-block pr-1;  
 }
+
+.zaznam{
+    @apply w-full h-12 border-b-2 border-comeniodark items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
+}
