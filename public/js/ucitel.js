@@ -35,9 +35,7 @@ socket.on('userLeft', (id) => {
     odhlaseni(id);
 })
 
-socket.on('upozorneni', (msg, name) => {
-    
-    
+socket.on('upozorneni', (msg, name) => {   
     Zprava(msg, name);
 })
 
@@ -73,7 +71,7 @@ function zaciUpdate()
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7">
                         </path></svg>`
     
-        document.querySelector('.devSeznam').appendChild(div);
+        seznamZaku.appendChild(div);
 
 
     });
