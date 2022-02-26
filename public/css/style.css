@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .tlacitko{
-    @apply bg-comeniodark mx-8 my-4 flex justify-center rounded-xl block;
+    @apply bg-comenioblue mx-8 my-4 flex justify-center rounded-xl block;
 }
 
 .tlacnadpis{
@@ -18,5 +18,5 @@
 }
 
 .zaznam{
-    @apply w-full h-12 border-b-2 border-comeniodark items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
+    @apply w-full h-12 border-b-2 border-comenioblue items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
 }
