@@ -51,7 +51,7 @@ io.on('connection', socket => {
     //připojí se učitel a založí roomku
     socket.on('hostConnect', (cb) => {
         var room = generateRoom();
-        socket.join('room'+room); //připojí učitele do nové roomky
+        socket.join(room); //připojí učitele do nové roomky
         const user = {
             username: 'ucitel',
             role: 1,
@@ -65,27 +65,32 @@ io.on('connection', socket => {
     });
 
     //když se připojí žák
-    socket.on('userConnect', (username, roomNumber, cb) => {
-
+    socket.on('userConnect', (userName, roomNumber, cb) => {        
         
-        if(io.sockets.adapter.rooms.has('room'+roomNumber))
+        var roomka = 'room' + roomNumber;
+        
+        var xd = io.sockets.adapter.rooms.has(roomka);
+
+        console.log(roomka, xd);
+
+        if(xd)
         {
-            socket.join('room'+roomNumber);
+            socket.join(roomka);
             const user = {
-                username,
+                userName,
                 role: 2,
                 id: socket.id,
-                roomnumber: roomname
+                roomnumber: roomka
             };
             users.push(user);
             
-            console.log('přihlášení do roomky: ' + roomname);
-            cb('jo kokote');
+            console.log('přihlášení do roomky: ' + roomka);
+            cb(true);
         }
         else
         {
-            socket.emit('wrongRoom'); //pošle event že je špatné číslo roomky
-            cb('ne kokote');
+            //socket.emit('wrongRoom'); //pošle event že je špatné číslo roomky
+            cb(false) ;
         }
 
     });

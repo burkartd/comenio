@@ -6,12 +6,14 @@ var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
 
+const divRoomNumber = document.getElementById('roomNumber');
+
+
 socket.on('connect', () =>
 {
     socket.emit('hostConnect', data => {
         roomNumber = data;
-        console.log('zdar');
-        console.log(roomNumber);
+        divRoomNumber.innerHTML = ('#' + roomNumber);
     });
     
     id = socket.id; 
