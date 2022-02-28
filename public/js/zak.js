@@ -30,7 +30,7 @@ Tlacitko2.addEventListener('click', () => {
     socket.emit('upozorneni', 'Nerozumím učivu', userName);
 });
 Tlacitko3.addEventListener('click', () => {
-    socket.emit('upozorneni', 'Nezvladam tempo', userName)
+    socket.emit('upozorneni', 'Nezvládám tempo', userName)
 });
 
 
