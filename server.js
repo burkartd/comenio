@@ -103,7 +103,7 @@ server.listen(PORT, () => console.log(`Servr frci na portu ${PORT} vole`));
 function generateRoom()
 {
     var num;
-    var name = "kundomrd";
+    var name = "xxx";
     var opakuj = true;
     while(opakuj){
         //dokud roomky existujou
