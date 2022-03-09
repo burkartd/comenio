@@ -13,6 +13,7 @@ var usersCount = 0;
 var roomsCount = 0;
 
 let users = []; //list připojených uživatelů
+let hosts = []; //list učitelů - pro uchování id učitelů
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístup k frontendu
@@ -22,6 +23,18 @@ io.on('connection', socket => {
     console.log('novy pripojeni...');
     usersCount++; //zvětšení počtu přihlášených
     console.log('počet přihlášených ' + usersCount);
+
+    socket.on('checkRoom', (num, cb) => {
+        var room = 'room' + num;        
+        var existuje = io.sockets.adapter.rooms.has(room);
+        console.log(existuje);
+        cb(existuje);
+
+    });
+
+    socket.on('test', ()=>{
+        console.log('test emit');
+    });
 
 
     //připojí se učitel a založí roomku

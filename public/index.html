@@ -9,48 +9,18 @@
 </head>
 <body>
     <div class="h-screen font-nunito"><!--container-->
-        <!-- schovaný menu
-        <div class="bg-comeniowhiteblue z-2 font-nunito md:h-[9%] h-[8%]">
-            <div class="flex py-6 justify-between px-5 border-b-2 z-2 border-comeniodark text-comeniodark md:hidden">
-                <div class="cursor-pointer" id="check">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </div>
-                <h1 class="font-semibold text-lg">Comenio</h1>
-            </div>
-            
-            <div class="justify-start z-2 pr-2 text-blue-100 md:text-comeniodark font-semibold flex text-left hidden md:block md:justify-end md:items-center md:pt-6 md:pb-4 md:border-b-2 md:border-comeniodark" id="menu">
-            <ul class="md:justify-end md:text-lg md:flex md:pr-8 text-white ">
-                <li class="py-2 pl-5 md:inline md:px-12">
-                    <a href="#" class="items-center text-comeniowhiteblue md:text-comeniodark">
-                        <svg class="menuicon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        <span>Back</span>
-                    </a>
-                </li>
-                <li class="py-2 pl-5 md:inline md:px-12">
-                    <a href="#" class="items-center text-comeniowhiteblue md:text-comeniodark">
-                        <svg class="menuicon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="py-2 pl-5 md:inline md:px-12">
-                    <a href="#" class="text-comeniowhiteblue md:text-comeniodark">
-                        <svg class="menuicon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span>User</span>
-                    </a>
-                </li>
-            </ul>
-            </div>
-        </div>-->
+       
         <div class="bg-comenioblue h-screen md:h-screen flex justify-center items-start  grid grid-cols-1 auto-rows-min">
-            <form autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-36 md:mt-48 mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
+            <form id="frm" autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-36 md:mt-48 mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
                 <!--<h2 class="text-center text-comenioblue text-semibold md:text-lg">Zadejte kód místosti</h2>-->
                 <div class="m-4 md:mx-6 md:my-4">
                     <input autocomplete="false" class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="userName" type="text" placeholder="Jméno" maxlength="20" required>
                 </div>
                 <div class="m-4 md:mx-6 md:my-4 md:mb-8">
-                    <input class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="roomNumber" type="number" placeholder="Kód místnosti" maxlength="3" required>
+                    <input id = 'roominput' class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="roomNumber" type="number" placeholder="Kód místnosti" maxlength="3" required>
                 </div>
-                <button type="submit" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[40%] rounded mx-[30%] md:mx-[25%] md:w-[50%] md:px-8 md:py-4 md:text-base">
+            
+                <button type="button" id="btnSubmit" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[40%] rounded mx-[30%] md:mx-[25%] md:w-[50%] md:px-8 md:py-4 md:text-base">
                     Připojit se
                 </button>
             </form>
