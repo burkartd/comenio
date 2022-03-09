@@ -20,3 +20,23 @@
 .zaznam{
     @apply w-full h-12 border-b-2 border-comenioblue items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
 }
+
+.scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 20px;
+  }
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: white;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #3002EA;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00AEC9;
+}
