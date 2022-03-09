@@ -18,7 +18,15 @@
 }
 
 .zaznam{
-    @apply w-full h-12 border-b-2 border-comenioblue items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
+    @apply w-full h-14 items-center flex text-lg font-semibold;
+}
+
+.zaznamodpoved{
+    @apply  h-20 items-center flex text-xl my-6 mx-6 rounded-xl;
+}
+
+.stin{
+    box-shadow: 0 0 10px 1.5px #b5babe
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -34,7 +42,7 @@
 .scrollbar::-webkit-scrollbar-thumb {
     background: #3002EA;
     border-radius: 100vh;
-    border: 3px solid #f6f7ed;
+    border: 1px solid #f6f7ed;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
