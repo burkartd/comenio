@@ -6,24 +6,24 @@
     <title>Comenio</title>
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
-<body>
+<body class="noselect">
     <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
 
        
-        <div class="grid grid-cols-2 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-12 items-center h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
+        <div class="grid grid-cols-2 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-20 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
             <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-6xl">
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
-            <div class="justify-end col-span-1 text-center">
+            <div id="odhlasit" class="justify-end col-span-1 text-center">
                 <svg class="w-12 ml-auto mr-4 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <div class="text-center items-center mt-10 col-span-2">
             <h1>Upozornit učitele</h1>
             </div>
         </div>
-        <div id = "divMenu" class="text-xl h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
+        <div id = "divMenu" class="text-xl max-h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
             <!-- Tome tohle předělej ale nech tam id a tak dik :-* -->
-            <div id="VlasniZprava" class="justify-center lg:col-span-1">
+            <div class="justify-center lg:col-span-1">
                 <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
                     <input
                     id="msg"
@@ -37,30 +37,32 @@
                 </form>
             </div>
         </div>
-        <div class="grid grid-cols-3 grid-rows-3 h-[50vh] auto-rows-auto pt-[25%] sm:pt-[27%] md:pt-[32%] lg:h-[55vh] lg:pt-[15vh]"><!--predvolene-->
-            <div class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto"><!--plusko-->
+        <div class="grid grid-cols-3 grid-rows-3 max-h-[50vh] auto-rows-auto pt-[20%] lg:h-[55vh] lg:pt-[5%]"><!--predvolene-->
+            <div id="openclose" class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto z-10"><!--plusko-->
                 <div class="bg-comenioblue p-2 m-6 rounded-full ">
                 <svg class="h-14 w-14 md:h-20 md:w-20 lg:h-24 lg:w-24" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                 </div>
             </div>
-            <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+            <div id="Tlacitko1" class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
+                <div  class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Nestíhám zápis
                 </div>
             </div>
             <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+                <div id="Tlacitko2" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Nerozumím učivu
                 </div>
             </div>
             <div class="col-span-2 justify-center items-center mb-auto z-10 lg:mr-[50%] lg:ml-[-50%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+                <div id="Tlacitko3" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Zvládám bez problému
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div id="overlay"></div> <!--na tohle nehrab-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" 
     integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" 

@@ -540,10 +540,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-row-start: 2;
 }
 
-.row-start-3{
-  grid-row-start: 3;
-}
-
 .m-4{
   margin: 1rem;
 }
@@ -595,8 +591,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
 .mx-\[10\%\]{
   margin-left: 10%;
   margin-right: 10%;
@@ -632,8 +626,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-2{
   margin-left: 0.5rem;
-}
-
 .ml-4{
   margin-left: 1rem;
 }
@@ -644,12 +636,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-6{
   margin-top: 1.5rem;
-}
-
 .mt-10{
   margin-top: 2.5rem;
-}
-
 .mt-auto{
   margin-top: auto;
 }
@@ -670,16 +658,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: -40%;
 }
 
-.ml-\[-20\%\]{
-  margin-left: -20%;
-}
-
 .mt-\[0\.5\%\]{
   margin-top: 0.5%;
 }
 
 .box-content{
   box-sizing: content-box;
+}
+
+.ml-\[-20\%\]{
+  margin-left: -20%;
+}
+
+.mt-\[0\.5\%\]{
+  margin-top: 0.5%;
 }
 
 .block{
@@ -720,28 +712,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[80\%\]{
   height: 80%;
-}
-
-.h-\[30vh\]{
-  height: 30vh;
-}
-
-.h-\[20vh\]{
-  height: 20vh;
-}
-
-.h-\[50vh\]{
-  height: 50vh;
-}
-
 .max-h-screen{
   max-height: 100vh;
-}
-
 .max-h-\[50vh\]{
   max-height: 50vh;
-}
-
 .max-h-\[60vh\]{
   max-height: 60vh;
 }
@@ -752,6 +726,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-h-\[80\%\]{
   max-height: 80%;
+}
+
+.max-h-\[20vh\]{
+  max-height: 20vh;
+}
+
+.max-h-\[50vh\]{
+  max-height: 50vh;
 }
 
 .w-full{
@@ -780,8 +762,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-12{
   width: 3rem;
-}
-
 .w-14{
   width: 3.5rem;
 }
@@ -849,10 +829,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
-.justify-between{
-  justify-content: space-between;
-}
-
 .self-center{
   align-self: center;
 }
@@ -879,8 +855,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rounded-2xl{
   border-radius: 1rem;
-}
-
 .rounded-full{
   border-radius: 9999px;
 }
@@ -917,9 +891,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(48 2 234 / var(--tw-border-opacity));
 }
 
-.border-sky-700{
   --tw-border-opacity: 1;
-  border-color: rgb(3 105 161 / var(--tw-border-opacity));
+  border-color: rgb(48 2 234 / var(--tw-border-opacity));
 }
 
 .border-black{
@@ -1015,8 +988,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-\[7\%\]{
   padding-top: 7%;
-}
-
 .pr-6{
   padding-right: 1.5rem;
 }
@@ -1039,16 +1010,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-8{
   padding-top: 2rem;
-}
-
 .pt-\[5\%\]{
   padding-top: 5%;
-}
-
 .pr-4{
   padding-right: 1rem;
-}
-
 .pt-12{
   padding-top: 3rem;
 }
@@ -1059,8 +1024,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-\[25\%\]{
   padding-top: 25%;
-}
-
 .text-center{
   text-align: center;
 }
@@ -1091,11 +1054,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
-}
-
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .text-xs{
@@ -1316,11 +1274,68 @@ Ensure the default browser behavior of the `hidden` attribute.
   background: #00AEC9;
 }
 
+/* tlacitka zprav */
+
+.modal
+{
+  z-index: 10;
+  transform: translate(0,0) scale(0);
+  transition: 200ms ease-in-out;
+}
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(0,0) scale(1);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+#openclose {
+  transition: 200ms ease-in-out;
+}
+
+#openclose.otoc {
+  transform: rotate(45deg);
+}
+
+.vlastni{
+  border-bottom: 2px solid rgba(0,174,201,0.4);
+}
+
+.prednastavena{
+  border-bottom: 2px solid rgba(48,2,234,0.4);
+}
+
+.ptr{
+  cursor: pointer;
+}
+
 .hover\:bg-sky-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
-}
-
 .hover\:underline:hover{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -1361,10 +1376,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 15%;
     margin-right: 15%;
   }
-
   .sm\:pt-\[27\%\]{
     padding-top: 27%;
-  }
 }
 
 @media (min-width: 768px){
@@ -1442,8 +1455,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:pt-\[32\%\]{
     padding-top: 32%;
-  }
-
   .md\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -1516,10 +1527,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:mr-\[65\%\]{
     margin-right: 65%;
-  }
-
   .lg\:ml-\[-65\%\]{
     margin-left: -65%;
+  .lg\:mr-\[50\%\]{
+    margin-right: 50%;
+  .lg\:ml-\[-50\%\]{
+    margin-left: -50%;
+  .lg\:grid{
+    display: grid;
+  }
+
+  .lg\:hidden{
+    display: none;
   }
 
   .lg\:mr-\[50\%\]{
@@ -1528,14 +1547,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:ml-\[-50\%\]{
     margin-left: -50%;
-  }
-
-  .lg\:grid{
-    display: grid;
-  }
-
-  .lg\:hidden{
-    display: none;
   }
 
   .lg\:h-72{
