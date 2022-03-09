@@ -28,8 +28,7 @@
     z-index: 10;
     transform: translate(0,0) scale(0);
     transition: 200ms ease-in-out;
-    background-color: black;
-    top: 0;
+
 }
 
 .modal.active {
@@ -53,3 +52,25 @@
     pointer-events: all;
     transform: translate(0,0) scale(1);
 }
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+
+  #openclose {
+    transition: 200ms ease-in-out;
+   
+  }
+  
+  #openclose.otoc {
+    transform: rotate(45deg);
+  }
+
+ 
+  

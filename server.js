@@ -11,7 +11,7 @@ const io = socketio(server);
 
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => console.log(`Servr frci na portu ${PORT} vole`)); 
+server.listen(PORT, () => console.log(`Servr frci na portu ${PORT}`)); 
 
 
 var usersCount = 0;
@@ -103,9 +103,8 @@ io.on('connection', socket => {
 
             cb(true);
 
-            socket.on('disconnect', ()=>{ //žák se odpojí
+            socket.on('disconnect', () => { //žák se odpojí
     
-                console.log('ahoj');
                 socket.broadcast.to(roomka).emit('userLeft', user.id);
 
                 const index = rooms.findIndex(room => room.roomName === roomka);
@@ -118,10 +117,8 @@ io.on('connection', socket => {
                         rooms[index].userList.splice(zak, 1);
                         rooms[index].usersCount--;
                         console.log(rooms[index]);
-                    }
-                    
+                    }               
                 }
-
             });
 
             socket.on('upozorneni', (msg, jmeno) => {
@@ -150,7 +147,6 @@ function generateRoom()
         //dokud roomky existujou
         num = Math.floor(Math.random() * 899) + 100; //vygeneruje číslo roomky
         name = "room" + num; //poskládá název roomky
-        //console.log(name);
         opakuj = io.sockets.adapter.rooms.has(name);
     }
     

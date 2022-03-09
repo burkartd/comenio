@@ -15,6 +15,8 @@ seznamZaku.innerHTML = '';
 const seznamUpozorneni = document.getElementById('seznamUpozorneni');
 seznamUpozorneni.innerHTML = '';
 
+var zpravy = ['zprava 1', 'zprava 2', 'zprava 3']; //předvolené zprávy
+
 //při připojení
 socket.on('connect', () =>
 {
