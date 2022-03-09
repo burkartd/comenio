@@ -1154,6 +1154,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: rotate(45deg);
 }
 
+.vlastni{
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+.prednastavena{
+  border: 2px solid green;
+  border-radius: 5px;
+}
+
 .hover\:bg-sky-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
@@ -1588,6 +1598,3 @@ Ensure the default browser behavior of the `hidden` attribute.
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 }
-
- 
-  

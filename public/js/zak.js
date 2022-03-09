@@ -53,13 +53,13 @@ const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
 
 Tlacitko1.addEventListener('click', () => {
-  socket.emit('upozorneni', 'Nestíhám zápis', userName); openClose();
+  socket.emit('upozorneni', 0, userName, 1); openClose();
 });
 Tlacitko2.addEventListener('click', () => {
-  socket.emit('upozorneni', 'Nerozumím učivu', userName); openClose();
+  socket.emit('upozorneni', 1, userName, 1); openClose();
 });
 Tlacitko3.addEventListener('click', () => {
-  socket.emit('upozorneni', 'Nezvládám tempo', userName); openClose();
+  socket.emit('upozorneni', 2, userName, 1); openClose();
 });
 
 
@@ -77,7 +77,7 @@ socket.on('connect', () => {
     });
 
     socket.emit('userJoin', userName, id, roomName); 
-    socket.emit('upozorneni', 'pripojil jsem se', userName);
+    socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
 socket.on('disconnect', () => {
@@ -99,4 +99,4 @@ vlastni.addEventListener('submit', (e) => {
     e.target.elements.msg.value = '';
   });
 
-function PoslatZpravu(msg) {socket.emit('upozorneni', msg, userName);}
+function PoslatZpravu(msg) {socket.emit('upozorneni', msg, userName, 2);}

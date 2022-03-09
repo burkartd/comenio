@@ -9,13 +9,16 @@ var id; // id sockety
 
 const divRoomNumber = document.getElementById('roomNumber');
 
+const konecmistnosti = document.getElementById('konecmistnosti');
+konecmistnosti.addEventListener('click', () => window.history.go(-1)); //odhlášení z místnosti
+
 const seznamZaku = document.getElementById('seznamZaku'); //div se sezamem žáků
 seznamZaku.innerHTML = '';
 
 const seznamUpozorneni = document.getElementById('seznamUpozorneni');
 seznamUpozorneni.innerHTML = '';
 
-var zpravy = ['zprava 1', 'zprava 2', 'zprava 3']; //předvolené zprávy
+var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Zvládám bez problému']; //předvolené zprávy
 
 //při připojení
 socket.on('connect', () =>
@@ -37,15 +40,15 @@ socket.on('userLeft', (id) => {
     odhlaseni(id);
 })
 
-socket.on('upozorneni', (msg, name) => {   
-    Zprava(msg, name);
+socket.on('upozorneni', (msg, name, druh) => {   
+    if(druh === 1) { prednastavenaZprava(msg, name); return; } //předvolená zpráva
+    if(druh === 2) { vlastniZprava(msg, name); return; } //vlastní zpráva
+    if(druh === 3) { return; } //anketa
 })
 
 function odhlaseni(id)
 {
     const index = zaci.findIndex(zaci => zaci.id === id);
-    const jmeno = zaci[index].userName;
-    Zprava('odhlasil jsem se', jmeno);
     if(index !== -1)
     {
         zaci.splice(index, 1);
@@ -79,7 +82,7 @@ function zaciUpdate()
 
     });
 }
-function Zprava(msg, jmeno)
+function vlastniZprava(msg, jmeno)
 {
     const div = document.createElement('div');
     div.classList.add('zaznam');
@@ -89,6 +92,22 @@ function Zprava(msg, jmeno)
                     <span class="text-gray-900 px-2 xl:font-medium">${jmeno}:</span>
                     <span class="text-gray-900 ">${msg}</span>`
 
+    div.classList.add('vlastni');
+    seznamUpozorneni.appendChild(div);
+    seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
+}
+
+function prednastavenaZprava(msg, jmeno)
+{
+    const div = document.createElement('div');
+    div.classList.add('zaznam');
+    div.innerHTML = `
+    <svg class="w-8 text-sky-800 pl-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
+                    <span class="text-gray-900 px-2 xl:font-medium">${jmeno}:</span>
+                    <span class="text-gray-900 ">${zpravy[msg]}</span>`
+
+    div.classList.add('prednastavena');
     seznamUpozorneni.appendChild(div);
     seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
 }

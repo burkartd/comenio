@@ -121,19 +121,16 @@ io.on('connection', socket => {
                 }
             });
 
-            socket.on('upozorneni', (msg, jmeno) => {
+            socket.on('upozorneni', (msg, jmeno, druh) => { //druh: 1-prednastavena, 2-vlastni, 3-anketa
                 console.log('zprava: ' + msg + jmeno);
-                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno);
+                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno, druh);
             });
             
         }
         else cb(false);        
     });
 
-        //příchozí zpráva od žáka
-        socket.on('zpravaUciteli', (msg) =>{
-            console.log(msg);
-        });
+        
 });
 
 
