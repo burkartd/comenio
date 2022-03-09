@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comenio - nejlepší věc co kdy uvidíš</title>
+    <link rel="stylesheet" href="./css/tailwind.css">
+</head>
+<body>
+    <div class="h-screen font-nunito"><!--container-->
+       
+        <div class="bg-comenioblue h-screen md:h-screen flex justify-center items-start  grid grid-cols-1 auto-rows-min">
+<<<<<<< HEAD
+            <form id="frm" autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-36 md:mt-48 mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
+=======
+            <form autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-[20vh] md:mt-[8%] mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
+>>>>>>> Tomas
+                <!--<h2 class="text-center text-comenioblue text-semibold md:text-lg">Zadejte kód místosti</h2>-->
+                <div class="m-4 md:mx-6 md:my-4">
+                    <input autocomplete="false" class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="userName" type="text" placeholder="Jméno" maxlength="20" required>
+                </div>
+                <div class="m-4 md:mx-6 md:my-4 md:mb-8">
+                    <input id = 'roominput' class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="roomNumber" type="number" placeholder="Kód místnosti" maxlength="3" required>
+                </div>
+            
+                <button type="button" id="btnSubmit" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[40%] rounded mx-[30%] md:mx-[25%] md:w-[50%] md:px-8 md:py-4 md:text-base">
+                    Připojit se
+                </button>
+            </form>
+            <div class="justify-center align-content-center text-comeniowhiteblue text-center underline">
+                <button type="button" class="hover:underline">
+                    <a href="ucitel.html">
+                    Založit místnost
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+</html>
