@@ -73,13 +73,11 @@
   }
 
   .vlastni{
-    border: 2px solid red;
-    border-radius: 5px;
+    border-bottom: 2px solid rgba(0,174,201,0.4);
   }
 
   .prednastavena{
-    border: 2px solid green;
-    border-radius: 5px;
+    border-bottom: 2px solid rgba(48,2,234,0.4);
   }
 
   .ptr{
