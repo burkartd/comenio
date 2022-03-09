@@ -9,51 +9,75 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => console.log(`Servr frci na portu ${PORT} vole`)); 
+
+
 var usersCount = 0;
 var roomsCount = 0;
 
 let users = []; //list připojených uživatelů
 let hosts = []; //list učitelů - pro uchování id učitelů
+let rooms = [];
 
-//set static folder
+
+
+//nastavení static folder
 app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístup k frontendu
 
 //když se připojí klient
 io.on('connection', socket => {
     console.log('novy pripojeni...');
-    usersCount++; //zvětšení počtu přihlášených
-    console.log('počet přihlášených ' + usersCount);
-
+    //kontrola existence místnosti - z index.js
     socket.on('checkRoom', (num, cb) => {
         var room = 'room' + num;        
         var existuje = io.sockets.adapter.rooms.has(room);
-        console.log(existuje);
         cb(existuje);
-
     });
 
-    //připojí se učitel a založí roomku
+    //připojí se učitel a založí roomku - z ucitel.js
     socket.on('hostConnect', (cb) => {
-        var room = generateRoom();
+        var room = generateRoom(); //najde unikátní číslo roomky
         socket.join(room); //připojí učitele do nové roomky
-        const user = {
+        const user = { //novy
             username: 'ucitel',
             role: 1,
             id: socket.id,
             roomnumber: room
         };
-        users.push(user);
+
+        const roomObj = { //nová roomka
+            host: user,
+            userList: [],
+            roomName: room,
+            usersCount: 0
+        }
+
+        rooms.push(roomObj);
+        roomsCount++;
   
         cb(room); //callback funkce pro poslání čísla roomky
 
-        console.log(room)
+        rooms.forEach(room => {
+            console.log(room);
+        }); 
 
+        //učitel se odpojí - ukončí místnost
         socket.on('disconnect', () => {
             socket.broadcast.to(room).emit('roomEnded');
+
+            const index = rooms.findIndex(room => room.host.id === socket.id);
+            if(index !== -1)
+            {
+                rooms.splice(index, 1);
+                roomsCount--;
+                console.log('mistnosti: ', roomsCount); 
+            }
         })
     });
 
-    //když se připojí žák
+    //když se připojí žák - z zak.js
     socket.on('userConnect', (userName, roomNumber, cb) => {        
         
         var roomka = 'room' + roomNumber;        
@@ -67,22 +91,37 @@ io.on('connection', socket => {
                 id: socket.id,
                 roomnumber: roomka
             };
-            users.push(user);
+            const index = rooms.findIndex(room => room.roomName === roomka);
+            if(index !== -1)
+            {
+                rooms[index].userList.push(user);
+                rooms[index].usersCount++;
+                console.log(rooms[index]);
+            }
 
             socket.broadcast.to(roomka).emit('newUser', user); //ohlásí nového uživatele
 
-            socket.on('userLeave', () => {
+            cb(true);
+
+            socket.on('disconnect', ()=>{ //žák se odpojí
+    
                 console.log('ahoj');
                 socket.broadcast.to(roomka).emit('userLeft', user.id);
 
-            })
+                const index = rooms.findIndex(room => room.roomName === roomka);
+                if(index !== -1)
+                {
+                    const zak = rooms[index].userList.findIndex(tmp => tmp.userName === userName);
+                    if(zak !== -1)
+                    {
+                        console.log('zak se odpojil');
+                        rooms[index].userList.splice(zak, 1);
+                        rooms[index].usersCount--;
+                        console.log(rooms[index]);
+                    }
+                    
+                }
 
-            cb(true);
-
-            socket.on('disconnect', ()=>{
-                console.log('typek to leavnul :(');
-                
-                socket.broadcast.to(roomka).emit('userLeft', socket.id);
             });
 
             socket.on('upozorneni', (msg, jmeno) => {
@@ -91,11 +130,7 @@ io.on('connection', socket => {
             });
             
         }
-        else cb(false);
-
-        //když se klient odpojí
-        
-        
+        else cb(false);        
     });
 
         //příchozí zpráva od žáka
@@ -104,10 +139,6 @@ io.on('connection', socket => {
         });
 });
 
-
-const PORT = process.env.PORT || 3000;
-
-server.listen(PORT, () => console.log(`Servr frci na portu ${PORT} vole`)); 
 
 
 function generateRoom()

@@ -5,8 +5,7 @@ const btn = document.getElementById("btnSubmit");
 
 const roomInput = document.getElementById('roominput');
 
-var roomNumber = 69;
-
+//Enter == zmáčknutí tlačítka
 roomInput.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) { //drz hubu je mi to jedno
       event.preventDefault();
@@ -14,16 +13,12 @@ roomInput.addEventListener("keyup", function(event) {
     }
   });
 
-
-
-
+  //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
     
     var roomnum = roomInput.value;
-    
-    
-    console.log(roomnum);
 
+    //kontrola jestli místnost existuje
     socket.emit('checkRoom', roomnum, (data) => {
         if(data == false)
         {
@@ -35,6 +30,4 @@ btn.addEventListener('click', () => {
          document.getElementById("theForm").submit();
         }
      });
-
-
 });
