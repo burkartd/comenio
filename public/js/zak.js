@@ -63,9 +63,8 @@ Tlacitko3.addEventListener('click', () => {
 });
 
 
-socket.on('connect', () => {
+socket.on('connect', () => { //připojení - ohlášení uživatele
     socket.emit('userConnect', userName, roomNumber, (data) => {
-       //alert(data);
        if(data == false)
        {
            window.location.href = 'index.html';
@@ -80,13 +79,22 @@ socket.on('connect', () => {
     socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
-socket.on('disconnect', () => {
+socket.on('disconnect', () => { //při odpojení se pošle event
     socket.emit('userLeave');
 })
 
-socket.on('roomEnded', () => {
+socket.on('roomEnded', () => { //učitel ukončil místnost
     window.location.href = 'ukonceni.html';
 })
+
+socket.on('spustitAnketu', (nazev) => { //spustí se anketa
+
+})
+
+socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
+
+})
+
 
 vlastni.addEventListener('submit', (e) => {
     e.preventDefault();

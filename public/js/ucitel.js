@@ -3,6 +3,10 @@ const socket = io();
 var roomNum = -1; //číslo roomky, získá se v callback funkci
 var roomName = '';
 
+var pocetZaku = 0;
+var hotovychZaku = 0;
+var procent = 0.0;
+
 var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
@@ -34,10 +38,12 @@ socket.on('connect', () =>
 
 socket.on('newUser', (user) => {
     prihlaseni(user);
+    pocetZaku++;
 });
 
 socket.on('userLeft', (id) => {
     odhlaseni(id);
+    pocetZaku--;
 })
 
 socket.on('upozorneni', (msg, name, druh) => {   
@@ -45,6 +51,30 @@ socket.on('upozorneni', (msg, name, druh) => {
     if(druh === 2) { vlastniZprava(msg, name); return; } //vlastní zpráva
     if(druh === 3) { return; } //anketa
 })
+
+socket.on('splneno', (data, id) => {
+    if(data) //zak je hotov
+    {
+        hotovychZaku++;
+    }
+    else //zak si to rozmyslel
+    {
+    hotovychZaku--;
+    }
+
+    procent = 100*hotovychZaku*1.0/pocetZaku;
+})
+
+function zacitAnketu()
+{
+
+}
+
+function ukoncitAnketu()
+{
+    hotovychZaku = 0;
+    procent = 0.0;
+}
 
 function odhlaseni(id)
 {
