@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tlacitko{
+    @apply bg-comenioblue mx-8 my-4 flex justify-center rounded-xl block;
+}
+
+.tlacnadpis{
+    @apply py-6 px-8 text-lg md:text-lg md:py-8 md:px-12 lg:text-xl lg:py-10 lg:px-14 xl:text-2xl;
+}
+
+.menuicon{
+    @apply w-6 inline-block pr-1;  
+}
+
+.zaznam{
+<<<<<<< HEAD
+    @apply w-full h-14 items-center flex text-lg font-semibold;
+}
+
+.zaznamodpoved{
+    @apply  h-20 items-center flex text-xl my-6 mx-6 rounded-xl;
+}
+
+.stin{
+    box-shadow: 0 0 10px 1.5px #b5babe
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 20px;
+  }
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: white;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #3002EA;
+    border-radius: 100vh;
+    border: 1px solid #f6f7ed;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00AEC9;
+}
+=======
+    @apply w-full h-12 border-b-2 border-comenioblue items-center flex text-sm lg:text-base xl:text-lg lg:h-14 xl:h-16;
+}
+
+/* tlacitka zprav */
+
+.modal
+{
+    z-index: 10;
+    transform: translate(0,0) scale(0);
+    transition: 200ms ease-in-out;
+
+}
+
+.modal.active {
+    transform: translate(0,0) scale(1);
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(0,0) scale(1);
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
+
+  #openclose {
+    transition: 200ms ease-in-out;
+   
+  }
+  
+  #openclose.otoc {
+    transform: rotate(45deg);
+  }
+
+  .vlastni{
+    border-bottom: 2px solid rgba(0,174,201,0.4);
+  }
+
+  .prednastavena{
+    border-bottom: 2px solid rgba(48,2,234,0.4);
+  }
+
+  .ptr{
+      cursor: pointer;
+  }
+>>>>>>> a929b3f65cb3cf76c10f88d1d6eb48ed68a515bf

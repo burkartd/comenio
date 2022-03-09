@@ -7,15 +7,16 @@
     <title>Comenio - nejlepší věc co kdy uvidíš</title>
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
-<body>
-    <div class="h-screen font-nunito"><!--container-->
-       
-        <div class="bg-comenioblue h-screen md:h-screen flex justify-center items-start  grid grid-cols-1 auto-rows-min">
 <<<<<<< HEAD
-            <form id="frm" autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-36 md:mt-48 mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
+<body>
+    <div class="max-h-screen font-nunito"><!--container-->
 =======
-            <form autocomplete="off" action="zak.html" class="bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[35%] mt-[20vh] md:mt-[8%] mb-8"><!--hlavni cast--><!--prihlaseni do mistnosti-->
->>>>>>> Tomas
+<body class="noselect">
+    <div class="h-screen font-nunito"><!--container-->
+>>>>>>> a929b3f65cb3cf76c10f88d1d6eb48ed68a515bf
+       
+        <div class="bg-comenioblue h-screen flex justify-center items-start  grid grid-cols-1 auto-rows-min pt-[7%]">
+            <form id="frm" autocomplete="off" action="zak.html" class="max-h-[50vh] overflow-auto bg-comeniowhiteblue z-5 rounded-xl p-6 md:p-10 border-comenioblue border-2 justify-center align-content-center mx-[7%] sm:mx-[15%] md:mx-[20%] lg:mx-[30%] xl:mx-[32%] mb-8 scrollbar"><!--hlavni cast--><!--prihlaseni do mistnosti-->
                 <!--<h2 class="text-center text-comenioblue text-semibold md:text-lg">Zadejte kód místosti</h2>-->
                 <div class="m-4 md:mx-6 md:my-4">
                     <input autocomplete="false" class="bg-white appearance-none border-2 border-comenioblue rounded w-full py-2 md:py-4 px-4 md:px-8 text-lg text-comenioblue leading-tight focus:outline-none focus:bg-white focus:border-comeniodark" name="userName" type="text" placeholder="Jméno" maxlength="20" required>
@@ -28,7 +29,7 @@
                     Připojit se
                 </button>
             </form>
-            <div class="justify-center align-content-center text-comeniowhiteblue text-center underline">
+            <div class="justify-center align-content-center text-comeniowhiteblue text-center underline max-h-[60vh]">
                 <button type="button" class="hover:underline">
                     <a href="ucitel.html">
                     Založit místnost
