@@ -8,10 +8,9 @@ const roomInput = document.getElementById('roominput');
 var roomNumber = 69;
 
 roomInput.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13) { //drz hubu je mi to jedno
       event.preventDefault();
       btn.click();
-      console.log('klik')
     }
   });
 
