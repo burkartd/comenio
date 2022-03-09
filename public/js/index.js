@@ -20,7 +20,8 @@ roomInput.addEventListener("keyup", function(event) {
 btn.addEventListener('click', () => {
     
     var roomnum = roomInput.value;
-
+    
+    
     console.log(roomnum);
 
     socket.emit('checkRoom', roomnum, (data) => {

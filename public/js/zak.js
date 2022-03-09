@@ -5,6 +5,11 @@ var zaci = []; //kolekce připojených žáků
 var id = socket.id; // id sockety
 
 const divRoomNumber = document.getElementById('roomNumber');
+const openclose = document.getElementById('openclose');
+const overlay = document.getElementById('overlay')
+
+// var elements = document.getElementsByClassName('modal');
+var jsouOtevrene = false;
 
 divRoomNumber.innerHTML = '#';
 
@@ -12,9 +17,36 @@ const { userName, roomNumber} = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
 
+openclose.addEventListener('click', () => {
 
+  var elements = document.getElementsByClassName('modal');
+  //openCloseModal(elements[0]);
+  Array.from(elements).forEach(element => openCloseModal(element));
+  
+  jsouOtevrene = !jsouOtevrene;
+})
 
+overlay.addEventListener('click', () => {
 
+  var elements = document.getElementsByClassName('modal');
+  //openCloseModal(elements[0]);
+  Array.from(elements).forEach(element => openCloseModal(element));
+  
+  jsouOtevrene = !jsouOtevrene;
+})
+
+function openCloseModal(modal)
+{
+  if(jsouOtevrene === false)
+  {
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    return;
+  }
+
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
 
 var roomName = 'room' + roomNumber; //jméno roomky
 

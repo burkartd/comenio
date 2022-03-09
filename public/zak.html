@@ -38,29 +38,31 @@
             </div>
         </div>
         <div class="grid grid-cols-3 grid-rows-3 max-h-[50vh] auto-rows-auto pt-[20%] lg:h-[55vh] lg:pt-[5%]"><!--predvolene-->
-            <div class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto"><!--plusko-->
+            <div id="openclose" class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto z-10"><!--plusko-->
                 <div class="bg-comenioblue p-2 m-6 rounded-full md:m-12 sm:m-8 lg:m-4">
                 <svg class="h-14 w-14 md:h-20 md:w-20 lg:h-24 lg:w-24" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                 </div>
             </div>
-            <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+            <div  class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
+                <div  class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Jedno tlacitko
                 </div>
             </div>
             <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+                <div class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Druhy
                 </div>
             </div>
             <div class="col-span-2 justify-center items-center mb-auto z-10 lg:mr-[50%] lg:ml-[-50%]">
-                <div class="px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Nezvládám tempo
+                <div class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    A treti taky xdd
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div id="overlay"></div> <!--na tohle nehrab-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" 
     integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" 

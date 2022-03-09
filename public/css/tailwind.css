@@ -1100,6 +1100,39 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+/* tlacitka zprav */
+
+.modal
+{
+  z-index: 10;
+  transform: translate(0,0) scale(0);
+  transition: 200ms ease-in-out;
+  background-color: black;
+  top: 0;
+}
+
+.modal.active {
+  transform: translate(0,0) scale(1);
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(0,0) scale(1);
+}
+
 .hover\:bg-sky-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));

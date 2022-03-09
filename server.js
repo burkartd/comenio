@@ -32,11 +32,6 @@ io.on('connection', socket => {
 
     });
 
-    socket.on('test', ()=>{
-        console.log('test emit');
-    });
-
-
     //připojí se učitel a založí roomku
     socket.on('hostConnect', (cb) => {
         var room = generateRoom();
@@ -50,6 +45,8 @@ io.on('connection', socket => {
         users.push(user);
   
         cb(room); //callback funkce pro poslání čísla roomky
+
+        console.log(room)
 
         socket.on('disconnect', () => {
             socket.broadcast.to(room).emit('roomEnded');
