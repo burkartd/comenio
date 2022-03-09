@@ -1131,6 +1131,29 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(0,0) scale(1);
 }
 
+.testdiv {
+  z-index: 9;
+  background-color: lightblue;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+}
+
+.anketa {
+  z-index: 20;
+  transform: translate(0,0) scale(1);
+  transition: 200ms ease-in-out;
+  color: rgb(119, 21, 21);
+}
+
+.anketa.active {
+  transform: translate(0,0) scale(1);
+}
+
 .noselect {
   -webkit-touch-callout: none;
   /* iOS Safari */

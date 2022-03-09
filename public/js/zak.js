@@ -5,6 +5,7 @@ const divRoomNumber = document.getElementById('roomNumber');
 const openclose = document.getElementById('openclose');
 const overlay = document.getElementById('overlay')
 const odhlasit = document.getElementById('odhlasit');
+const anketadiv = document.getElementById('anketadiv');
 var jsouOtevrene = false;
 
 divRoomNumber.innerHTML = '#';
@@ -88,11 +89,16 @@ socket.on('roomEnded', () => { //učitel ukončil místnost
 })
 
 socket.on('spustitAnketu', (nazev) => { //spustí se anketa
-
+  if(typeof nazev === 'undefined')
+  {
+    nazev = 'Anketa';
+  }  
+  anketadiv.querySelector('h1').innerHTML = nazev;
+  anketadiv.classList.add('active');
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
-
+  anketadiv.classList.remove('active');
 })
 
 

@@ -53,27 +53,46 @@ socket.on('upozorneni', (msg, name, druh) => {
 })
 
 socket.on('splneno', (data, id) => {
+    
+    const index = zaci.findIndex(zaci => zaci.id === id);
+    if(index === -1) return;
+
+    var node = Array.from(seznamZaku.childNodes)[index];
+
     if(data) //zak je hotov
     {
+        node.classList.remove('nesplnil');
+        node.classList.add('splnil');
         hotovychZaku++;
     }
     else //zak si to rozmyslel
     {
-    hotovychZaku--;
+        node.classList.remove('splnil');
+        node.classList.add('nesplnil');
+        hotovychZaku--;
     }
-
+    
     procent = 100*hotovychZaku*1.0/pocetZaku;
 })
 
 function zacitAnketu()
 {
-
+    var nodes = Array.from(seznamZaku.childNodes);
+    nodes.forEach(node => {
+        node.classList.add('nesplnil'); //přidá třídu že není splněn
+    });
 }
 
 function ukoncitAnketu()
 {
     hotovychZaku = 0;
     procent = 0.0;
+
+    var nodes = Array.from(seznamZaku.childNodes);
+    nodes.forEach(node => {
+        node.classList.remove('splnil');  //odebere obě třídy splnil, nesplnil
+        node.classList.remove('nesplnil');
+    });
 }
 
 function odhlaseni(id)
