@@ -23,6 +23,16 @@ const Tlacitko2 = document.getElementById('Tlacitko2');
 const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
 
+Tlacitko1.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nestíhám zápis', userName);
+});
+Tlacitko2.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nerozumím učivu', userName);
+});
+Tlacitko3.addEventListener('click', () => {
+    socket.emit('upozorneni', 'Nezvládám tempo', userName)
+});
+
 
 socket.on('connect', () => {
     socket.emit('userConnect', userName, roomNumber, (data) => {
