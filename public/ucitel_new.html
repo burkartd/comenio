@@ -8,22 +8,22 @@
     <title>Comenio učitel</title>
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
-<body>
+<body class="noselect">
     <div class="block lg:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
         Přihlas se na počítači, kundo
     </div>
     <div class="hidden lg:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
         <div class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-14 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
-            <h1 class="text-white text-3xl font-bold ">#232</h1>
+            <h1 id ="roomNumber" class="text-white text-3xl font-bold "></h1>
         </div>
         <div class="col-start-6 col-span-3 row-start-1 row-span-1 flex items-center justify-center" ><!--pocet zaku-->
             <div class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
                 <span class="text-lg">Žáků v místnosti:</span>
-                <span class="font-bold text-xl ">22</span>
+                <span id="pocetzaku" class="font-bold text-xl ">22</span>
   
             </div>
         </div>
-        <div class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
+        <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
             <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center "> 
                 <a href="index.html"><svg class="h-9 text-sky-900 pl-2 self-center mx-auto " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>
                 <span class="text-black text-base px-4 py-2 font-semibold  block "><a href="index.html">Ukončit místnost</a></span>
@@ -33,7 +33,7 @@
             <div class="py-[5%]">
                 <h1 class="text-white font-ubuntu text-3xl font-semibold pt-8">Přehled žáků</h1>
             </div>
-            <div class="pt-[5%]"><!--seznam žáků-->
+            <div id="seznamZaku" class="pt-[5%]"><!--seznam žáků-->
                 <div class="zaznam">
                     <span class="text-comeniowhiteblue pr-4">Kája Vomáčka</span>
                     <svg class="w-8 text-comeniowhiteblue bg-comenioblue rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
@@ -45,12 +45,12 @@
                 <div class="text-3xl text-black font-ubuntu font-semibold">
                     Upozornění
                 </div>
-                <div class="justify-center">
+                <div id="odstranitvse" class="justify-center">
                     <svg class="w-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="text-xs">Odstranit vše</span>
                 </div>
             </div>
-            <div class="bg-white shadow-lg rounded-lg py-4 max-h-[80%] h-[80%] overflow-auto scrollbar"><!--actuall tabulka-->
+            <div id="seznamUpozorneni" class="bg-white shadow-lg rounded-lg py-4 max-h-[80%] h-[80%] overflow-auto scrollbar"><!--actuall tabulka-->
                 <div class="zaznamodpoved stin">
                     <svg class="w-12 text-blue-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
                     <span class="ml-4">Kája Vomáčka:</span>
