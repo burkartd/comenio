@@ -41,6 +41,6 @@ btn.addEventListener('click', () => {
       } 
     
       frm.submit();
-      document.getElementById("theForm").submit();
+      document.getElementById("theForm").submit(); //pokud všechno ok - potvrzení formu
      });
 });

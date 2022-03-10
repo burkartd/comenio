@@ -133,7 +133,7 @@ function prihlaseni(zak)
     zaciUpdate();
 }
 
-function zaciUpdate()
+function zaciUpdate() //přepíše seznam žáků
 {
     seznamZaku.innerHTML = '';
     zaci.forEach(element => {
@@ -163,7 +163,7 @@ function vlastniZprava(msg, jmeno)
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
 
-    div.classList.add('vlastni');
+    //div.classList.add('vlastni');
     seznamUpozorneni.appendChild(div);
     seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
     pocetUpozorneni++;
@@ -181,13 +181,13 @@ function prednastavenaZprava(msg, jmeno)
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
 
-    div.classList.add('prednastavena');
+    //div.classList.add('prednastavena');
     seznamUpozorneni.appendChild(div);
     seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
     pocetUpozorneni++;
 }
 
-function casFormat()
+function casFormat() //vrátí čas hh:mm
 {
     var cas = new Date();
     var h = cas.getHours();
@@ -196,7 +196,7 @@ function casFormat()
     return h + ':' + m;
 }
 
-function smazJeden(el)
+function smazJeden(el) //smaže vybranou zprávu
 {
     var element = el;
     element.parentElement.remove();
