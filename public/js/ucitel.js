@@ -3,6 +3,10 @@ const socket = io();
 var roomNum = -1; //číslo roomky, získá se v callback funkci
 var roomName = '';
 
+var pocetZaku = 0;
+var hotovychZaku = 0;
+var procent = 0.0;
+
 var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
@@ -34,10 +38,12 @@ socket.on('connect', () =>
 
 socket.on('newUser', (user) => {
     prihlaseni(user);
+    pocetZaku++;
 });
 
 socket.on('userLeft', (id) => {
     odhlaseni(id);
+    pocetZaku--;
 })
 
 socket.on('upozorneni', (msg, name, druh) => {   
@@ -45,6 +51,49 @@ socket.on('upozorneni', (msg, name, druh) => {
     if(druh === 2) { vlastniZprava(msg, name); return; } //vlastní zpráva
     if(druh === 3) { return; } //anketa
 })
+
+socket.on('splneno', (data, id) => {
+    
+    const index = zaci.findIndex(zaci => zaci.id === id);
+    if(index === -1) return;
+
+    var node = Array.from(seznamZaku.childNodes)[index];
+
+    if(data) //zak je hotov
+    {
+        node.classList.remove('nesplnil');
+        node.classList.add('splnil');
+        hotovychZaku++;
+    }
+    else //zak si to rozmyslel
+    {
+        node.classList.remove('splnil');
+        node.classList.add('nesplnil');
+        hotovychZaku--;
+    }
+    
+    procent = 100*hotovychZaku*1.0/pocetZaku;
+})
+
+function zacitAnketu()
+{
+    var nodes = Array.from(seznamZaku.childNodes);
+    nodes.forEach(node => {
+        node.classList.add('nesplnil'); //přidá třídu že není splněn
+    });
+}
+
+function ukoncitAnketu()
+{
+    hotovychZaku = 0;
+    procent = 0.0;
+
+    var nodes = Array.from(seznamZaku.childNodes);
+    nodes.forEach(node => {
+        node.classList.remove('splnil');  //odebere obě třídy splnil, nesplnil
+        node.classList.remove('nesplnil');
+    });
+}
 
 function odhlaseni(id)
 {

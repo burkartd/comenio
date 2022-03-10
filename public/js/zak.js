@@ -5,6 +5,7 @@ const divRoomNumber = document.getElementById('roomNumber');
 const openclose = document.getElementById('openclose');
 const overlay = document.getElementById('overlay')
 const odhlasit = document.getElementById('odhlasit');
+const anketadiv = document.getElementById('anketadiv');
 var jsouOtevrene = false;
 
 divRoomNumber.innerHTML = '#';
@@ -63,9 +64,8 @@ Tlacitko3.addEventListener('click', () => {
 });
 
 
-socket.on('connect', () => {
+socket.on('connect', () => { //připojení - ohlášení uživatele
     socket.emit('userConnect', userName, roomNumber, (data) => {
-       //alert(data);
        if(data == false)
        {
            window.location.href = 'index.html';
@@ -80,13 +80,27 @@ socket.on('connect', () => {
     socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
-socket.on('disconnect', () => {
+socket.on('disconnect', () => { //při odpojení se pošle event
     socket.emit('userLeave');
 })
 
-socket.on('roomEnded', () => {
+socket.on('roomEnded', () => { //učitel ukončil místnost
     window.location.href = 'ukonceni.html';
 })
+
+socket.on('spustitAnketu', (nazev) => { //spustí se anketa
+  if(typeof nazev === 'undefined')
+  {
+    nazev = 'Anketa';
+  }  
+  anketadiv.querySelector('h1').innerHTML = nazev;
+  anketadiv.classList.add('active');
+})
+
+socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
+  anketadiv.classList.remove('active');
+})
+
 
 vlastni.addEventListener('submit', (e) => {
     e.preventDefault();
