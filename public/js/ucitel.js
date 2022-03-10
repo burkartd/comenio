@@ -192,6 +192,7 @@ function casFormat()
     var cas = new Date();
     var h = cas.getHours();
     var m = cas.getMinutes();
+    if(m<10) m = '0' + m;
     return h + ':' + m;
 }
 
