@@ -67,18 +67,31 @@
                 </div>
             </div>
         </div>
-        <div class="col-start-11 row-start-3 col-span-2 row-span-2 bg-blue-200"><!--graf + tlac-->
-            <div><!--graf-->
-                Graf
+        <div id="anketydiv" class="col-start-11 row-start-3 col-span-2 row-span-2 bg-blue-200"><!--graf + tlac-->
+            
+            <div id="anketaneni" > <!--toto se zobrazí když není aktivní anketa-->
+                <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[40%] rounded mx-[30%] md:mx-[25%] md:w-[50%] md:px-8 md:py-4 md:text-base">
+                    Spustit úkol
+                </button>
             </div>
-            <div><!--tlacitko pod grafem--> 
-                <h4>Jsou žáci hotovi</h4>
+            
+            <div id="anketaje"> <!--toto se zobrazí když je aktivní anketa-->
+                <span id="grafnadpis">Hotových žáků: 0</span>
+                <div>
+                    <canvas id="myChart" class="customchart"></canvas>
+                </div>
+                <button id="ukoncitanketu">Ukončit</button>
+
             </div>
+            
         </div>
 
     </div>
+    <script src="/scripts/chart.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/ucitelgraf.js"></script>
     <script src="/js/ucitel.js"></script>
+    
 
 </body>
 </html>

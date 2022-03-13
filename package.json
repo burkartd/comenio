@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
+    "chart.js": "^3.7.1",
     "express": "^4.17.3",
+    "jquery": "^3.6.0",
     "nodemon": "^2.0.15",
     "postcss": "^8.4.7",
     "socket.io": "^4.4.1",

@@ -1,3 +1,5 @@
+//const { emit } = require("nodemon");
+
 const socket = io();
 
 var roomNum = -1; //číslo roomky, získá se v callback funkci
@@ -20,11 +22,13 @@ konecmistnosti.addEventListener('click', () => window.history.go(-1)); //odhlá�
 const seznamZaku = document.getElementById('seznamZaku'); //div se sezamem žáků
 seznamZaku.innerHTML = '';
 
-const seznamUpozorneni = document.getElementById('seznamUpozorneni');
+const seznamUpozorneni = document.getElementById('seznamUpozorneni'); //seznam upozornění
 seznamUpozorneni.innerHTML = '';
 
-const zaku = document.getElementById('pocetzaku');
+const zaku = document.getElementById('pocetzaku'); //zobrazení počtu žáků
 zaku.innerHTML = '0';
+
+
 
 const vymazatvse = document.getElementById('odstranitvse');
 
@@ -39,6 +43,7 @@ function pocetZakuUpdate()
 {
     zaku.innerHTML = pocetZaku;
 }
+
 
 //při připojení
 socket.on('connect', () =>
@@ -92,7 +97,7 @@ socket.on('splneno', (data, id) => {
         node.classList.add('nesplnil');
         hotovychZaku--;
     }
-    
+    updateGraf(hotovychZaku, pocetZaku - hotovychZaku);
     procent = 100*hotovychZaku*1.0/pocetZaku;
 })
 
@@ -102,6 +107,7 @@ function zacitAnketu()
     nodes.forEach(node => {
         node.classList.add('nesplnil'); //přidá třídu že není splněn
     });
+    socket.emit('spustitAnketu', 'splnils?');
 }
 
 function ukoncitAnketu()
@@ -114,6 +120,8 @@ function ukoncitAnketu()
         node.classList.remove('splnil');  //odebere obě třídy splnil, nesplnil
         node.classList.remove('nesplnil');
     });
+
+    socket.emit('ukoncitAnketu');
 }
 
 function odhlaseni(id)
@@ -201,3 +209,5 @@ function smazJeden(el) //smaže vybranou zprávu
     var element = el;
     element.parentElement.remove();
 }
+
+

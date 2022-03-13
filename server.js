@@ -21,10 +21,11 @@ let users = []; //list připojených uživatelů
 let hosts = []; //list učitelů - pro uchování id učitelů
 let rooms = [];
 
-
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules/chart.js/dist/'))); //abysme měli přístup k frontendu
 
 //nastavení static folder
 app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístup k frontendu
+
 
 //když se připojí klient
 io.on('connection', socket => {

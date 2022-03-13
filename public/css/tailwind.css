@@ -1401,6 +1401,28 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.customchart{
+  pointer-events: none;
+  width: 80%;
+  height: 80%;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 69;
+  background-color: white;
+  width: 400px;
+  height: 400px;
+  transition: 200ms ease-in-out;
+}
+
+.popup.active {
+  transform: scale(1);
+}
+
 .hover\:bg-sky-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
