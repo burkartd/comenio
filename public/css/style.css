@@ -22,7 +22,7 @@
 }
 
 .zaznamodpoved{
-    @apply  h-20 items-center flex text-xl my-6 mx-6 rounded-xl;
+    @apply  h-20 items-center flex text-2xl my-6 mx-6 rounded-xl;
 }
 
 .stin{
