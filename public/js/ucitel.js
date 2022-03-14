@@ -14,6 +14,8 @@ var zaci = []; //kolekce připojených žáků
 
 var id; // id sockety
 
+var jeAnketaAktivni = false;
+
 const divRoomNumber = document.getElementById('roomNumber');
 
 const konecmistnosti = document.getElementById('konecmistnosti');
@@ -97,7 +99,7 @@ socket.on('splneno', (data, id) => {
         node.classList.add('nesplnil');
         hotovychZaku--;
     }
-    updateGraf(hotovychZaku, pocetZaku - hotovychZaku);
+    updateGraf(hotovychZaku, pocetZaku);
     procent = 100*hotovychZaku*1.0/pocetZaku;
 })
 
@@ -107,6 +109,7 @@ function zacitAnketu()
     nodes.forEach(node => {
         node.classList.add('nesplnil'); //přidá třídu že není splněn
     });
+    jeAnketaAktivni = true;
     socket.emit('spustitAnketu', 'splnils?');
 }
 
@@ -120,7 +123,7 @@ function ukoncitAnketu()
         node.classList.remove('splnil');  //odebere obě třídy splnil, nesplnil
         node.classList.remove('nesplnil');
     });
-
+    jeAnketaAktivni = false;
     socket.emit('ukoncitAnketu');
 }
 

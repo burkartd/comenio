@@ -28,9 +28,13 @@ overlay.addEventListener('click', () => { //zavření tlačítek kliknutím mimo
 
 splneno.addEventListener('click', () => {
   socket.emit('splneno', true);
+  splneno.disabled = true;
+  nesplneno.disabled = false;
 })
 nesplneno.addEventListener('click', () => {
   socket.emit('splneno', false);
+  nesplneno.disabled = true;
+  splneno.disabled = false;
 })
 
 function openClose()
@@ -104,6 +108,8 @@ socket.on('spustitAnketu', (nazev) => { //spustí se anketa
   }  
   //anketadiv.querySelector('h1').innerHTML = nazev;
   anketadiv.classList.add('active');
+  splneno.disabled = false;
+  nesplneno.disabled = true;
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu

@@ -59,16 +59,18 @@ zacit.addEventListener('click', () => { //začít anketu
     neniAnketa.style.visibility = 'hidden';
     jeAnketa.style.visibility = 'visible';
     ctx = document.getElementById('myChart').getContext('2d');
-    myChart = new Chart(ctx, config)
+    myChart = new Chart(ctx, config);
+    //updateGraf(0, pocetZaku);
+    nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
     zacitAnketu();
 }); 
 
-function updateGraf(splneno, nesplneno)
+function updateGraf(splneno, celkem)
 {
     myChart.data.datasets[0].data[0] = splneno;
-    myChart.data.datasets[0].data[1] = nesplneno;
+    myChart.data.datasets[0].data[1] = celkem - splneno;
     myChart.update();
-    nadpis.innerHTML = `Hotových žáků: ${splneno}`;
+    nadpis.innerHTML = `Hotových žáků: ${splneno}/${celkem}`;
 }
 
 
