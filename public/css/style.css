@@ -50,7 +50,12 @@
 }
 
 /* tlacitka zprav */
-
+.skryto{
+    display: none;
+}
+.viditelne{
+    display: block;
+}
 .modal
 {
     z-index: 10;
