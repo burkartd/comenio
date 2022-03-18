@@ -602,6 +602,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 10%;
 }
 
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -720,6 +725,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[80\%\]{
   height: 80%;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .max-h-screen{
@@ -1314,6 +1323,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* tlacitka zprav */
 
+.skryto{
+  display: none;
+}
+
+.viditelne{
+  display: block;
+}
+
 .modal
 {
   z-index: 10;
@@ -1409,18 +1426,40 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .popup {
   position: absolute;
+  justify-self: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(1);
   z-index: 69;
-  background-color: white;
-  width: 400px;
-  height: 400px;
+  background-color: #EAF0F7;
+  width: 300px;
+  height: 300px;
   transition: 200ms ease-in-out;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px #00AEC9;
 }
 
 .popup.active {
   transform: scale(1);
+}
+
+@media (min-width: 640px) {
+  .popup {
+    position: absolute;
+    justify-self: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 69;
+    background-color: #EAF0F7;
+    width: 400px;
+    height: 400px;
+    transition: 200ms ease-in-out;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px #00AEC9;
+  }
 }
 
 .hover\:bg-sky-700:hover{
@@ -1467,6 +1506,29 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:mx-\[15\%\]{
     margin-left: 15%;
     margin-right: 15%;
+  }
+
+  .sm\:mx-6{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .sm\:mt-10{
+    margin-top: 2.5rem;
+  }
+
+  .sm\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:py-2{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .sm\:pt-12{
+    padding-top: 3rem;
   }
 }
 
