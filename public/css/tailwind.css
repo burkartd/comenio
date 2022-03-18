@@ -476,6 +476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 10;
 }
 
+.z-50{
+  z-index: 50;
+}
+
 .col-span-2{
   grid-column: span 2 / span 2;
 }
@@ -962,16 +966,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
 }
 
-.bg-green-700{
-  --tw-bg-opacity: 1;
-  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
-}
-
-.bg-sky-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
-
 .p-6{
   padding: 1.5rem;
 }
@@ -1026,16 +1020,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.px-10{
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.px-12{
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
 
 .pt-\[7\%\]{
@@ -1216,11 +1200,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-red-700{
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
-}
-
-.text-green-700{
-  --tw-text-opacity: 1;
-  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -1491,15 +1470,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.visited\:bg-comenioblue:visited{
-  background-color: rgb(0 174 201 );
-}
-
-.hover\:border-sky-800:hover{
-  --tw-border-opacity: 1;
-  border-color: rgb(7 89 133 / var(--tw-border-opacity));
-}
-
 .hover\:bg-sky-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
@@ -1540,34 +1510,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(3 105 161 / var(--tw-border-opacity));
 }
 
-.focus\:border-comenioblue:focus{
-  --tw-border-opacity: 1;
-  border-color: rgb(0 174 201 / var(--tw-border-opacity));
-}
-
 .focus\:bg-white:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.focus\:bg-comenioblue:focus{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 174 201 / var(--tw-bg-opacity));
-}
-
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.focus\:ring-sky-900:focus{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(12 74 110 / var(--tw-ring-opacity));
-}
-
-.active\:bg-comenioblue:active{
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 174 201 / var(--tw-bg-opacity));
 }
 
 .disabled\:bg-comenioblue:disabled{
@@ -1581,46 +1531,13 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: 15%;
   }
 
-  .sm\:mx-6{
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
   .sm\:mx-4{
     margin-left: 1rem;
     margin-right: 1rem;
   }
 
-  .sm\:mt-10{
-    margin-top: 2.5rem;
-  }
-
-  .sm\:mt-4{
-    margin-top: 1rem;
-  }
-
   .sm\:mt-12{
     margin-top: 3rem;
-  }
-
-  .sm\:px-6{
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .sm\:py-2{
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .sm\:px-12{
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .sm\:py-6{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 
   .sm\:px-10{
