@@ -1429,7 +1429,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-self: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0);
   z-index: 69;
   background-color: #EAF0F7;
   width: 300px;
@@ -1441,7 +1441,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .popup.active {
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @media (min-width: 640px) {
@@ -1450,7 +1450,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     justify-self: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(0);
     z-index: 69;
     background-color: #EAF0F7;
     width: 400px;
