@@ -41,23 +41,32 @@ const config = {
 var ctx;
 var myChart;
 
-jeAnketa.style.visibility = 'hidden';
-neniAnketa.style.visibility = 'visible';
+jeAnketa.classList.add('skryto');
+neniAnketa.classList.add('viditelne');
 
 ukoncit.addEventListener('click', () => { //ukončit anketu
  
+    jeAnketa.classList.remove('viditelne');
+    jeAnketa.classList.add('skryto');
     
-    jeAnketa.style.visibility = 'hidden';
-    neniAnketa.style.visibility = 'visible';
+    neniAnketa.classList.remove('skryto');
+    neniAnketa.classList.add('viditelne');
+
     myChart.destroy();
     ukoncitAnketu();
+
+    myChart.data.datasets[0].data[0] = 0; //vyresetování dat grafu
+    myChart.data.datasets[0].data[1] = 1;
 
 });
 
 zacit.addEventListener('click', () => { //začít anketu
  
-    neniAnketa.style.visibility = 'hidden';
-    jeAnketa.style.visibility = 'visible';
+    neniAnketa.classList.remove('viditelne');
+    neniAnketa.classList.add('skryto');
+
+    jeAnketa.classList.remove('skryto');
+    jeAnketa.classList.add('viditelne');
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
