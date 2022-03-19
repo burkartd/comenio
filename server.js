@@ -31,10 +31,22 @@ app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístu
 io.on('connection', socket => {
     console.log('novy pripojeni...');
     //kontrola existence místnosti - z index.js
-    socket.on('checkRoom', (num, cb) => {
-        var room = 'room' + num;        
-        var existuje = io.sockets.adapter.rooms.has(room);
-        cb(existuje);
+    socket.on('checkRoom', (num, jmeno, cb) => {
+        var roomtest = 'room' + num;        
+        var rexistuje = io.sockets.adapter.rooms.has(roomtest);
+        var jmenook = true;
+        if(rexistuje)
+        {
+            const roomi = rooms.findIndex(tmp => tmp.roomName === roomtest);
+            console.log(rooms[roomi]);
+            const zaki = rooms[roomi].userList.findIndex(zak => zak.userName === jmeno);
+            if(zaki !== -1) jmenook = false;
+        }
+        cb(
+            {
+                mistnostExistuje: rexistuje, jmenoOk: jmenook
+            }
+        );
     });
 
     //připojí se učitel a založí roomku - z ucitel.js

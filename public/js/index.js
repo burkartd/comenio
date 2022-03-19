@@ -17,7 +17,7 @@ roomInput.addEventListener("keyup", function(event) {
   //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
     
-  str = nameInput.value;
+  str = nameInput.value.trim();
   var regExp = /[a-zA-Z]/g;
 
   if(str.length < 1 || !regExp.test(str))
@@ -32,13 +32,19 @@ btn.addEventListener('click', () => {
   var roomnum = roomInput.value;
 
   //kontrola jestli místnost existuje
-  socket.emit('checkRoom', roomnum, (data) => {
-      if(data == false)
+  socket.emit('checkRoom', roomnum, str, (data) => {
+      if(data.mistnostExistuje == false)
       {
           roomInput.value = '';
           roomInput.focus();
           return;
-      } 
+      }
+      if(data.jmenoOk == false)
+      {
+        nameInput.value = '';
+        nameInput.focus();
+        return;
+      }
     
       frm.submit();
       document.getElementById("theForm").submit(); //pokud všechno ok - potvrzení formu
