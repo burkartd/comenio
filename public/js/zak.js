@@ -8,6 +8,7 @@ const openclose = document.getElementById('openclose');
 const overlay = document.getElementById('overlay')
 const odhlasit = document.getElementById('odhlasit');
 const anketadiv = document.getElementById('anketapopup');
+const odpovedidiv = document.getElementById('odpovedipopup');
 var jsouOtevrene = false;
 const splneno = document.getElementById('btnsplneno');
 const nesplneno = document.getElementById('btnnesplneno');
@@ -92,6 +93,10 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       {
         ZakAnketaZacit();
       }
+      if(data.odpovedi)
+      {
+        ZakOdpovediZacit();
+      }
       
        
     });
@@ -115,15 +120,21 @@ socket.on('spustitAnketu', (nazev) => { //spustí se anketa
   {
     nazev = 'Anketa';
   }  
-  //anketadiv.querySelector('h1').innerHTML = nazev;
-  // anketadiv.classList.add('active');
-  // splneno.disabled = false;
-  // nesplneno.disabled = true;
   ZakAnketaZacit();
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
   anketadiv.classList.remove('active');
+})
+
+socket.on('spustitOdpovedi', () => {
+  
+  ZakOdpovediZacit();
+})
+
+socket.on('ukoncitOdpovedi', () => {
+  console.log('ahoj');
+  odpovedidiv.classList.remove('active');
 })
 
 
@@ -146,3 +157,24 @@ function ZakAnketaZacit()
   splneno.disabled = false;
   nesplneno.disabled = true;
 }
+
+function ZakOdpovediZacit()
+{
+  odpovedidiv.classList.add('active');
+}
+
+odpovedidiv.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let msg = e.target.elements.msg.value;
+  msg = msg.trim();
+  if (!msg) {
+    return false;
+  }
+  socket.emit('upozorneni', msg, userName, 3); //3 - odpověď
+  e.target.elements.msg.value = '';
+
+  setTimeout(()=>{
+    odpovedidiv.classList.remove('active');
+  }, 1000)
+
+});

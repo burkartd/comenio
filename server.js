@@ -84,6 +84,14 @@ io.on('connection', socket => {
             socket.broadcast.to(room).emit('ukoncitAnketu');
         });
 
+        socket.on('spustitOdpovedi', () => {
+            socket.broadcast.to(room).emit('spustitOdpovedi');
+        })
+
+        socket.on('ukoncitOdpovedi', () => {
+            socket.broadcast.to(room).emit('ukoncitOdpovedi');
+        })
+
         //učitel se odpojí - ukončí místnost
         socket.on('disconnect', () => {
             socket.broadcast.to(room).emit('roomEnded');
@@ -148,7 +156,7 @@ io.on('connection', socket => {
 
             socket.on('upozorneni', (msg, jmeno, druh) => { //druh: 1-prednastavena, 2-vlastni, 3-anketa
                 console.log('zprava: ' + msg + jmeno);
-                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno, druh);
+                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno, socket.id, druh);
             });
 
             socket.on('splneno', (data) => { //učiteli se pošle, že někdo splnil/nesplnil úkol
@@ -158,7 +166,7 @@ io.on('connection', socket => {
             
             
         }
-        else cb(false);        
+        else cb({pripojit: false});        
     });
 
         

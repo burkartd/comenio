@@ -1,8 +1,11 @@
-const zacit = document.getElementById('zacitanketu');
+const btnZacitAnketu = document.getElementById('zacitanketu');
 const ukoncit = document.getElementById('ukoncitanketu');
+
+const btnZacitOdpovedi = document.getElementById('zacitodpovedi');
+
 const ankety = document.getElementById('anketydiv'); //div kde je graf a ankety
-const jeAnketa = document.getElementById('anketaje');
-const neniAnketa = document.getElementById('anketaneni');
+// const jeAnketa = document.getElementById('anketaje');
+// const neniAnketa = document.getElementById('anketaneni');
 const nadpis = document.getElementById('grafnadpis');
 
 var data = {
@@ -40,16 +43,13 @@ const config = {
 var ctx;
 var myChart;
 
-jeAnketa.classList.add('skryto');
-neniAnketa.classList.add('viditelne');
+//jeAnketa.classList.add('skryto');
+//neniAnketa.classList.add('viditelne');
+SkrytGraf();//zobrazí tlačítka a ne graf
 
 ukoncit.addEventListener('click', () => { //ukončit anketu
- 
-    jeAnketa.classList.remove('viditelne');
-    jeAnketa.classList.add('skryto');
-    
-    neniAnketa.classList.remove('skryto');
-    neniAnketa.classList.add('viditelne');
+
+    SkrytGraf();
 
     myChart.destroy();
     ukoncitAnketu();
@@ -59,13 +59,10 @@ ukoncit.addEventListener('click', () => { //ukončit anketu
 
 });
 
-zacit.addEventListener('click', () => { //začít anketu
+btnZacitAnketu.addEventListener('click', () => { //začít anketu
  
-    neniAnketa.classList.remove('viditelne');
-    neniAnketa.classList.add('skryto');
+    ZobrazitGraf();
 
-    jeAnketa.classList.remove('skryto');
-    jeAnketa.classList.add('viditelne');
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
@@ -73,7 +70,19 @@ zacit.addEventListener('click', () => { //začít anketu
     zacitAnketu();
 }); 
 
-function updateGraf(splnenozaku, celkem)
+btnZacitOdpovedi.addEventListener('click', () => { //začít odpovědi
+ 
+    ZobrazitGraf();
+
+    ctx = document.getElementById('myChart').getContext('2d');
+    myChart = new Chart(ctx, config);
+    //updateGraf(0, pocetZaku);
+    nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
+    zacitOdpovedi();
+}); 
+
+
+function updateGraf(splnenozaku, celkem, typ)
 {
     myChart.data.datasets[0].data[0] = splnenozaku;
     myChart.data.datasets[0].data[1] = celkem - splnenozaku;
@@ -85,9 +94,41 @@ function updateGraf(splnenozaku, celkem)
     }
 
     myChart.update();
-    nadpis.innerHTML = `Hotových žáků: ${splnenozaku}/${celkem}`;
+    if(typ === 1) nadpis.innerHTML = `Hotových žáků: ${splnenozaku}/${celkem}`;
+    if(typ === 2) nadpis.innerHTML = `Odpovědí: ${splnenozaku}/${celkem}`;
 }
 
+function SkrytGraf()
+{
+    var arr = Array.from(ankety.children);
+    // for(var i = 0; i < arr.length - 1; i++)
+    // {
+    //     arr[i].classList.remove('skryto');
+    // }
+
+    console.log(arr);
+    arr.forEach(el => {
+        el.classList.remove('skryto');
+        //console.log(el.classList);
+    });
+
+    arr[arr.length - 1].classList.add('skryto');
+}
+
+function ZobrazitGraf()
+{
+    let arr = Array.from(ankety.children);
+    // for(var i = 0; i < arr.length - 1; i++)
+    // {
+    //     arr[i].classList.add('skryto');
+    // }
+
+    arr.forEach(el => {
+        el.classList.add('skryto');
+    });
+
+    arr[arr.length - 1].classList.remove('skryto');
+}
 
 
 
