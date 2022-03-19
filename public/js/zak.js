@@ -1,3 +1,5 @@
+//const { info } = require("autoprefixer");
+
 const socket = io();
 
 var id = socket.id; // id sockety
@@ -78,19 +80,26 @@ Tlacitko3.addEventListener('click', () => {
 
 
 socket.on('connect', () => { //připojení - ohlášení uživatele
-    socket.emit('userConnect', userName, roomNumber, (data) => {
-       if(data == false)
-       {
-           window.location.href = 'index.html';
-       } 
-       else{
-        console.log('tady');
-        divRoomNumber.innerHTML = '#' + roomNumber;
-       }
+    socket.emit('userConnect', userName, roomNumber, (data)=> {
+      if(data.pripojit == false)
+      {
+          window.location.href = 'index.html';
+      } 
+       
+      console.log('tady');
+      divRoomNumber.innerHTML = '#' + roomNumber;
+      if(data.anketa)
+      {
+        ZakAnketaZacit();
+      }
+      
+       
     });
 
-    socket.emit('userJoin', userName, id, roomName); 
-    socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
+    
+
+    // socket.emit('userJoin', userName, id, roomName); 
+    // socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
 socket.on('disconnect', () => { //při odpojení se pošle event
@@ -107,9 +116,10 @@ socket.on('spustitAnketu', (nazev) => { //spustí se anketa
     nazev = 'Anketa';
   }  
   //anketadiv.querySelector('h1').innerHTML = nazev;
-  anketadiv.classList.add('active');
-  splneno.disabled = false;
-  nesplneno.disabled = true;
+  // anketadiv.classList.add('active');
+  // splneno.disabled = false;
+  // nesplneno.disabled = true;
+  ZakAnketaZacit();
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
@@ -129,3 +139,10 @@ vlastni.addEventListener('submit', (e) => {
   });
 
 function PoslatZpravu(msg) {socket.emit('upozorneni', msg, userName, 2);}
+
+function ZakAnketaZacit()
+{
+  anketadiv.classList.add('active');
+  splneno.disabled = false;
+  nesplneno.disabled = true;
+}

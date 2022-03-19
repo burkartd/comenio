@@ -16,6 +16,8 @@ var id; // id sockety
 
 var jeAnketaAktivni = false;
 
+var AnketaSplneno = []; //list žáků - splněno/nesplněno
+
 const divRoomNumber = document.getElementById('roomNumber');
 
 const konecmistnosti = document.getElementById('konecmistnosti');
@@ -46,6 +48,13 @@ function pocetZakuUpdate()
     zaku.innerHTML = pocetZaku;
 }
 
+socket.on('getinfo', (cb) =>{
+    cb({
+        pripojit: true,
+        anketa: jeAnketaAktivni
+    });
+})
+
 
 //při připojení
 socket.on('connect', () =>
@@ -59,19 +68,33 @@ socket.on('connect', () =>
     
     id = socket.id; 
 
-    pocetZakuUpdate();
+    pocetZakuUpdate(); //žádní tam nejsou žejo
+    zaku.innerHTML = pocetZaku;
 });
 
-socket.on('newUser', (user) => {
-    prihlaseni(user);
+socket.on('newUser', (zak) => {
     pocetZaku++;
+    
+    zaci.push(zak);
+    zaciUpdate(); //upraví seznam žáků
+    if(jeAnketaAktivni)
+    {
+        AnketaSplneno.push({id: zak.id, splneno: false});
+        nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+        updateGraf(hotovychZaku, pocetZaku);
+    }
+
     pocetZakuUpdate();
+    zaku.innerHTML = pocetZaku;
+    //cb({zprava: 'ahojky'});
 });
 
 socket.on('userLeft', (id) => {
-    odhlaseni(id);
     pocetZaku--;
+    odhlaseni(id);
     pocetZakuUpdate();
+    zaku.innerHTML = pocetZaku;
+
 })
 
 socket.on('upozorneni', (msg, name, druh) => {   
@@ -92,23 +115,32 @@ socket.on('splneno', (data, id) => {
         node.classList.remove('nesplnil');
         node.classList.add('splnil');
         hotovychZaku++;
+        AnketaSplneno[index].splneno = true;
     }
     else //zak si to rozmyslel
     {
         node.classList.remove('splnil');
         node.classList.add('nesplnil');
         hotovychZaku--;
+        AnketaSplneno[index].splneno = false;
     }
+    
     updateGraf(hotovychZaku, pocetZaku);
     procent = 100*hotovychZaku*1.0/pocetZaku;
 })
 
 function zacitAnketu()
 {
-    var nodes = Array.from(seznamZaku.childNodes);
-    nodes.forEach(node => {
-        node.classList.add('nesplnil'); //přidá třídu že není splněn
+    // var nodes = Array.from(seznamZaku.childNodes);
+    // nodes.forEach(node => {
+    //     node.classList.add('nesplnil'); //přidá třídu že není splněn
+    // });
+    zaci.forEach(zak => {
+        AnketaSplneno.push({id: zak.id, splneno: false});
     });
+
+    console.log(AnketaSplneno);
+
     jeAnketaAktivni = true;
     socket.emit('spustitAnketu', 'splnils?');
 }
@@ -124,6 +156,8 @@ function ukoncitAnketu()
         node.classList.remove('nesplnil');
     });
     jeAnketaAktivni = false;
+
+    while(AnketaSplneno.length > 0) {AnketaSplneno.pop();}
     socket.emit('ukoncitAnketu');
 }
 
@@ -132,6 +166,17 @@ function odhlaseni(id)
     const index = zaci.findIndex(zaci => zaci.id === id);
     if(index !== -1)
     {
+        if(jeAnketaAktivni)
+        {
+            if(AnketaSplneno[index].splneno == true){hotovychZaku--;}
+
+            console.log(AnketaSplneno, hotovychZaku);
+
+            AnketaSplneno.splice(index, 1);
+            
+            nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+            updateGraf(hotovychZaku, pocetZaku);
+        }
         zaci.splice(index, 1);
         zaciUpdate();
     }
@@ -141,7 +186,15 @@ function odhlaseni(id)
 function prihlaseni(zak)
 {
     zaci.push(zak);
-    zaciUpdate();
+    zaciUpdate(); //upraví seznam žáků
+    if(jeAnketaAktivni)
+    {
+        AnketaSplneno.push({id: zak.id, splneno: false});
+        nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+        updateGraf(hotovychZaku, pocetZaku);
+    }
+    
+    
 }
 
 function zaciUpdate() //přepíše seznam žáků

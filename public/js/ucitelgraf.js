@@ -6,7 +6,6 @@ const neniAnketa = document.getElementById('anketaneni');
 const nadpis = document.getElementById('grafnadpis');
 
 var data = {
-    //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [{
         label: '# of Votes',
         data: [0, 1],
@@ -74,12 +73,19 @@ zacit.addEventListener('click', () => { //začít anketu
     zacitAnketu();
 }); 
 
-function updateGraf(splneno, celkem)
+function updateGraf(splnenozaku, celkem)
 {
-    myChart.data.datasets[0].data[0] = splneno;
-    myChart.data.datasets[0].data[1] = celkem - splneno;
+    myChart.data.datasets[0].data[0] = splnenozaku;
+    myChart.data.datasets[0].data[1] = celkem - splnenozaku;
+
+    if(pocetZaku === 0)
+    {
+        myChart.data.datasets[0].data[0] = 0;
+        myChart.data.datasets[0].data[1] = 1;  
+    }
+
     myChart.update();
-    nadpis.innerHTML = `Hotových žáků: ${splneno}/${celkem}`;
+    nadpis.innerHTML = `Hotových žáků: ${splnenozaku}/${celkem}`;
 }
 
 

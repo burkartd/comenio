@@ -108,9 +108,13 @@ io.on('connection', socket => {
                 console.log(rooms[index]);
             }
 
-            socket.broadcast.to(roomka).emit('newUser', user); //ohlásí nového uživatele
+            socket.broadcast.to(rooms[index].host.id).emit('newUser', (user)); //ohlásí nového uživatele
 
-            cb(true);
+            io.sockets.sockets.get(rooms[index].host.id).emit('getinfo', (datainfo) => {
+                cb(datainfo);
+            });
+
+            //cb(true);
 
             socket.on('disconnect', () => { //žák se odpojí
     
