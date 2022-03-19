@@ -6,6 +6,9 @@ const btn = document.getElementById("btnSubmit");
 const roomInput = document.getElementById('roominput');
 const nameInput = document.getElementById('nameinput');
 
+const upJmeno = document.getElementById('upozornenijmeno');
+const upMistnost = document.getElementById('upozornenimistnost');
+
 //Enter == zmáčknutí tlačítka
 roomInput.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) { //drz hubu je mi to jedno
@@ -37,12 +40,16 @@ btn.addEventListener('click', () => {
       {
           roomInput.value = '';
           roomInput.focus();
+          upMistnost.classList.remove('hidden');
+          setTimeout(RoomErr, 2500);
           return;
       }
       if(data.jmenoOk == false)
       {
         nameInput.value = '';
         nameInput.focus();
+        upJmeno.classList.remove('hidden');
+        setTimeout(NameErr, 2500);
         return;
       }
     
@@ -50,3 +57,13 @@ btn.addEventListener('click', () => {
       document.getElementById("theForm").submit(); //pokud všechno ok - potvrzení formu
      });
 });
+
+
+function NameErr()
+{
+  upJmeno.classList.add('hidden');
+}
+function RoomErr()
+{
+  upMistnost.classList.add('hidden');
+}
