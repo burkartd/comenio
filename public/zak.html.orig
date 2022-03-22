@@ -10,19 +10,29 @@
     <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
 
        
-<<<<<<< HEAD
-        <div class="grid grid-cols-2 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-12 items-center h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
-=======
-        <div class="grid grid-cols-2 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-20 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
->>>>>>> a929b3f65cb3cf76c10f88d1d6eb48ed68a515bf
+        <div class="grid grid-cols-3 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-20 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
             <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-6xl">
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
+            <!--vlajky-->
+            <div class="flex justify-center items-end col-span-1">
+                <div class="w-[50%] sm:w-[23%] md:w-[17%] lg:w-[12%]">
+                    <img src="./img/ua.png" id="ua" class="hidden mx-auto px-auto ">
+                    <img src="./img/cz.png" id="cz" class="mx-auto px-auto ">
+                </div>
+            </div>
+
             <div id="odhlasit" class="justify-end col-span-1 text-center">
                 <svg class="w-12 ml-auto mr-4 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
+<<<<<<< HEAD
             <div class="text-center items-center mt-10 col-span-2">
+            <h1 id="nadpis">Upozornit učitele</h1>
+=======
+
+            <div class="text-center items-center mt-10 col-span-3">
             <h1>Upozornit učitele</h1>
+>>>>>>> 2203
             </div>
         </div>
         <div id = "divMenu" class="text-xl max-h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
@@ -37,40 +47,104 @@
                     required
                     autocomplete="off"
                     />
-                    <button class="pt-2 text-base hover:underline md:text-xl">Odeslat</button>
+                    <button id="sendbtn" class="pt-2 text-base hover:underline md:text-xl">Odeslat</button>
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
-        <div class="grid grid-cols-3 grid-rows-3 h-[50vh] auto-rows-auto pt-[25%] sm:pt-[27%] md:pt-[32%] lg:h-[55vh] lg:pt-[15vh]"><!--predvolene-->
-            <div class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto"><!--plusko-->
-                <div class="bg-comenioblue p-2 m-6 rounded-full ">
-=======
         <div class="grid grid-cols-3 grid-rows-3 max-h-[50vh] auto-rows-auto pt-[20%] lg:h-[55vh] lg:pt-[5%]"><!--predvolene-->
-            <div id="openclose" class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto z-10"><!--plusko-->
-                <div class="bg-comenioblue p-2 m-6 rounded-full md:m-12 sm:m-8 lg:m-4">
->>>>>>> a929b3f65cb3cf76c10f88d1d6eb48ed68a515bf
+            <div id="opencloseold" class="col-span-1 row-start-2 row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto z-50"><!--plusko-->
+                <div id="openclose" class="bg-comenioblue p-2 m-6 rounded-full">
                 <svg class="h-14 w-14 md:h-20 md:w-20 lg:h-24 lg:w-24" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                 </div>
             </div>
-            <div id="Tlacitko1" class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
+            <div id="Tlacitko1" class="col-span-2 col-start-2 justify-center cursor-pointer items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
                 <div  class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Nestíhám zápis
                 </div>
             </div>
-            <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
+            <div class="col-span-2 col-start-2 justify-center items-center cursor-pointer mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
                 <div id="Tlacitko2" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Nerozumím učivu
                 </div>
             </div>
-            <div class="col-span-2 justify-center items-center mb-auto z-10 lg:mr-[50%] lg:ml-[-50%]">
+            <div class="col-span-2 justify-center items-center mb-auto z-10 cursor-pointer lg:mr-[50%] lg:ml-[-50%]">
                 <div id="Tlacitko3" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Zvládám bez problému
                 </div>
             </div>
 
+
+        </div>
+
+        <!-- popup pro anketu  -->
+        
+
+
+    </div>
+
+<<<<<<< HEAD
+    <div class="popup" id="anketapopup">
+        <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
+            <h1 id="hsplneni" class="text-center text-2xl">Potvrď splnění úkolu</h1>
+            <div class="justify-center flex mt-6 sm:mt-12">
+                <div>
+                </div>
+                <button itemid="btnsplneno" class="px-6 py-2 mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnsplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    Splněno
+                </button>
+                <button id="btnnesplneno" class="px-6 py-2 mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnnesplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    Nesplněno
+                </button>
+            </div>
         </div>
     </div>
+
+
+=======
+>>>>>>> 2203
+    <div class="popup" id="odpovedipopup">
+        <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
+            <h1 id="hodpoved" class="text-center text-2xl">Napiš odpověď</h1>
+            <div class="justify-center flex mt-6 sm:mt-12">
+                <div>
+                </div>
+                <form id="OdpovedForm" class="bg-comeniowhiteblue block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
+                    <input
+                    id="msg"
+                    type="text"
+                    class="border-2 block border-comenioblue rounded-xl p-6 py-4 focus:border-2 focus:outline-none md:py-6 focus:border-sky-700 mx-auto text-center"
+                    placeholder=""
+                    required
+                    autocomplete="off"
+                    />
+                    <button id="sendbtn2" class="pt-2 text-base hover:underline md:text-xl">Odeslat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="popup" id="anketapopup">
+        <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
+            <h1 class="text-center text-2xl">Potvrď splnění úkolu</h1>
+            <div class="justify-center flex mt-6 sm:mt-12">
+                <div>
+                </div>
+                <button class="px-6 py-2 cursor-pointer mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnsplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    Splneno
+                </button>
+                <button class="px-6 py-2 cursor-pointer mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnnesplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    Nesplneno
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="overlay"></div> <!--na tohle nehrab-->
 
@@ -79,5 +153,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/zak.js"></script>
+    <script src="/js/zakdata.js"></script>
 </body>
 </html>
