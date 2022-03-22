@@ -42,6 +42,7 @@ nesplneno.addEventListener('click', () => {
 
 function openClose()
 {
+  console.log('otevřeno zavřeno');
   var elements = document.getElementsByClassName('modal');
   Array.from(elements).forEach(element => openCloseModal(element));
   jsouOtevrene = !jsouOtevrene;
@@ -70,7 +71,7 @@ const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
 
 Tlacitko1.addEventListener('click', () => {
-  socket.emit('upozorneni', 0, userName, 1); openClose();
+  socket.emit('upozorneni', 0, userName, 1); openClose(); console.log('xxx');
 });
 Tlacitko2.addEventListener('click', () => {
   socket.emit('upozorneni', 1, userName, 1); openClose();
