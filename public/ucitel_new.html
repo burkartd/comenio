@@ -26,7 +26,7 @@
         <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
             <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center "> 
                 <a href="index.html"><svg class="h-9 text-sky-900 pl-2 self-center mx-auto " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>
-                <span class="text-black text-base px-4 py-2 font-semibold  block "><a href="index.html">Ukončit místnost</a></span>
+                <span class="text-black text-base px-4 py-2 font-semibold cursor-pointer block "><a href="index.html">Ukončit místnost</a></span>
         </div>
         </div>
         <div class="col-start-1 row-start-1 col-span-3 row-span-6 bg-comeniodark pl-[5%] h-screen rounded-r-3xl mr-[20%]"> <!--prvni sloupec se zaky-->
@@ -42,7 +42,7 @@
                 <div class="text-3xl text-black font-ubuntu font-semibold">
                     Upozornění
                 </div>
-                <div id="odstranitvse" class="justify-center">
+                <div id="odstranitvse" class="justify-center cursor-pointer">
                     <svg class="w-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="text-xs">Odstranit vše</span>
                 </div>
@@ -54,13 +54,13 @@
         <div id="anketydiv" class="col-start-11 row-start-3 col-span-2 row-span-2 bg-white"><!--graf + tlac-->
             
             <div class="bg-white" id="divbtnanketa" > <!--toto se zobrazí když není aktivní anketa-->
-                <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
+                <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
                     Spustit úkol
                 </button>
             </div>
 
             <div class="bg-white" id="divbtnodpovedi" > <!--toto se zobrazí když není aktivní anketa-->
-                <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
+                <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:mt-6 md:text-base">
                     Spustit odpovědi
                 </button>
             </div>
@@ -77,6 +77,12 @@
                 </div>
             </div>
             
+        </div>
+
+        <div class="col-start-11 row-start-6 col-span-2 row-span-1 bg-white flex items-center">
+            <a href="./">
+                <div class="text-sky-800 text-base text-center mx-6">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
+            </a>
         </div>
 
     </div>

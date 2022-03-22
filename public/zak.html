@@ -10,14 +10,22 @@
     <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
 
        
-        <div class="grid grid-cols-2 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-20 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
+        <div class="grid grid-cols-3 text-3xl font-bold p-8 pt-12 flex justify-center md:text-5xl lg:text-5xl lg:pt-20 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
             <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-6xl">
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
+            <!--vlajky-->
+            <div class="flex justify-center items-end col-span-1">
+                <div class="w-[50%] sm:w-[23%] md:w-[17%] lg:w-[12%]">
+                    <img src="./img/ua.png" id="ua" class="hidden mx-auto px-auto ">
+                    <img src="./img/cz.png" id="cz" class="mx-auto px-auto ">
+                </div>
+            </div>
+
             <div id="odhlasit" class="justify-end col-span-1 text-center">
                 <svg class="w-12 ml-auto mr-4 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <div class="text-center items-center mt-10 col-span-2">
+
             <h1 id="nadpis">Upozornit učitele</h1>
             </div>
         </div>
@@ -43,17 +51,17 @@
                 <svg class="h-14 w-14 md:h-20 md:w-20 lg:h-24 lg:w-24" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                 </div>
             </div>
-            <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
-                <div id="Tlacitko1" class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+            <div id="Tlacitko1" class="col-span-2 col-start-2 justify-center cursor-pointer items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
+                <div  class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Nestíhám zápis
                 </div>
             </div>
-            <div class="col-span-2 col-start-2 justify-center items-center mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
+            <div class="col-span-2 col-start-2 justify-center items-center cursor-pointer mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
                 <div id="Tlacitko2" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Nerozumím učivu
                 </div>
             </div>
-            <div class="col-span-2 justify-center items-center mb-auto z-10 lg:mr-[50%] lg:ml-[-50%]">
+            <div class="col-span-2 justify-center items-center mb-auto z-10 cursor-pointer lg:mr-[50%] lg:ml-[-50%]">
                 <div id="Tlacitko3" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
                     Zvládám bez problému
                 </div>
