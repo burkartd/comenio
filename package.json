@@ -29,7 +29,8 @@
     "moment": "^2.29.1",
     "postcss": "^8.4.7",
     "socket.io": "^4.4.1",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "translate": "^1.4.1"
   },
   "repository": {
     "type": "git",

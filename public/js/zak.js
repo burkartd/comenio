@@ -3,6 +3,8 @@
 const socket = io();
 
 var id = socket.id; // id sockety
+var jazyk = 'cz'; //česky
+
 const divRoomNumber = document.getElementById('roomNumber');
 const openclose = document.getElementById('openclose');
 const overlay = document.getElementById('overlay')
@@ -12,6 +14,7 @@ const odpovedidiv = document.getElementById('odpovedipopup');
 var jsouOtevrene = false;
 const splneno = document.getElementById('btnsplneno');
 const nesplneno = document.getElementById('btnnesplneno');
+const vlajka = document.getElementById('vlajka');
 
 divRoomNumber.innerHTML = '#';
 
@@ -27,6 +30,21 @@ openclose.addEventListener('click', () => { //otevření/zavření tlačítek na
 
 overlay.addEventListener('click', () => { //zavření tlačítek kliknutím mimo
   openClose();
+})
+
+vlajka.addEventListener('click', () => {
+  if(jazyk === 'cz')
+  {
+    vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
+    jazyk = 'ua';
+    ZakText(1); //do ua
+  }
+  else if(jazyk === 'ua')
+  {
+    vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
+    jazyk = 'cz';
+    ZakText(0); //do ua
+  }
 })
 
 splneno.addEventListener('click', () => {

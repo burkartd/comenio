@@ -11,8 +11,6 @@ var zakData = {
     "sendbtn2": ["Odeslat", "Надіслати"]
 }
 
-ZakText(1);
-
 function ZakText(jazyk)
 {
     Object.keys(zakData).forEach((key)=>{
