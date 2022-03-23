@@ -11,7 +11,7 @@ var zakData = {
     "sendbtn2": ["Odeslat", "Надіслати"]
 }
 
-ZakText(1);
+ZakText(0);
 
 function ZakText(jazyk)
 {
