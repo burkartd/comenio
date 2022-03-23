@@ -36,10 +36,10 @@ vlajka.addEventListener('click', () => {
   if(jazyk === 'cz')
   {
     vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
-    jazyk = 'ua';
+    jazyk = 'uk';
     ZakText(1); //do ua
   }
-  else if(jazyk === 'ua')
+  else if(jazyk === 'uk')
   {
     vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
     jazyk = 'cz';
@@ -89,13 +89,13 @@ const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
 
 Tlacitko1.addEventListener('click', () => {
-  socket.emit('upozorneni', 0, userName, 1); openClose(); console.log('xxx');
+  socket.emit('upozorneni', {zprava: 0, jmeno: userName, druh: 1, jazyk: jazyk}); openClose();
 });
 Tlacitko2.addEventListener('click', () => {
-  socket.emit('upozorneni', 1, userName, 1); openClose();
+  socket.emit('upozorneni', {zprava: 1, jmeno: userName, druh: 1, jazyk: jazyk}); openClose();
 });
 Tlacitko3.addEventListener('click', () => {
-  socket.emit('upozorneni', 2, userName, 1); openClose();
+  socket.emit('upozorneni', {zprava: 2, jmeno: userName, druh: 1, jazyk: jazyk}); openClose();
 });
 
 
@@ -168,7 +168,7 @@ vlastni.addEventListener('submit', (e) => {
     e.target.elements.msg.value = '';
   });
 
-function PoslatZpravu(msg) {socket.emit('upozorneni', msg, userName, 2);}
+function PoslatZpravu(msg) {socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 2, jazyk: jazyk});}
 
 function ZakAnketaZacit()
 {
@@ -189,7 +189,8 @@ odpovedidiv.addEventListener('submit', (e) => {
   if (!msg) {
     return false;
   }
-  socket.emit('upozorneni', msg, userName, 3); //3 - odpověď
+  // socket.emit('upozorneni', msg, userName, 3); //3 - odpověď
+  socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 3, jazyk: jazyk});
   e.target.elements.msg.value = '';
 
   setTimeout(()=>{

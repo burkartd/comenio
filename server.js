@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Servr frci na portu ${PORT}`)); 
 
 
+
 var usersCount = 0;
 var roomsCount = 0;
 
@@ -154,9 +155,11 @@ io.on('connection', socket => {
                 }
             });
 
-            socket.on('upozorneni', (msg, jmeno, druh) => { //druh: 1-prednastavena, 2-vlastni, 3-anketa
-                console.log('zprava: ' + msg + jmeno);
-                socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno, socket.id, druh);
+            //socket.on('upozorneni', (msg, jmeno, druh) => { //druh: 1-prednastavena, 2-vlastni, 3-anketa
+            socket.on('upozorneni', (data) => { //druh: 1-prednastavena, 2-vlastni, 3-anketa
+                //console.log('zprava: ' + msg + jmeno);
+                // socket.broadcast.to(roomka).emit('upozorneni', msg, jmeno, socket.id, druh);
+                socket.broadcast.to(roomka).emit('upozorneni', data, socket.id);
             });
 
             socket.on('splneno', (data) => { //učiteli se pošle, že někdo splnil/nesplnil úkol

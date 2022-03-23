@@ -14,7 +14,6 @@ var zakData = {
 function ZakText(jazyk)
 {
     Object.keys(zakData).forEach((key)=>{
-        console.log(document.getElementById(key).innerText)
         document.getElementById(key).innerText = zakData[key][jazyk]; 
     });
     let ph = ["Vlastní zpráva", "Спеціальне повідомлення"];

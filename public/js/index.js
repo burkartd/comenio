@@ -9,6 +9,10 @@ const nameInput = document.getElementById('nameinput');
 const upJmeno = document.getElementById('upozornenijmeno');
 const upMistnost = document.getElementById('upozornenimistnost');
 
+const vlajka = document.getElementById('vlajka');
+
+var jazyk = 'cz';
+
 //Enter == zmáčknutí tlačítka
 roomInput.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) { //drz hubu je mi to jedno
@@ -17,6 +21,21 @@ roomInput.addEventListener("keyup", function(event) {
     }
   });
 
+
+  vlajka.addEventListener('click', () => {
+    if(jazyk === 'cz')
+    {
+      vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
+      jazyk = 'uk';
+      IndexText(1); //do ua
+    }
+    else if(jazyk === 'uk')
+    {
+      vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
+      jazyk = 'cz';
+      IndexText(0); //do ua
+    }
+  })  
   //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
     
