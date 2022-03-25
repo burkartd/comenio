@@ -824,10 +824,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 3.5rem;
 }
 
-.w-10{
-  width: 2.5rem;
-}
-
 .w-\[50\%\]{
   width: 50%;
 }
@@ -1682,16 +1678,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 5rem;
   }
 
-  .md\:w-12{
-    width: 3rem;
+  .md\:w-10{
+    width: 2.5rem;
   }
 
   .md\:w-\[17\%\]{
     width: 17%;
-  }
-
-  .md\:w-10{
-    width: 2.5rem;
   }
 
   .md\:rounded-full{
