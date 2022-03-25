@@ -279,7 +279,7 @@ async function vlastniZprava(data)
                     <span class="w-8 ml-2">
                     <img src="./img/ua.png" id="ua" class="">
                     </span>
-                    <span class="ml-4">${jmeno}:</span>
+                    <span class="ml-4">${jmeno}: </span>
                     <span class="ml-2 font-semibold">${bar}</span>
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
@@ -288,7 +288,7 @@ async function vlastniZprava(data)
     {
         div.innerHTML = `
         <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-        <span class="ml-4">${jmeno}:</span>
+        <span class="ml-4">${jmeno}: </span>
         <span class="ml-2 font-semibold">${msg}</span>
         <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
         <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
@@ -316,7 +316,7 @@ function prednastavenaZprava(data)
                     <span class="w-8 ml-2">
                     <img src="./img/ua.png" id="ua" class="">
                     </span>
-                    <span class="ml-4">${jmeno}:</span>
+                    <span class="ml-4">${jmeno}: </span>
                     <span class="ml-2 font-semibold">${zpravy[msg]}</span>
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
