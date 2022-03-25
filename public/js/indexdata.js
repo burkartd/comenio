@@ -1,5 +1,6 @@
 var indexData = {
     "upozornenijmeno": ["Takové jméno už je v místnosti", "Така назва вже є в кімнаті"],
+    "upozornenijmeno2": ["Zadej své jméno!", "Введіть ім'я!"],
     "upozornenimistnost": ["Tato místnost neexistuje!", "Цієї кімнати не існує!"],
     "btnSubmit": ["Připojit se", "Приєднуйтесь"],
     "zalozitmistnost": ["Založit místnost", "Розпочніть кімнату"]    

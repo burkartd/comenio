@@ -1,7 +1,6 @@
 //const { emit } = require("nodemon");
 
 const socket = io();
-//import translate from 'translate';
 
 var roomNum = -1; //číslo roomky, získá se v callback funkci
 var roomName = '';
@@ -19,7 +18,6 @@ var jeAnketaAktivni = false;
 var jeOdpovedAktivni = false;
 
 var AnketaSplneno = []; //list žáků - splněno/nesplněno
-
 
 const divRoomNumber = document.getElementById('roomNumber');
 

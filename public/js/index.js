@@ -7,6 +7,7 @@ const roomInput = document.getElementById('roominput');
 const nameInput = document.getElementById('nameinput');
 
 const upJmeno = document.getElementById('upozornenijmeno');
+const upJmeno2 = document.getElementById('upozornenijmeno2');
 const upMistnost = document.getElementById('upozornenimistnost');
 
 const vlajka = document.getElementById('vlajka');
@@ -48,6 +49,10 @@ btn.addEventListener('click', () => {
     console.log('spatne jmeno')
     nameInput.value = '';
     nameInput.focus();
+    upJmeno2.classList.remove('hidden');
+          setTimeout(()=>{
+            upJmeno2.classList.add('hidden');
+          }, 2500);
     return;
   }
     
@@ -60,7 +65,9 @@ btn.addEventListener('click', () => {
           roomInput.value = '';
           roomInput.focus();
           upMistnost.classList.remove('hidden');
-          setTimeout(RoomErr, 2500);
+          setTimeout(()=>{
+            upMistnost.classList.add('hidden');
+          }, 2500);
           return;
       }
       if(data.jmenoOk == false)
@@ -68,21 +75,25 @@ btn.addEventListener('click', () => {
         nameInput.value = '';
         nameInput.focus();
         upJmeno.classList.remove('hidden');
-        setTimeout(NameErr, 2500);
+        setTimeout(()=>{
+          upJmeno.classList.add('hidden');
+        }, 2500);
         return;
       }
     
+      // const params = URLSearchParams({
+      //   name: nameInput.value,
+      //   room: roomInput.value,
+      //   lang: jazyk
+      // });
+
+      var newUrl = new URL("/zak.html", document.location).href;
+      newUrl.searchParams.append('name', nameInput.value);
+      newUrl.searchParams.append('room', roomInput.value);
+      console.log(newUrl);
+      //window.location.href = newUrl;
+
       frm.submit();
       document.getElementById("theForm").submit(); //pokud všechno ok - potvrzení formu
      });
 });
-
-
-function NameErr()
-{
-  upJmeno.classList.add('hidden');
-}
-function RoomErr()
-{
-  upMistnost.classList.add('hidden');
-}
