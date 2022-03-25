@@ -11,6 +11,8 @@ const upJmeno2 = document.getElementById('upozornenijmeno2');
 const upMistnost = document.getElementById('upozornenimistnost');
 
 const vlajka = document.getElementById('vlajka');
+const vlajkauk = document.getElementById('ua');
+const vlajkacz = document.getElementById('cz');
 
 var jazyk = 'cz';
 
@@ -23,20 +25,23 @@ roomInput.addEventListener("keyup", function(event) {
   });
 
 
-  vlajka.addEventListener('click', () => {
-    if(jazyk === 'cz')
-    {
-      vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
-      jazyk = 'uk';
-      IndexText(1); //do ua
-    }
-    else if(jazyk === 'uk')
-    {
-      vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
-      jazyk = 'cz';
-      IndexText(0); //do ua
-    }
-  })  
+vlajkauk.addEventListener('click', () => {
+  vlajkacz.classList.add('border-comeniowhiteblue');
+  vlajkacz.classList.remove('border-comeniodark');
+  vlajkauk.classList.add('border-comeniodark');
+  vlajkauk.classList.remove('border-comeniowhiteblue');
+  jazyk = 'uk';
+  IndexText(1);
+})
+
+vlajkacz.addEventListener('click', () => {
+  vlajkauk.classList.add('border-comeniowhiteblue');
+  vlajkauk.classList.remove('border-comeniodark');
+  vlajkacz.classList.add('border-comeniodark');
+  vlajkacz.classList.remove('border-comeniowhiteblue');
+  jazyk = 'cz';
+  IndexText(0);
+})
   //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
     
@@ -87,10 +92,10 @@ btn.addEventListener('click', () => {
       //   lang: jazyk
       // });
 
-      var newUrl = new URL("/zak.html", document.location).href;
-      newUrl.searchParams.append('name', nameInput.value);
-      newUrl.searchParams.append('room', roomInput.value);
-      console.log(newUrl);
+      // var newUrl = new URL("/zak.html", document.location).href;
+      // newUrl.searchParams.append('name', nameInput.value);
+      // newUrl.searchParams.append('room', roomInput.value);
+      // console.log(newUrl);
       //window.location.href = newUrl;
 
       frm.submit();

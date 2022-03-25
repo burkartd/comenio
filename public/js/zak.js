@@ -15,6 +15,8 @@ var jsouOtevrene = false;
 const splneno = document.getElementById('btnsplneno');
 const nesplneno = document.getElementById('btnnesplneno');
 const vlajka = document.getElementById('vlajka');
+const vlajkauk = document.getElementById('ua');
+const vlajkacz = document.getElementById('cz');
 
 divRoomNumber.innerHTML = '#';
 
@@ -32,19 +34,37 @@ overlay.addEventListener('click', () => { //zavření tlačítek kliknutím mimo
   openClose();
 })
 
-vlajka.addEventListener('click', () => {
-  if(jazyk === 'cz')
-  {
-    vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
-    jazyk = 'uk';
-    ZakText(1); //do ua
-  }
-  else if(jazyk === 'uk')
-  {
-    vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
-    jazyk = 'cz';
-    ZakText(0); //do ua
-  }
+// vlajka.addEventListener('click', () => {
+//   if(jazyk === 'cz')
+//   {
+//     vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
+//     jazyk = 'uk';
+//     ZakText(1); //do ua
+//   }
+//   else if(jazyk === 'uk')
+//   {
+//     vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
+//     jazyk = 'cz';
+//     ZakText(0); //do ua
+//   }
+// })
+
+vlajkauk.addEventListener('click', () => {
+  vlajkacz.classList.add('border-comeniowhiteblue');
+  vlajkacz.classList.remove('border-comeniodark');
+  vlajkauk.classList.add('border-comeniodark');
+  vlajkauk.classList.remove('border-comeniowhiteblue');
+  jazyk = 'uk';
+  ZakText(1);
+})
+
+vlajkacz.addEventListener('click', () => {
+  vlajkauk.classList.add('border-comeniowhiteblue');
+  vlajkauk.classList.remove('border-comeniodark');
+  vlajkacz.classList.add('border-comeniodark');
+  vlajkacz.classList.remove('border-comeniowhiteblue');
+  jazyk = 'cz';
+  ZakText(0);
 })
 
 splneno.addEventListener('click', () => {
