@@ -108,6 +108,11 @@ const Tlacitko2 = document.getElementById('Tlacitko2');
 const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
 
+document.getElementById('anketazavrit').addEventListener('click', ()=>
+{
+  anketadiv.classList.remove('active');
+})
+
 Tlacitko1.addEventListener('click', () => {
   socket.emit('upozorneni', {zprava: 0, jmeno: userName, druh: 1, jazyk: jazyk}); openClose();
 });

@@ -15,10 +15,10 @@
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
             <!--vlajky-->
-                <div id="vlajka" class="hidden flex justify-center items-end col-span-1 sm:flex">
-                    <div id="vlajka" class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
+                <div class="hidden flex justify-center items-end col-span-1 sm:flex">
+                    <div class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
                         <div class="text-sm text-comenioblue mb-2">Vyberte jazyk<br>Виберіть мову</div>
-                        <div class="flex text-center"">
+                        <div class="flex text-center">
                         <div class="mr-6 bg-blend-luminosity">
                             <img src="./img/ua.png" id="ua" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
                         </div>
@@ -29,15 +29,15 @@
                     </div>
                 </div>
 
-                <div id="vlajka" class="sm:hidden block justify-center items-end col-span-1">
-                    <div id="vlajka" class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
+                <div class="sm:hidden block justify-center items-end col-span-1">
+                    <div class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
                         <div class="text-sm text-comenioblue mb-2">Vyberte jazyk<br>Виберіть мову</div>
                         <div class="flex text-center">
                         <div class="mr-6 bg-blend-luminosity">
-                            <img src="./img/ua.png" id="ua" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
+                            <img src="./img/ua.png" id="ua2" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
                         </div>
                         <div class="">
-                            <img src="./img/cz.png" id="cz" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
+                            <img src="./img/cz.png" id="cz2" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
                         </div>
                     </div>
                     </div>
@@ -51,7 +51,6 @@
             </div>
         </div>
         <div id = "divMenu" class="text-xl max-h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
-            <!-- Tome tohle předělej ale nech tam id a tak dik :-* -->
             <div class="justify-center lg:col-span-1">
                 <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
                     <input
@@ -99,7 +98,7 @@
 
     <div class="popup" id="anketapopup">
         <div class="items-center h-full pt-2 sm:pt-2 font-nunito">
-            <div class="mb-4">
+            <div id="anketazavrit" class="mb-4">
                 <svg class="w-8 ml-auto mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <h1 id="hsplneni" class="text-center text-2xl">Potvrď splnění úkolu</h1>

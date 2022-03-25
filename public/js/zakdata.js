@@ -19,3 +19,4 @@ function ZakText(jazyk)
     let ph = ["Vlastní zpráva", "Спеціальне повідомлення"];
     document.getElementById('msg').placeholder = ph[jazyk];
 }
+
