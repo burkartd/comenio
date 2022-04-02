@@ -51,3 +51,7 @@ const ankety = document.getElementById('anketydiv'); //div kde je graf a ankety
 const nadpis = document.getElementById('grafnadpis');
 
 const zrusitOtazku = document.getElementById('zrusitOtazku');
+
+const divZpravaZakovi = document.getElementById('divZpravaZakovi');
+
+const zpravaForm = document.getElementById('ZpravaZakoviForm');
