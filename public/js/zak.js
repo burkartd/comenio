@@ -1,6 +1,8 @@
 
 divRoomNumber.innerHTML = '#';
 
+if(jazyk === 'uk') ZakText(1);
+
 odhlasit.addEventListener('click', () => window.history.go(-1)); //odhlášení z místnosti
 
 openclose.addEventListener('click', () => { //otevření/zavření tlačítek na odpovědi

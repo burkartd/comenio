@@ -20,13 +20,15 @@ const vlastni = document.getElementById('VlastniZpravaForm');
 const hNazevAnkety = document.getElementById('hodpoved');
 const divZpravaOdUcitele = document.getElementById('divZpravaOdUcitele');
 
-const { userName, roomNumber, lang} = Qs.parse(location.search, {
-    ignoreQueryPrefix: true,
-  });
-jmeno = lang;
+
 
 var id = socket.id; // id sockety
 var jazyk = 'cz'; //česky
 var jsouOtevrene = false;
 var roomName = 'room' + roomNumber; //jméno roomky
+
+const { userName, roomNumber, lang} = Qs.parse(location.search, {
+  ignoreQueryPrefix: true,
+});
+jazyk = lang;
 
