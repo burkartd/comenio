@@ -108,33 +108,33 @@
             </a>
         </div>
 
-        <div class="popup">
+        <div id="divZpravaZakovi" class="popup modal">
             <div class="items-center h-full pt-6  font-nunito">
-                <div id="anketazavrit" class="mb-4 flex items-center">
-                    <span class="ml-4 text-lg mr-auto text-comenioblue">Kája Vomáčka</span>
-                    <svg class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="mb-4 flex items-center">
+                    <span id="zpravaZakoviJmeno" class="ml-4 text-lg mr-auto text-comenioblue"></span>
+                    <svg id="svgZavritZpravu" class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
 
                 <div class="justify-center block">
                     <div>
-                        <form id="VlastniZpravaForm" class="col-span-1 items-center justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                        <form id="ZpravaZakoviForm" class="col-span-1 items-center justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
                             <input
-                            id="msg"
+                            id="msg3"
                             type="text"
                             class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
                             placeholder="Zpráva pro žáka"
                             required
                             autocomplete="off"
                             />
-                            <button id="sendbtn" class="ml-2 hover:underline text-lg font-semibold">Odeslat</button>
+                            <button id="zakoviPoslat" class="ml-2 hover:underline text-lg font-semibold">Odeslat</button>
                         </form>
                     </div>
 
-                    <button class="w-[70%] px-6 block py-2 mx-auto sm:px-10 sm:py-4  bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnsplneno">
+                    <button class="w-[70%] px-6 block py-2 mx-auto sm:px-10 sm:py-4  bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="prednastavena1">
                         Buď aktivnější
                     </button>
 
-                    <button class="w-[70%] px-6 block py-2 mt-4 mx-auto sm:px-10 sm:py-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnnesplneno">
+                    <button class="w-[70%] px-6 block py-2 mt-4 mx-auto sm:px-10 sm:py-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="prednastavena2">
                         Dej prostor ostatním
                     </button>
                 </div>
