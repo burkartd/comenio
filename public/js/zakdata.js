@@ -7,7 +7,7 @@ var zakData = {
     "hsplneni": ["Potvrď splnění úkolu", "Підтвердіть завдання"],
     "btnsplneno": ["Splněno", "Готово"],
     "btnnesplneno": ["Nesplněno", "не зустрічався"],
-    "hodpoved": ["Napiš odpověď", "Запишіть відповідь"],
+    //"hodpoved": ["Napiš odpověď", "Запишіть відповідь"],
     "sendbtn2": ["Odeslat", "Надіслати"]
 }
 

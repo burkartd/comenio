@@ -154,9 +154,15 @@ function ZakAnketaZacit()
   nesplneno.disabled = true;
 }
 
-function ZakOdpovediZacit(nazev)
+async function ZakOdpovediZacit(nazev)
 {
   odpovedidiv.classList.add('active');
+
+  if(jazyk === 'uk')
+  {
+    const bar = await translate(nazev, {from: "cs", to: "uk" });
+    nazev = bar;
+  }
   hNazevAnkety.innerHTML = nazev;
 }
 
