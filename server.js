@@ -77,8 +77,8 @@ io.on('connection', socket => {
             console.log(room);
         }); 
 
-        socket.on('spustitAnketu', (nazev) => { //spustí anketu žákům v roomce
-            socket.broadcast.to(room).emit('spustitAnketu', nazev);
+        socket.on('spustitAnketu', (data) => { //spustí anketu žákům v roomce
+            socket.broadcast.to(room).emit('spustitAnketu', data);
         });
 
         socket.on('ukoncitAnketu', () => { //ukončí anketu

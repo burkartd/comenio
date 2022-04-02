@@ -13,7 +13,8 @@ socket.on('getinfo', (cb) =>{
     cb({
         pripojit: true,
         anketa: jeAnketaAktivni,
-        odpovedi: jeOdpovedAktivni
+        odpovedi: jeOdpovedAktivni,
+        anketaNazev: nazevAnkety
     });
 })
 
@@ -119,7 +120,8 @@ function zacitAnketu()
         AnketaSplneno.push({id: zak.id, splneno: false});
     });
     jeAnketaAktivni = true;
-    socket.emit('spustitAnketu', 'splnils?');
+    nazevAnkety = 'název pičo'
+    socket.emit('spustitAnketu', {nazev: nazevAnkety});
 }
 
 function zacitOdpovedi()

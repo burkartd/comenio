@@ -105,7 +105,7 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       divRoomNumber.innerHTML = '#' + roomNumber;
       if(data.anketa)
       {
-        ZakAnketaZacit();
+        ZakAnketaZacit(data.anketaNazev);
       }
       if(data.odpovedi)
       {
@@ -129,12 +129,9 @@ socket.on('roomEnded', () => { //učitel ukončil místnost
     window.location.href = 'ukonceni.html';
 })
 
-socket.on('spustitAnketu', (nazev) => { //spustí se anketa
-  if(typeof nazev === 'undefined')
-  {
-    nazev = 'Anketa';
-  }  
-  ZakAnketaZacit();
+socket.on('spustitAnketu', (data) => { //spustí se anketa
+    
+  ZakAnketaZacit(data.nazev);
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
@@ -165,11 +162,12 @@ vlastni.addEventListener('submit', (e) => {
 
 function PoslatZpravu(msg) {socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 2, jazyk: jazyk});}
 
-function ZakAnketaZacit()
+function ZakAnketaZacit(nazev)
 {
   anketadiv.classList.add('active');
   splneno.disabled = false;
   nesplneno.disabled = true;
+  hNazevAnkety.innerHTML = nazev;
 }
 
 function ZakOdpovediZacit()
