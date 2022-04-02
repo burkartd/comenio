@@ -1832,14 +1832,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: -50%;
   }
 
-  .lg\:grid{
-    display: grid;
-  }
-
-  .lg\:hidden{
-    display: none;
-  }
-
   .lg\:h-72{
     height: 18rem;
   }

@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body class="noselect">
-    <div class="block lg:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
+    <div class="block md:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
         Přihlas se na počítači
     </div>
-    <div class="hidden lg:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
+    <div class="hidden md:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
         <div class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-14 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
             <h1 id ="roomNumber" class="text-white text-3xl font-bold "></h1>
         </div>
@@ -20,7 +20,6 @@
             <div class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
                 <span class="text-lg">Žáků v místnosti:</span>
                 <span id="pocetzaku" class="font-bold text-xl ">0</span>
-  
             </div>
         </div>
         <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
@@ -65,14 +64,33 @@
                 </button>
             </div>
             
-            <div class="bg-graf p-4" id="anketaje"> <!--toto se zobrazí když je aktivní anketa-->
+            <!--<div class="bg-graf p-4" id="anketaje"> toto se zobrazí když je aktivní anketa
                 <div class="flex justify-center">
                     <span class="text-center" id="grafnadpis">Hotových žáků: </span>
                 </div>
                 <div>
                     <canvas id="myChart" class="customchart"></canvas>
                 </div>
-                <div class="flex justify-center pt-4 ">
+                <div class="flex justify-center pt-4">
+                    <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>
+                </div>
+            </div>-->
+
+            <div class="bg-graf rounded-l-2xl p-4" id="anketaje"> <!--toto je před grafem na zadání ankety-->
+                <div>
+                    <form id="VlastniZpravaForm" class="block justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                        <input
+                        id="msg"
+                        type="text"
+                        class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                        placeholder="Zadání ankety"
+                        required
+                        autocomplete="off"
+                        />
+                        <button id="sendbtn" class="pt-6 hover:underline text-lg font-semibold">Odeslat</button>
+                    </form>
+                </div>
+                <div class="flex justify-center pt-4">
                     <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>
                 </div>
             </div>
@@ -89,7 +107,7 @@
     <script src="/scripts/chart.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/ucitelgraf.js"></script>
-    <script src="/js/ucitel.js"></script>¨
+    <script src="/js/ucitel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
     <script src="/js/ucitelpreklad.js"></script>
     
