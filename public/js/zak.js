@@ -106,6 +106,10 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
     // socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
+socket.on('zpravaZakovi', (msg) => {
+  zpravaOdUcitele(msg);
+})
+
 socket.on('disconnect', () => { //při odpojení se pošle event
     socket.emit('userLeave');
 })
@@ -173,7 +177,7 @@ odpovedidiv.addEventListener('submit', (e) => {
   if (!msg) {
     return false;
   }
-  // socket.emit('upozorneni', msg, userName, 3); //3 - odpověď
+  
   socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 3, jazyk: jazyk});
   e.target.elements.msg.value = '';
 
@@ -182,3 +186,13 @@ odpovedidiv.addEventListener('submit', (e) => {
   }, 1000)
 
 });
+
+async function zpravaOdUcitele(msg)
+{
+  if(jazyk === 'uk')
+  {
+    msg = await translate(msg, {from: "cs", to: "uk" });
+  }
+
+  console.log(msg);
+}

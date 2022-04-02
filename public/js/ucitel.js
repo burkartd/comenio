@@ -57,6 +57,7 @@ socket.on('newUser', (zak) => {
     pocetZakuUpdate();
     zaku.innerHTML = pocetZaku;
     //cb({zprava: 'ahojky'});
+    socket.emit('zpravaZakovi', {zakid: zak.id, msg: 'zkouška'});
 });
 
 socket.on('userLeft', (id) => {
@@ -218,6 +219,7 @@ function zaciUpdate() //přepíše seznam žáků
         
         const div = document.createElement('div');
         div.classList.add('zaznam');
+        div.dataset.zakid = element.id;
         div.innerHTML = `
         <span class="text-comeniowhiteblue mr-4">${element.userName}</span>
                     <svg class="w-8 text-comeniowhiteblue bg-comenioblue rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -359,6 +361,14 @@ function smazJeden(el) //smaže vybranou zprávu
 {
     var element = el;
     element.parentElement.remove();
+}
+
+function zpravaZakovi(element)
+{
+    let id = element.dataset.zakid;
+    let msg = 'zdar';
+
+    socket.emit('zpravaZakovi', {msg: msg, zakid: id})
 }
 
 

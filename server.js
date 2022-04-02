@@ -88,6 +88,10 @@ io.on('connection', socket => {
             socket.broadcast.to(room).emit('ukoncitOdpovedi');
         })
 
+        socket.on('zpravaZakovi', (data) => {
+            io.sockets.sockets.get(data.zakid).emit('zpravaZakovi', data.msg);
+        })
+
         //učitel se odpojí - ukončí místnost
         socket.on('disconnect', () => {
             socket.broadcast.to(room).emit('roomEnded');
