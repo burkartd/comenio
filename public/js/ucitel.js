@@ -219,7 +219,10 @@ function zaciUpdate() //přepíše seznam žáků
         
         const div = document.createElement('div');
         div.classList.add('zaznam');
+        //console.log(element.id);
         div.dataset.zakid = element.id;
+        //console.log(div.dataset);
+        div.setAttribute('onclick','zpravaZakovi(this)');
         div.innerHTML = `
         <span class="text-comeniowhiteblue mr-4">${element.userName}</span>
                     <svg class="w-8 text-comeniowhiteblue bg-comenioblue rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -231,6 +234,56 @@ function zaciUpdate() //přepíše seznam žáků
 
     });
 }
+function zpravaZakovi(element)
+{
+    let id = element.dataset.zakid;
+
+    const index = zaci.findIndex(zaci => zaci.id === id);
+
+    jmeno = zaci[index].userName;
+
+    document.getElementById('zpravaZakoviJmeno').innerHTML = jmeno;
+    divZpravaZakovi.classList.add('active');
+
+    zpravaForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+  
+        // Get message text
+        let zprava = e.target.elements.msg3.value;
+    
+        zprava = zprava.trim();
+    
+        e.target.elements.msg3.value = '';
+
+        socket.emit('zpravaZakovi', {msg: zprava, zakid: id})
+
+        setTimeout(()=>{
+            divZpravaZakovi.classList.remove('active');
+        }, 500)
+
+        
+    })
+
+    document.getElementById('prednastavena1').addEventListener('click', () => {
+        socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: id});
+        setTimeout(()=>{
+            divZpravaZakovi.classList.remove('active');
+        }, 500)
+    })
+
+    document.getElementById('prednastavena2').addEventListener('click', () => {
+        socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: id});
+        setTimeout(()=>{
+            divZpravaZakovi.classList.remove('active');
+        }, 500)
+    })
+
+    document.getElementById('svgZavritZpravu').addEventListener('click', () => {
+        divZpravaZakovi.classList.remove('active');
+    })
+}
+
+
 async function vlastniZprava(data)
 {
     const msg = data.zprava;
@@ -363,12 +416,5 @@ function smazJeden(el) //smaže vybranou zprávu
     element.parentElement.remove();
 }
 
-function zpravaZakovi(element)
-{
-    let id = element.dataset.zakid;
-    let msg = 'zdar';
-
-    socket.emit('zpravaZakovi', {msg: msg, zakid: id})
-}
 
 
