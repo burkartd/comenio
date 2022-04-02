@@ -167,8 +167,8 @@
         justify-self: center;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        z-index: 69;
+        transform: translate(-50%, -50%) scale(0);
+        /* z-index: 69; */
         background-color: #EAF0F7;
         width: 300px;
         height: 300px;
@@ -177,6 +177,10 @@
         padding: 20px;
         box-shadow: 5px 5px 10px #00AEC9;
     }
+
+    .popupa.active {
+        transform: translate(-50%, -50%) scale(1);
+    }  
 
   .popup.active {
       transform: translate(-50%, -50%) scale(1);

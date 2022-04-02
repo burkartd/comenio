@@ -8,7 +8,8 @@ var zakData = {
     "btnsplneno": ["Splněno", "Готово"],
     "btnnesplneno": ["Nesplněno", "не зустрічався"],
     //"hodpoved": ["Napiš odpověď", "Запишіть відповідь"],
-    "sendbtn2": ["Odeslat", "Надіслати"]
+    "sendbtn2": ["Odeslat", "Надіслати"],
+    "hUpozorneni": ["Upozornění od učitele", "Повідомлення вчителя"]
 }
 
 function ZakText(jazyk)

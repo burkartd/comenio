@@ -56,8 +56,7 @@ socket.on('newUser', (zak) => {
 
     pocetZakuUpdate();
     zaku.innerHTML = pocetZaku;
-    //cb({zprava: 'ahojky'});
-    socket.emit('zpravaZakovi', {zakid: zak.id, msg: 'zkouška'});
+    
 });
 
 socket.on('userLeft', (id) => {

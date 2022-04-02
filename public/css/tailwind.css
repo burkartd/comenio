@@ -1540,8 +1540,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-self: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  z-index: 69;
+  transform: translate(-50%, -50%) scale(0);
+  /* z-index: 69; */
   background-color: #EAF0F7;
   width: 300px;
   height: 300px;
@@ -1549,6 +1549,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 20px;
   padding: 20px;
   box-shadow: 5px 5px 10px #00AEC9;
+}
+
+.popupa.active {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .popup.active {
@@ -1650,10 +1654,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:mt-12{
     margin-top: 3rem;
-  }
-
-  .sm\:mt-4{
-    margin-top: 1rem;
   }
 
   .sm\:mt-2{

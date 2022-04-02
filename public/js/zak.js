@@ -68,6 +68,10 @@ document.getElementById('anketazavrit').addEventListener('click', ()=>
   anketadiv.classList.remove('active');
 })
 
+document.getElementById('zavritOdpoved').addEventListener('click', () => {
+  odpovedidiv.classList.remove('active');
+})
+
 Tlacitko1.addEventListener('click', () => {
   socket.emit('upozorneni', {zprava: 0, jmeno: userName, druh: 1, jazyk: jazyk}); openClose();
 });
@@ -99,11 +103,6 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       
        
     });
-
-    
-
-    // socket.emit('userJoin', userName, id, roomName); 
-    // socket.emit('upozorneni', 'pripojil jsem se', userName, 4);
 });
 
 socket.on('zpravaZakovi', (msg) => {
@@ -177,7 +176,7 @@ odpovedidiv.addEventListener('submit', (e) => {
   if (!msg) {
     return false;
   }
-  
+
   socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 3, jazyk: jazyk});
   e.target.elements.msg.value = '';
 
@@ -193,6 +192,14 @@ async function zpravaOdUcitele(msg)
   {
     msg = await translate(msg, {from: "cs", to: "uk" });
   }
+
+  divZpravaOdUcitele.classList.add('active');
+
+  document.getElementById('zpravaTxt').innerHTML = msg;
+
+  document.getElementById('zpravaZavrit').addEventListener('click', () => {
+    divZpravaOdUcitele.classList.remove('active');
+  })
 
   console.log(msg);
 }
