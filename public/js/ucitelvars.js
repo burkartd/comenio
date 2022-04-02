@@ -17,7 +17,7 @@ var jeOdpovedAktivni = false;
 
 var AnketaSplneno = []; //list žáků - splněno/nesplněno
 
-var nazevAnkety = '';
+var nazevOtazky = '';
 
 var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Zvládám bez problému']; //předvolené zprávy
 
@@ -35,4 +35,19 @@ seznamUpozorneni.innerHTML = '';
 const zaku = document.getElementById('pocetzaku'); //zobrazení počtu žáků
 zaku.innerHTML = '0';
 
+const zadaniNazvuOtazky = document.getElementById('zadaniNazvuOtazky');
+const inputNazevOtazky = document.getElementById('inputNazevOtazky')
+
+
 const vymazatvse = document.getElementById('odstranitvse');
+
+const btnZacitAnketu = document.getElementById('zacitanketu');
+const ukoncit = document.getElementById('ukoncitanketu');
+
+const btnZacitOdpovedi = document.getElementById('zacitodpovedi');
+
+const ankety = document.getElementById('anketydiv'); //div kde je graf a ankety
+
+const nadpis = document.getElementById('grafnadpis');
+
+const zrusitOtazku = document.getElementById('zrusitOtazku');

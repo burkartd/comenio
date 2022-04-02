@@ -1,9 +1,6 @@
 const socket = io();
 
-var id = socket.id; // id sockety
-var jazyk = 'cz'; //česky
-var jsouOtevrene = false;
-var roomName = 'room' + roomNumber; //jméno roomky
+
 
 const divRoomNumber = document.getElementById('roomNumber');
 const openclose = document.getElementById('openclose');
@@ -27,4 +24,8 @@ const { userName, roomNumber, lang} = Qs.parse(location.search, {
   });
 jmeno = lang;
 
+var id = socket.id; // id sockety
+var jazyk = 'cz'; //česky
+var jsouOtevrene = false;
+var roomName = 'room' + roomNumber; //jméno roomky
 

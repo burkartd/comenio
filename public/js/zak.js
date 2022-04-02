@@ -11,21 +11,6 @@ overlay.addEventListener('click', () => { //zavření tlačítek kliknutím mimo
   openClose();
 })
 
-// vlajka.addEventListener('click', () => {
-//   if(jazyk === 'cz')
-//   {
-//     vlajka.innerHTML = `<img src="./img/ua.png" id="ua" class="mx-auto px-auto ">`;
-//     jazyk = 'uk';
-//     ZakText(1); //do ua
-//   }
-//   else if(jazyk === 'uk')
-//   {
-//     vlajka.innerHTML = `<img src="./img/cz.png" id="ua" class="mx-auto px-auto ">`;
-//     jazyk = 'cz';
-//     ZakText(0); //do ua
-//   }
-// })
-
 vlajkauk.addEventListener('click', () => {
   vlajkacz.classList.add('border-comeniowhiteblue');
   vlajkacz.classList.remove('border-comeniodark');
@@ -105,11 +90,11 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       divRoomNumber.innerHTML = '#' + roomNumber;
       if(data.anketa)
       {
-        ZakAnketaZacit(data.anketaNazev);
+        ZakAnketaZacit();
       }
       if(data.odpovedi)
       {
-        ZakOdpovediZacit();
+        ZakOdpovediZacit(data.odpovediNazev);
       }
       
        
@@ -129,18 +114,18 @@ socket.on('roomEnded', () => { //učitel ukončil místnost
     window.location.href = 'ukonceni.html';
 })
 
-socket.on('spustitAnketu', (data) => { //spustí se anketa
+socket.on('spustitAnketu', () => { //spustí se anketa
     
-  ZakAnketaZacit(data.nazev);
+  ZakAnketaZacit();
 })
 
 socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
   anketadiv.classList.remove('active');
 })
 
-socket.on('spustitOdpovedi', () => {
+socket.on('spustitOdpovedi', (data) => {
   
-  ZakOdpovediZacit();
+  ZakOdpovediZacit(data.nazev);
 })
 
 socket.on('ukoncitOdpovedi', () => {
@@ -162,17 +147,17 @@ vlastni.addEventListener('submit', (e) => {
 
 function PoslatZpravu(msg) {socket.emit('upozorneni', {zprava: msg, jmeno: userName, druh: 2, jazyk: jazyk});}
 
-function ZakAnketaZacit(nazev)
+function ZakAnketaZacit()
 {
   anketadiv.classList.add('active');
   splneno.disabled = false;
   nesplneno.disabled = true;
-  hNazevAnkety.innerHTML = nazev;
 }
 
-function ZakOdpovediZacit()
+function ZakOdpovediZacit(nazev)
 {
   odpovedidiv.classList.add('active');
+  hNazevAnkety.innerHTML = nazev;
 }
 
 odpovedidiv.addEventListener('submit', (e) => {

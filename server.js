@@ -13,13 +13,8 @@ const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Servr frci na portu ${PORT}`)); 
 
-
-
-var usersCount = 0;
 var roomsCount = 0;
 
-let users = []; //list připojených uživatelů
-let hosts = []; //list učitelů - pro uchování id učitelů
 let rooms = [];
 
 app.use('/scripts', express.static(path.join(__dirname, '/node_modules/chart.js/dist/'))); //abysme měli přístup k frontendu
@@ -77,16 +72,16 @@ io.on('connection', socket => {
             console.log(room);
         }); 
 
-        socket.on('spustitAnketu', (data) => { //spustí anketu žákům v roomce
-            socket.broadcast.to(room).emit('spustitAnketu', data);
+        socket.on('spustitAnketu', () => { //spustí anketu žákům v roomce
+            socket.broadcast.to(room).emit('spustitAnketu');
         });
 
         socket.on('ukoncitAnketu', () => { //ukončí anketu
             socket.broadcast.to(room).emit('ukoncitAnketu');
         });
 
-        socket.on('spustitOdpovedi', () => {
-            socket.broadcast.to(room).emit('spustitOdpovedi');
+        socket.on('spustitOdpovedi', (data) => {
+            socket.broadcast.to(room).emit('spustitOdpovedi', data);
         })
 
         socket.on('ukoncitOdpovedi', () => {

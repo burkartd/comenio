@@ -50,45 +50,52 @@
 
             </div>
         </div>
+        
+        <!-- ******* div vpravo - otázky, ankety, graf ********** -->
         <div id="anketydiv" class="col-start-11 row-start-3 col-span-2 row-span-2 bg-white"><!--graf + tlac-->
             
-            <div class="bg-white" id="divbtnanketa" > <!--toto se zobrazí když není aktivní anketa-->
+            <!-- tlačítko - spuštění potvrezní spnění úkolu -->
+            <div class="bg-white" id="divbtnanketa" > 
                 <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
                     Spustit úkol
                 </button>
             </div>
 
-            <div class="bg-white" id="divbtnodpovedi" > <!--toto se zobrazí když není aktivní anketa-->
+            <!-- tlačítko - spuštění odpovědí na otázku -->
+            <div class="bg-white" id="divbtnodpovedi" >
                 <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:mt-6 md:text-base">
                     Spustit odpovědi
                 </button>
             </div>
-            
-            <!--<div class="bg-graf p-4" id="anketaje"> toto se zobrazí když je aktivní anketa
+
+
+            <!--toto je před grafem na zadání ankety-->
+            <div class="bg-graf rounded-l-2xl p-4" id="zadaniNazvuOtazky"> 
+                <div>
+                    <form id="inputNazevOtazky" class="block justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                        <input
+                        id="inazev"
+                        type="text"
+                        class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                        placeholder="Zadání ankety"
+                        autocomplete="off"
+                        />
+                        <button type="submit" class="pt-6 hover:underline text-lg font-semibold">Odeslat</button>
+                    </form>
+                </div>
+                <div class="flex justify-center pt-4">
+                    <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="zrusitOtazku">Zrušit</button>
+                </div>
+            </div>
+
+                        
+            <!-- *********GRAF********  -->
+            <div class="bg-graf p-4" id="anketaje">
                 <div class="flex justify-center">
                     <span class="text-center" id="grafnadpis">Hotových žáků: </span>
                 </div>
                 <div>
                     <canvas id="myChart" class="customchart"></canvas>
-                </div>
-                <div class="flex justify-center pt-4">
-                    <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>
-                </div>
-            </div>-->
-
-            <div class="bg-graf rounded-l-2xl p-4" id="anketaje"> <!--toto je před grafem na zadání ankety-->
-                <div>
-                    <form id="VlastniZpravaForm" class="block justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
-                        <input
-                        id="msg"
-                        type="text"
-                        class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
-                        placeholder="Zadání ankety"
-                        required
-                        autocomplete="off"
-                        />
-                        <button id="sendbtn" class="pt-6 hover:underline text-lg font-semibold">Odeslat</button>
-                    </form>
                 </div>
                 <div class="flex justify-center pt-4">
                     <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>

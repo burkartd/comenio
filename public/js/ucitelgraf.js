@@ -1,13 +1,3 @@
-const btnZacitAnketu = document.getElementById('zacitanketu');
-const ukoncit = document.getElementById('ukoncitanketu');
-
-const btnZacitOdpovedi = document.getElementById('zacitodpovedi');
-
-const ankety = document.getElementById('anketydiv'); //div kde je graf a ankety
-// const jeAnketa = document.getElementById('anketaje');
-// const neniAnketa = document.getElementById('anketaneni');
-const nadpis = document.getElementById('grafnadpis');
-
 var data = {
     datasets: [{
         label: '# of Votes',
@@ -72,14 +62,45 @@ btnZacitAnketu.addEventListener('click', () => { //začít anketu
 
 btnZacitOdpovedi.addEventListener('click', () => { //začít odpovědi
  
+    let arr = Array.from(ankety.children);
+
+    arr.forEach(el => {
+        el.classList.add('skryto');
+    });
+
+    arr[arr.length - 2].classList.remove('skryto'); //název ankety
+
+}); 
+
+zrusitOtazku.addEventListener('click', () => {
+    SkrytGraf();
+})
+
+//název ankety
+inputNazevOtazky.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    // Get message text
+    let inazev = e.target.elements.inazev.value;
+  
+    inazev = inazev.trim();
+  
+    if (!inazev) {
+      inazev = 'Napiš odpověď';
+    }
+  
+    e.target.elements.inazev.value = '';
+    
+    nazevOtazky = inazev;
     ZobrazitGraf();
 
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
     nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
-    zacitOdpovedi();
-}); 
+    
+    zacitOdpovedi(nazevOtazky);
+  });
 
 
 function updateGraf(splnenozaku, celkem, typ)
@@ -101,27 +122,17 @@ function updateGraf(splnenozaku, celkem, typ)
 function SkrytGraf()
 {
     var arr = Array.from(ankety.children);
-    // for(var i = 0; i < arr.length - 1; i++)
-    // {
-    //     arr[i].classList.remove('skryto');
-    // }
-
-    console.log(arr);
     arr.forEach(el => {
         el.classList.remove('skryto');
-        //console.log(el.classList);
     });
 
-    arr[arr.length - 1].classList.add('skryto');
+    arr[arr.length - 1].classList.add('skryto'); //graf
+    arr[arr.length - 2].classList.add('skryto'); //název ankety
 }
 
 function ZobrazitGraf()
 {
     let arr = Array.from(ankety.children);
-    // for(var i = 0; i < arr.length - 1; i++)
-    // {
-    //     arr[i].classList.add('skryto');
-    // }
 
     arr.forEach(el => {
         el.classList.add('skryto');

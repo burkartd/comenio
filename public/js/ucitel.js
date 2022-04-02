@@ -16,7 +16,7 @@ socket.on('getinfo', (cb) =>{
         pripojit: true,
         anketa: jeAnketaAktivni,
         odpovedi: jeOdpovedAktivni,
-        anketaNazev: nazevAnkety
+        odpovediNazev: nazevOtazky
     });
 })
 
@@ -28,7 +28,6 @@ socket.on('connect', () =>
         roomName = data;
         roomNum = data.substring(4);
         divRoomNumber.innerHTML = ('#' + roomNum);
-        console.log(data);
     });
     
     id = socket.id; 
@@ -112,6 +111,10 @@ socket.on('splneno', (data, id) => {
     procent = 100*hotovychZaku*1.0/pocetZaku;
 })
 
+
+
+
+
 function zacitAnketu()
 {
     // var nodes = Array.from(seznamZaku.childNodes);
@@ -122,17 +125,17 @@ function zacitAnketu()
         AnketaSplneno.push({id: zak.id, splneno: false});
     });
     jeAnketaAktivni = true;
-    nazevAnkety = 'název pičo'
-    socket.emit('spustitAnketu', {nazev: nazevAnkety});
+    nazevOtazky = 'název pičo'
+    socket.emit('spustitAnketu');
 }
 
-function zacitOdpovedi()
+function zacitOdpovedi(lokNazev)
 {
     zaci.forEach(zak => {
         AnketaSplneno.push({id: zak.id, splneno: false});
     });
     jeOdpovedAktivni = true;
-    socket.emit('spustitOdpovedi');
+    socket.emit('spustitOdpovedi', {nazev: lokNazev});
 }
 
 function ukoncitAnketu()
@@ -179,7 +182,6 @@ function odhlaseni(id)
         if(jeOdpovedAktivni)
         {
             if(AnketaSplneno[index].splneno == true){hotovychZaku--;}
-            console.log(AnketaSplneno, hotovychZaku);
             AnketaSplneno.splice(index, 1);
             nadpis.innerHTML = `Odpovědí: ${hotovychZaku}/${pocetZaku}`;
             updateGraf(hotovychZaku, pocetZaku, 2);
@@ -237,7 +239,7 @@ async function vlastniZprava(data)
     if(data.jazyk === 'uk')
     {
         const bar = await translate(msg, {from: "uk", to: "cs" });
-        console.log(bar);
+        
         div.innerHTML = `
                     <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                     <span class="w-8 ml-2">
@@ -314,7 +316,7 @@ async function odpovedZprava(data)
     if(data.jazyk === 'uk')
     {
         const bar = await translate(msg, {from: "uk", to: "cs" });
-        console.log(bar);
+        
         div.innerHTML = `
         <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                     <span class="w-8 ml-2">
