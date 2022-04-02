@@ -10,71 +10,33 @@
     <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
 
        
-        <div class="grid grid-cols-3 text-3xl font-bold p-4 pt-4 flex justify-center md:text-5xl lg:text-5xl lg:pt-10 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
+        <div class="grid grid-cols-3 text-3xl font-bold p-4 pt-4 flex justify-center md:text-5xl lg:text-5xl lg:pt-10 items-center max-h-[30vh] lg:h-[30vh] z-3"><!--main_nadpis-->
             <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-6xl">
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
             <!--vlajky-->
-<<<<<<< HEAD
-                <div class="hidden flex justify-center items-end col-span-1 sm:flex">
-                    <div class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
-                        <div class="text-sm text-comenioblue mb-2">Vyberte jazyk<br>Виберіть мову</div>
-                        <div class="flex text-center">
-                        <div class="mr-6 bg-blend-luminosity">
-                            <img src="./img/ua.png" id="ua" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
-                        </div>
-                        <div class="">
-                            <img src="./img/cz.png" id="cz" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="sm:hidden block justify-center items-end col-span-1">
-                    <div class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
-                        <div class="text-sm text-comenioblue mb-2">Vyberte jazyk<br>Виберіть мову</div>
-                        <div class="flex text-center">
-                        <div class="mr-6 bg-blend-luminosity">
-                            <img src="./img/ua.png" id="ua2" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
-=======
                 <div id="vlajka" class="sm:flex block justify-center items-end col-span-1 sm:flex">
-                    <div id="vlajka" class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
+                    <div class="w-28 sm:w-32 md:w-36 lg:w-36 m-6 text-center">
                         <div class="text-sm text-comenioblue mb-2">Vyberte jazyk<br>Виберіть мову</div>
                         <div class="flex text-center">
                         <div class="mr-6">
                             <img src="./img/ua.png" id="ua" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
->>>>>>> ecbce1d25133bfc8868a123288fd0dc0c12efd47
                         </div>
                         <div class="">
-                            <img src="./img/cz.png" id="cz2" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
+                            <img src="./img/cz.png" id="cz" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
                         </div>
                     </div>
                     </div>
                 </div>
                 
-                <svg class="w-12 ml-auto mr-4 md:w-16 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-            <div class="text-center items-start mt-4 col-span-3">
-                        <div class="flex text-center">
-                        <div class="mr-6 bg-blend-luminosity">
-                            <img src="./img/ua.png" id="ua" class="mx-auto px-auto border-2 border-comeniowhiteblue hover:border-sky-600">
-                        </div>
-                        <div class="">
-                            <img src="./img/cz.png" id="cz" class="mx-auto px-auto border-2 border-comeniodark hover:border-sky-600">
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
->>>>>>> ae28a9ad455db4a57ee4e531ac8d7816bb4972d0
             <div id="odhlasit" class="justify-end col-span-1 text-center">
                 <svg class="w-12 ml-auto mr-4 md:w-16 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <div class="text-center items-start mt-4 col-span-3">
+            <div class="text-center items-start mt-4 col-span-3 z-5">
             <h1 id="nadpis">Upozornit učitele</h1>
             </div>
         </div>
-        <div id = "divMenu" class="text-xl max-h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
+        <div id = "divMenu" class="text-xl max-h-[15vh] py-1 text-comeniowhiteblue grid grid-cols-1 z-2"><!--tlacitka-->
             <div class="justify-center lg:col-span-1">
                 <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
                     <input
@@ -107,7 +69,7 @@
             </div>
             <div class="col-span-2 justify-center items-center mb-auto z-10 cursor-pointer lg:mr-[50%] lg:ml-[-50%]">
                 <div id="Tlacitko3" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
-                    Zvládám bez problému
+                    Potřebuji pomoc
                 </div>
             </div>
 
@@ -144,7 +106,15 @@
 
     <div class="popup" id="odpovedipopup">
         <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
-            <h1 id="hodpoved" class="text-center text-2xl">Napiš odpověď</h1>
+<<<<<<< HEAD
+            <h1 id="hNazevAnkety" class="text-center text-2xl">Napiš odpověď</h1>
+=======
+            <div id="anketazavrit" class="mb-4 flex items-center">
+                <h1 id="hodpoved" class="text-center text-xl">Napiš odpověď</h1>
+                <svg class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            
+>>>>>>> kancl0204
             <div class="justify-center flex mt-6 sm:mt-12">
                 <div>
                 </div>
@@ -171,7 +141,9 @@
     integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/zakvars.js"></script>
     <script src="/js/zak.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
     <script src="/js/zakdata.js"></script>
 </body>
 </html>
