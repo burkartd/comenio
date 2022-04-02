@@ -1,7 +1,14 @@
 
 divRoomNumber.innerHTML = '#';
 
-if(jazyk === 'uk') ZakText(1);
+if(jazyk === 'uk')
+{
+  vlajkacz.classList.add('border-comeniowhiteblue');
+  vlajkacz.classList.remove('border-comeniodark');
+  vlajkauk.classList.add('border-comeniodark');
+  vlajkauk.classList.remove('border-comeniowhiteblue');
+  ZakText(1);
+}
 
 odhlasit.addEventListener('click', () => window.history.go(-1)); //odhlášení z místnosti
 
