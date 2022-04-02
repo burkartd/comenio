@@ -13,7 +13,7 @@
         Přihlas se na počítači
     </div>
     <div class="hidden md:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
-        <div title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-14 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
+        <div title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
             <h1 id ="roomNumber" class="text-white text-3xl font-bold ""></h1>
         </div>
         <div class="col-start-6 col-span-3 row-start-1 row-span-1 flex items-center justify-center" ><!--pocet zaku-->
@@ -54,13 +54,13 @@
             
             <div class="bg-white" id="divbtnanketa" > <!--toto se zobrazí když není aktivní anketa-->
                 <button title="Poslat anketu - Zeptejte se žáků, jak učivo a výuku zvládají, posláním jednoduché ankety. Na kterou žáci odpoví buďto “zvládám” nebo “nezvládám”." type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
-                    Spustit anketu
+                    Poslat anketu
                 </button>
             </div>
 
             <div title="Poslat zprávu - Pošlete žákům vlastní zprávu nebo otázku, žáci Vám na ni mohou odpovědět vlastní zprávou." class="bg-white" id="divbtnodpovedi" > <!--toto se zobrazí když není aktivní anketa-->
                 <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:mt-6 md:text-base">
-                    Spustit odpověď
+                    Otázka žákům
                 </button>
             </div>
             
@@ -76,13 +76,13 @@
                 </div>
             </div>-->
 
-            <div class="bg-graf rounded-l-2xl p-4" id="anketaje"> <!--toto je před grafem na zadání ankety-->
+            <div class="bg-graf rounded-l-2xl p-2" id="anketaje"> <!--toto je před grafem na zadání ankety-->
                 <div>
-                    <form id="VlastniZpravaForm" class="block justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                    <form id="VlastniZpravaForm" class="block max-w-[100%] justify-center appearance-none rounded-xl py-2 md:py-4  text-center md:px-2 text-base text-comenioblue block">
                         <input
                         id="msg"
                         type="text"
-                        class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                        class="border-2 block max-w-[100%] border-comenioblue rounded-xl py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
                         placeholder="Vaše zpráva/otázka"
                         required
                         autocomplete="off"
@@ -90,7 +90,7 @@
                         <button id="sendbtn" class="pt-6 hover:underline text-lg font-semibold">Odeslat</button>
                     </form>
                 </div>
-                <div class="flex justify-center pt-4">
+                <div class="flex justify-center pt-4 pb-2">
                     <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>
                 </div>
             </div>
@@ -101,6 +101,39 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJauO5N7XXu0lGJbni8W06t5sjWAheWoQTslk5RU7azTTZfg/viewform" target="_blank">
                 <div class="opacity-50 text-sky-800 text-sm text-center mx-6 hover:underline hover:opacity-100">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
             </a>
+        </div>
+
+        <div class="popup">
+            <div class="items-center h-full pt-6  font-nunito">
+                <div id="anketazavrit" class="mb-4 flex items-center">
+                    <span class="ml-4 text-lg mr-auto text-comenioblue">Kája Vomáčka</span>
+                    <svg class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+
+                <div class="justify-center block">
+                    <div>
+                        <form id="VlastniZpravaForm" class="col-span-1 items-center justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                            <input
+                            id="msg"
+                            type="text"
+                            class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                            placeholder="Zpráva pro žáka"
+                            required
+                            autocomplete="off"
+                            />
+                            <button id="sendbtn" class="ml-2 hover:underline text-lg font-semibold">Odeslat</button>
+                        </form>
+                    </div>
+
+                    <button class="w-[70%] px-6 block py-2 mx-auto sm:px-10 sm:py-4  bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnsplneno">
+                        Buď aktivnější
+                    </button>
+
+                    <button class="w-[70%] px-6 block py-2 mt-4 mx-auto sm:px-10 sm:py-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnnesplneno">
+                        Dej prostor ostatním
+                    </button>
+                </div>
+            </div>
         </div>
 
     </div>

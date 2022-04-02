@@ -10,7 +10,7 @@
     <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
 
        
-        <div class="grid grid-cols-3 text-3xl font-bold p-4 pt-4 flex justify-center md:text-5xl lg:text-5xl lg:pt-10 items-center max-h-[30vh] lg:h-[25vh]"><!--main_nadpis-->
+        <div class="grid grid-cols-3 text-3xl font-bold p-4 pt-4 flex justify-center md:text-5xl lg:text-5xl lg:pt-10 items-center max-h-[30vh] lg:h-[30vh] z-3"><!--main_nadpis-->
             <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-6xl">
                 <h1 id ="roomNumber" class="text-sky-700">#333</h1>
             </div>
@@ -32,11 +32,11 @@
             <div id="odhlasit" class="justify-end col-span-1 text-center">
                 <svg class="w-12 ml-auto mr-4 md:w-16 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <div class="text-center items-start mt-4 col-span-3">
+            <div class="text-center items-start mt-4 col-span-3 z-5">
             <h1 id="nadpis">Upozornit učitele</h1>
             </div>
         </div>
-        <div id = "divMenu" class="text-xl max-h-[20vh] py-1 text-comeniowhiteblue grid grid-cols-1"><!--tlacitka-->
+        <div id = "divMenu" class="text-xl max-h-[15vh] py-1 text-comeniowhiteblue grid grid-cols-1 z-2"><!--tlacitka-->
             <div class="justify-center lg:col-span-1">
                 <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
                     <input
@@ -106,7 +106,11 @@
 
     <div class="popup" id="odpovedipopup">
         <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
-            <h1 id="hodpoved" class="text-center text-2xl">Napiš odpověď</h1>
+            <div id="anketazavrit" class="mb-4 flex items-center">
+                <h1 id="hodpoved" class="text-center text-xl">Napiš odpověď</h1>
+                <svg class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            
             <div class="justify-center flex mt-6 sm:mt-12">
                 <div>
                 </div>
