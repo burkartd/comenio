@@ -86,19 +86,13 @@ btn.addEventListener('click', () => {
         return;
       }
     
-      // const params = URLSearchParams({
-      //   name: nameInput.value,
-      //   room: roomInput.value,
-      //   lang: jazyk
-      // });
-
-      // var newUrl = new URL("/zak.html", document.location).href;
-      // newUrl.searchParams.append('name', nameInput.value);
-      // newUrl.searchParams.append('room', roomInput.value);
-      // console.log(newUrl);
-      //window.location.href = newUrl;
-
-      frm.submit();
-      document.getElementById("theForm").submit(); //pokud všechno ok - potvrzení formu
+      const params = new URLSearchParams({
+        userName: nameInput.value,
+        roomNumber: roomInput.value,
+        lang: jazyk,
+      });
+      console.log('/zak.html?' + params.toString());
+      window.location.href = '/zak.html?' + params.toString();
+      //frm.submit();
      });
 });
