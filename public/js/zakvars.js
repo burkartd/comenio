@@ -20,6 +20,7 @@ const Tlacitko1 = document.getElementById('Tlacitko1');
 const Tlacitko2 = document.getElementById('Tlacitko2');
 const Tlacitko3 = document.getElementById('Tlacitko3');
 const vlastni = document.getElementById('VlastniZpravaForm');
+const hNazevAnkety = document.getElementById('hNazevAnkety');
 
 const { userName, roomNumber, lang} = Qs.parse(location.search, {
     ignoreQueryPrefix: true,

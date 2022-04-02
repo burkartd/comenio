@@ -17,6 +17,7 @@ var jeOdpovedAktivni = false;
 
 var AnketaSplneno = []; //list žáků - splněno/nesplněno
 
+var nazevAnkety = '';
 
 var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Zvládám bez problému']; //předvolené zprávy
 
