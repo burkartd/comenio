@@ -708,6 +708,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2.5rem;
 }
 
+.mt-\[5vh\]{
+  margin-top: 5vh;
+}
+
+.mt-\[\]{
+  margin-top: ;
+}
+
+.mt-\[10vh\]{
+  margin-top: 10vh;
+}
+
+.mt-\[7vh\]{
+  margin-top: 7vh;
+}
+
 .box-content{
   box-sizing: content-box;
 }
@@ -1267,6 +1283,10 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-line: underline;
 }
 
+.opacity-50{
+  opacity: 0.5;
+}
+
 .bg-blend-luminosity{
   background-blend-mode: luminosity;
 }
@@ -1559,6 +1579,10 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-line: underline;
 }
 
+.hover\:opacity-100:hover{
+  opacity: 1;
+}
+
 .hover\:shadow-xl:hover{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -1830,6 +1854,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:ml-\[-50\%\]{
     margin-left: -50%;
+  }
+
+  .lg\:grid{
+    display: grid;
+  }
+
+  .lg\:hidden{
+    display: none;
   }
 
   .lg\:h-72{

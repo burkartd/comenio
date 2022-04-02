@@ -217,7 +217,7 @@ function zaciUpdate() //přepíše seznam žáků
         div.innerHTML = `
         <span class="text-comeniowhiteblue mr-4">${element.userName}</span>
                     <svg class="w-8 text-comeniowhiteblue bg-comenioblue rounded-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
+                     xmlns="http://www.w3.org/2000/svg" title="Plusko u žáka - Jednotlivému žákovi budeme moci poslat upozornění - Momentálně připravujeme."><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
                      </path></svg>`
     
         seznamZaku.appendChild(div);

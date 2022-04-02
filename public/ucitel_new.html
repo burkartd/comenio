@@ -13,8 +13,8 @@
         Přihlas se na počítači
     </div>
     <div class="hidden md:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
-        <div class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-14 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
-            <h1 id ="roomNumber" class="text-white text-3xl font-bold "></h1>
+        <div title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-14 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
+            <h1 id ="roomNumber" class="text-white text-3xl font-bold ""></h1>
         </div>
         <div class="col-start-6 col-span-3 row-start-1 row-span-1 flex items-center justify-center" ><!--pocet zaku-->
             <div class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
-            <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center "> 
+            <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center " title="Ukončit místnost - Tímto tlačítkem ukončíte místnost i pro všechny připojené žáky."> 
                 <a href="index.html"><svg class="h-9 text-sky-900 pl-2 self-center mx-auto " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>
                 <span class="text-black text-base px-4 py-2 font-semibold cursor-pointer block "><a href="index.html">Ukončit místnost</a></span>
         </div>
@@ -36,7 +36,7 @@
                 
             </div>
         </div>
-        <div class="col-start-4 row-start-2 col-span-7 row-span-4 mr-[5%] max-h-[70vh]"><!--hlavni tabulka s popisem-->
+        <div class="col-start-4 row-start-2 col-span-7 row-span-4 mr-[5%] max-h-[70vh] mt-[7vh]"><!--hlavni tabulka s popisem-->
             <div class="flex items-center justify-between px-8"><!--popis tabulky +mazaci tlacitko-->
                 <div class="text-3xl text-black font-ubuntu font-semibold">
                     Upozornění
@@ -53,14 +53,14 @@
         <div id="anketydiv" class="col-start-11 row-start-3 col-span-2 row-span-2 bg-white"><!--graf + tlac-->
             
             <div class="bg-white" id="divbtnanketa" > <!--toto se zobrazí když není aktivní anketa-->
-                <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
-                    Spustit úkol
+                <button title="Poslat anketu - Zeptejte se žáků, jak učivo a výuku zvládají, posláním jednoduché ankety. Na kterou žáci odpoví buďto “zvládám” nebo “nezvládám”." type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
+                    Spustit anketu
                 </button>
             </div>
 
-            <div class="bg-white" id="divbtnodpovedi" > <!--toto se zobrazí když není aktivní anketa-->
+            <div title="Poslat zprávu - Pošlete žákům vlastní zprávu nebo otázku, žáci Vám na ni mohou odpovědět vlastní zprávou." class="bg-white" id="divbtnodpovedi" > <!--toto se zobrazí když není aktivní anketa-->
                 <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:mt-6 md:text-base">
-                    Spustit odpovědi
+                    Spustit odpověď
                 </button>
             </div>
             
@@ -83,7 +83,7 @@
                         id="msg"
                         type="text"
                         class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
-                        placeholder="Zadání ankety"
+                        placeholder="Vaše zpráva/otázka"
                         required
                         autocomplete="off"
                         />
@@ -99,7 +99,7 @@
 
         <div class="col-start-11 row-start-6 col-span-2 row-span-1 bg-white flex items-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJauO5N7XXu0lGJbni8W06t5sjWAheWoQTslk5RU7azTTZfg/viewform" target="_blank">
-                <div class="text-sky-800 text-base text-center mx-6 hover:underline">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
+                <div class="opacity-50 text-sky-800 text-sm text-center mx-6 hover:underline hover:opacity-100">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
             </a>
         </div>
 
