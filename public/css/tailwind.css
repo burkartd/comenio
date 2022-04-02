@@ -1205,6 +1205,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.5rem;
 }
 
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .font-semibold{
   font-weight: 600;
 }
@@ -1934,6 +1939,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:pt-20{
     padding-top: 5rem;
+  }
+
+  .lg\:pt-4{
+    padding-top: 1rem;
   }
 
   .lg\:text-left{
