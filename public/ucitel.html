@@ -9,51 +9,146 @@
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body class="noselect">
-    <div class="bg-comeniowhiteblue font-nunito h-screen grid grid-cols-2 xl:grid-cols-10 auto-rows-min"> <!--container-->
-        <div class="p-8 xl:col-start-5 xl:col-span-2 xl:flex xl:justify-center xl:pt-8 xl:pb-2"> <!--mistnost-->
-        <h1 id ="roomNumber" class="text-sky-700 text-3xl font-semibold xl:text-6xl lg:text-4xl xl:font-bold"></h1>
-    
+    <div class="block md:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
+        Přihlas se na počítači
+    </div>
+    <div class="hidden md:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
+        <div title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-2 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
+            <h1 id ="roomNumber" class="text-white text-3xl font-bold ""></h1>
         </div>
-        <div id="konecmistnosti" class="ptr flex justify-end xl:justify-center p-4 items-center xl:text-center pr-6 xl:px-4 xl:col-start-10 xl:pt-8 xl:pb-2"> <!--konec mistnosti-->
-            <svg class="h-12 text-sky-900 xl:self-center xl:mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            <span class="text-black text-sm px-2 hidden xl:block">Ukončit místnost</span>
-        </div>
-        <div class="xl:bg-white col-span-2 mt-2 mb-4 mx-4 xl:col-span-2 xl:row-span-6 xl:row-start-1 xl:h-[100vh] xl:m-0 xl:p-4 xl:border-r-2 border-sky-800"><!--databaze zaku celkove-->
-            <div class="text-sky-900 text-base font-medium pb-2 xl:text-xl">
-                <span>Přehled žáků:</span>
+        <div class="col-start-6 col-span-3 row-start-1 row-span-1 flex items-center justify-center" ><!--pocet zaku-->
+            <div title="Počet připojených žáků" class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
+                <span class="text-lg">Žáků v místnosti:</span>
+                <span id="pocetzaku" class="font-bold text-xl ">0</span>
             </div>
-            <div id="seznamZaku" class="bg-white h-52 rounded-lg border-2 border-comeniodark md:h-64 lg:h-72 xl:h-[95%] xl:border-0 overflow-auto"><!--actuall databaze zaku-->
-                <div class="zaznam">
-                    <span class="text-black px-2">Kája Vomáčka </span>
-                    <svg class="w-6 text-comeniodark rounded-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+        </div>
+        <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
+            <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center " title="Ukončit místnost - Tímto tlačítkem ukončíte místnost i pro všechny připojené žáky."> 
+                <a href="index.html"><svg class="h-9 text-sky-900 pl-2 self-center mx-auto " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>
+                <span class="text-black text-base px-4 py-2 font-semibold cursor-pointer block "><a href="index.html">Ukončit místnost</a></span>
+        </div>
+        </div>
+        <div class="col-start-1 row-start-1 col-span-3 row-span-6 bg-comeniodark pl-[5%] h-screen rounded-r-3xl mr-[20%]"> <!--prvni sloupec se zaky-->
+            <div class="py-[5%]">
+                <h1 class="text-white font-ubuntu text-3xl font-semibold pt-8" title="Připojení žáci do místnosti, kliknutím na žáka mu můžete poslat upozornění">Přehled žáků</h1>
+            </div>
+            <div id="seznamZaku" class="pt-[5%]"><!--seznam žáků-->
+                
+            </div>
+        </div>
+        <div class="col-start-4 row-start-2 col-span-7 row-span-4 mr-[5%] max-h-[70vh] mt-[7vh]"><!--hlavni tabulka s popisem-->
+            <div class="flex items-center justify-between px-8"><!--popis tabulky +mazaci tlacitko-->
+                <div class="text-3xl text-black font-ubuntu font-semibold" title="Upozornění od žáků rozlišené ikonami na přednastavená, vlastní zprávy a odpovědi na otázky">
+                    Upozornění
+                </div>
+                <div id="odstranitvse" class="justify-center cursor-pointer" title="Vymaže všechna upozornění od žáků">
+                    <svg class="w-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    <span class="text-xs">Odstranit vše</span>
                 </div>
             </div>
+            <div id="seznamUpozorneni" class="bg-white shadow-lg rounded-lg py-4 max-h-[80%] h-[80%] overflow-auto scrollbar"><!--actuall tabulka-->
+
+            </div>
+        </div>
+        
+        <!-- ******* div vpravo - otázky, ankety, graf ********** -->
+        <div id="anketydiv" class="col-start-11 row-start-3 col-span-2 row-span-2 bg-white"><!--graf + tlac-->
             
-        </div>
-        <div class="col-span-2 mt-2 mb-4 mx-4 xl:col-span-6 xl:row-span-3 xl:row-start-2 xl:h-[60vh] xl:mx-16"><!--databaze upozorneni celkove-->
-            <div class="text-sky-900 text-base font-medium pb-2 xl:text-xl">
-                <span>Přehled upozornění:</span>
+            <div class="bg-white" id="divbtnanketa" title="Nechte si od žáků potvrdit splnění zadaného úkolu"> <!-- tlačítko - spuštění potvrezní spnění úkolu -->
+                <button type="button" id="zacitanketu" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:text-base">
+                    Potvrzení splnění
+                </button>
             </div>
-            <div id="seznamUpozorneni" class="bg-white h-52 overflow-auto rounded-lg border-2 border-sky-700 md:h-64 lg:h-72 xl:h-[50vh] xl:shadow-md xl:border-0"><!--actuall databaze upozorneni-->
-                <div class="zaznam">
-                    <svg class="w-8 text-sky-800 pl-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path></svg>
-                    <span class="text-gray-900 px-2 xl:font-medium">Kája Vomáčka:</span>
-                    <span class="text-gray-900 ">Chci probirat rychleji</span>
-                    <span class="text-gray-900 justify-end ml-auto mr-4">11:24</span>
+
+            <div class="bg-white" id="divbtnodpovedi" title="Pošlete žákům otázku, na kterou od nich dostanete odpověď">
+                <button type="button" id="zacitodpovedi" class="flex-shrink-0 text-center bg-comenioblue cursor-pointer border-comenioblue text-sm border-4 text-comeniowhiteblue hover:shadow-xl px-2 py-2 w-[60%] rounded mx-[30%] md:mx-[10%] md:w-[80%] md:px-8 md:py-4 md:mt-6 md:text-base">
+                    Otázka žákům
+                </button>
+            </div>
+
+
+            <!--toto je před grafem na zadání ankety-->
+            <div class="bg-graf rounded-l-2xl p-4 skryto" id="zadaniNazvuOtazky"> 
+                <div>
+                    <form id="inputNazevOtazky" class="block justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                        <input
+                        title="Napište svoji otázku, nebo pole nevyplňujte vůbec" 
+                        id="inazev"
+                        type="text"
+                        class="border-2 block max-w-[100%] border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                        placeholder="Napište otázku"
+                        autocomplete="off"
+                        />
+                        <button id="btnNazevOtazky" type="submit" class="pt-6 hover:underline text-lg font-semibold">Odeslat</button>
+                    </form>
                 </div>
-                <div class="zaznam">
-                    <svg class="w-8 text-red-600 pl-2 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    <span class="text-gray-900 px-2 xl:font-medium">Kája Vomáčka:</span>
-                    <span class="text-gray-900 ">Chci probirat rychleji</span>
-                    <span class="text-gray-900 justify-end ml-auto mr-4">11:24</span>
+                <div class="flex justify-center pt-4">
+                    <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="zrusitOtazku">Zrušit</button>
+                </div>
+            </div>
+
+                        
+            <!-- *********GRAF********  -->
+            <div class="bg-graf p-4 skryto" id="anketaje">
+                <div class="flex justify-center">
+                    <span class="text-center text-black text-base px-4 py-2 font-semibold cursor-pointer block" id="grafnadpis">Hotových žáků: </span>
+                </div>
+                <div>
+                    <canvas id="myChart" class="customchart"></canvas>
+                </div>
+                <div class="flex justify-center pt-4 pb-2">
+                    <button class="text-comenioblue underline font-semibold hover:text-comeniodark" id="ukoncitanketu">Ukončit</button>
                 </div>
             </div>
             
         </div>
 
+        <div class="col-start-11 row-start-6 col-span-2 row-span-1 bg-white flex items-center">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJauO5N7XXu0lGJbni8W06t5sjWAheWoQTslk5RU7azTTZfg/viewform" target="_blank">
+                <div class="opacity-50 text-sky-800 text-sm text-center mx-6 hover:underline hover:opacity-100">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
+            </a>
+        </div>
+
+        <div id="divZpravaZakovi" class="popup">
+            <div class="items-center h-full pt-6  font-nunito">
+                <div class="mb-4 flex items-center">
+                    <span id="zpravaZakoviJmeno" class="ml-4 text-lg mr-auto text-comenioblue"></span>
+                    <svg id="svgZavritZpravu" class="w-8 mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+
+                <div class="justify-center block">
+                    <div>
+                        <form id="ZpravaZakoviForm" class="col-span-1 items-center justify-center appearance-none rounded-xl py-2 md:py-8  text-center md:px-8 text-lg text-comenioblue block">
+                            <input
+                            id="msg3"
+                            type="text"
+                            class="border-2 block border-comenioblue rounded-xl p-2 py-4 focus:border-2 focus:outline-none md:py-4 focus:border-sky-700 mx-auto text-center"
+                            placeholder="Zpráva pro žáka"
+                            required
+                            autocomplete="off"
+                            />
+                            <button id="zakoviPoslat" class="ml-2 hover:underline text-lg font-semibold">Odeslat</button>
+                        </form>
+                    </div>
+
+                    <button class="w-[70%] px-6 block py-2 mx-auto sm:px-10 sm:py-4  bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="prednastavena1">
+                        Buď aktivnější
+                    </button>
+
+                    <button class="w-[70%] px-6 block py-2 mt-4 mx-auto sm:px-10 sm:py-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="prednastavena2">
+                        Dej prostor ostatním
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
+    <script src="/scripts/chart.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/ucitelvars.js"></script>
+    <script src="/js/ucitelgraf.js"></script>
     <script src="/js/ucitel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>    
 
 </body>
 </html>

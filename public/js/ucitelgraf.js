@@ -52,7 +52,7 @@ ukoncit.addEventListener('click', () => { //ukončit anketu
 btnZacitAnketu.addEventListener('click', () => { //začít anketu
  
     ZobrazitGraf();
-
+    if(myChart) myChart.destroy();
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
@@ -62,6 +62,8 @@ btnZacitAnketu.addEventListener('click', () => { //začít anketu
 
 btnZacitOdpovedi.addEventListener('click', () => { //začít odpovědi
  
+    if(myChart) myChart.destroy();
+
     let arr = Array.from(ankety.children);
 
     arr.forEach(el => {
@@ -70,9 +72,12 @@ btnZacitOdpovedi.addEventListener('click', () => { //začít odpovědi
 
     arr[arr.length - 2].classList.remove('skryto'); //název ankety
 
+    document.getElementById('inazev').focus();
+
 }); 
 
 zrusitOtazku.addEventListener('click', () => {
+    if(myChart) myChart.destroy();
     SkrytGraf();
 })
 

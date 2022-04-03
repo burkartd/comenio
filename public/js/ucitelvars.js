@@ -19,7 +19,7 @@ var AnketaSplneno = []; //list žáků - splněno/nesplněno
 
 var nazevOtazky = '';
 
-var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Zvládám bez problému']; //předvolené zprávy
+var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Potřebuji pomoc']; //předvolené zprávy
 
 const divRoomNumber = document.getElementById('roomNumber'); //číslo místnosti
 

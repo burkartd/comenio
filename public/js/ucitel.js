@@ -4,8 +4,6 @@ vymazatvse.addEventListener('click', () => {
     pocetUpozorneni = 0;
 }); //odhlášení z místnosti
 
-var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Zvládám bez problému']; //předvolené zprávy
-
 function pocetZakuUpdate()
 {
     zaku.innerHTML = pocetZaku;
@@ -32,7 +30,19 @@ socket.on('connect', () =>
     
     id = socket.id; 
 
-    pocetZakuUpdate(); //žádní tam nejsou žejo
+    seznamUpozorneni.innerHTML = '';
+    pocetUpozorneni = 0;
+
+    while(AnketaSplneno.length > 0) {AnketaSplneno.pop();}
+    while(zaci.length > 0) {zaci.pop();}
+
+    jeAnketaAktivni = false;
+    jeOdpovedAktivni = false;
+    nazevOtazky = '';
+
+    seznamZaku.innerHTML = '';
+
+    pocetZaku = 0;
     zaku.innerHTML = pocetZaku;
 });
 
@@ -258,7 +268,7 @@ function zpravaZakovi(element)
 
         setTimeout(()=>{
             divZpravaZakovi.classList.remove('active');
-        }, 500)
+        }, 200)
 
         
     })
@@ -267,14 +277,14 @@ function zpravaZakovi(element)
         socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: id});
         setTimeout(()=>{
             divZpravaZakovi.classList.remove('active');
-        }, 500)
+        }, 200)
     })
 
     document.getElementById('prednastavena2').addEventListener('click', () => {
         socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: id});
         setTimeout(()=>{
             divZpravaZakovi.classList.remove('active');
-        }, 500)
+        }, 200)
     })
 
     document.getElementById('svgZavritZpravu').addEventListener('click', () => {
