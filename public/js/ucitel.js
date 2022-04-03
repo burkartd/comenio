@@ -243,23 +243,21 @@ function zaciUpdate() //přepíše seznam žáků
 
     });
 }
+var zakovoid;
 function zpravaZakovi(element)
 {
-    let id = element.dataset.zakid;
+    zakovoid = element.dataset.zakid;
 
-    const index = zaci.findIndex(zaci => zaci.id === id);
-
+    const index = zaci.findIndex(zaci => zaci.id === zakovoid);
     jmeno = zaci[index].userName;
 
     document.getElementById('zpravaZakoviJmeno').innerHTML = jmeno;
     divZpravaZakovi.classList.add('active');
-
     
 }
 
 zpravaForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     // Get message text
     let zprava = e.target.elements.msg3.value;
 
@@ -267,7 +265,7 @@ zpravaForm.addEventListener('submit', (e) => {
 
     e.target.elements.msg3.value = '';
 
-    socket.emit('zpravaZakovi', {msg: zprava, zakid: id})
+    socket.emit('zpravaZakovi', {msg: zprava, zakid: zakovoid})
 
     console.log(zprava);
 
@@ -279,14 +277,16 @@ zpravaForm.addEventListener('submit', (e) => {
 })
 
 document.getElementById('prednastavena1').addEventListener('click', () => {
-    socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: id});
+    
+    socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: zakovoid});
     setTimeout(()=>{
         divZpravaZakovi.classList.remove('active');
     }, 200)
 })
 
 document.getElementById('prednastavena2').addEventListener('click', () => {
-    socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: id});
+    
+    socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: zakovoid});
     setTimeout(()=>{
         divZpravaZakovi.classList.remove('active');
     }, 200)

@@ -92,9 +92,14 @@ io.on('connection', socket => {
         })
 
         socket.on('zpravaZakovi', (data) => {
-            console.log(data);
-            //io.sockets.sockets.get(data.zakid).emit('zpravaOdUcitele', data.msg);
-            io.sockets.to(data.zakid).emit('zpravaOdUcitele', data.msg);
+            //console.log(data);
+            
+            const tmp = io.sockets.sockets.get(data.zakid);
+            
+            if(tmp) tmp.emit('zpravaZakovi', data.msg);
+
+            //io.sockets.sockets.get(data.zakid).emit('zpravaZakovi', data.msg);
+            
         })
 
         //učitel se odpojí - ukončí místnost

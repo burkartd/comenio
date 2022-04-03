@@ -114,7 +114,8 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
     });
 });
 
-socket.on('zpravaOdUcitele', (msg) => {
+socket.on('zpravaZakovi', (msg) => {
+  console.log(msg);
   zpravaOdUcitele(msg);
 })
 
@@ -210,6 +211,4 @@ async function zpravaOdUcitele(msg)
   document.getElementById('zpravaZavrit').addEventListener('click', () => {
     divZpravaOdUcitele.classList.remove('active');
   })
-
-  console.log(msg);
 }

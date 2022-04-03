@@ -26,6 +26,7 @@ const { userName, roomNumber, lang} = Qs.parse(location.search, {
 
 
 var id = socket.id; // id sockety
+console.log(socket);
 var jazyk = 'cz'; //česky
 var jsouOtevrene = false;
 var roomName = 'room' + roomNumber; //jméno roomky
