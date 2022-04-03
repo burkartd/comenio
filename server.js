@@ -22,6 +22,9 @@ app.use('/scripts', express.static(path.join(__dirname, '/node_modules/chart.js/
 //nastavení static folder
 app.use(express.static(path.join(__dirname, 'public'))); //abysme měli přístup k frontendu
 
+process.on('uncaughtException', err => {
+    console.error(err && err.stack)
+  });
 
 //když se připojí klient
 io.on('connection', socket => {
@@ -89,7 +92,9 @@ io.on('connection', socket => {
         })
 
         socket.on('zpravaZakovi', (data) => {
-            io.sockets.sockets.get(data.zakid).emit('zpravaZakovi', data.msg);
+            console.log(data);
+            //io.sockets.sockets.get(data.zakid).emit('zpravaOdUcitele', data.msg);
+            io.sockets.to(data.zakid).emit('zpravaOdUcitele', data.msg);
         })
 
         //učitel se odpojí - ukončí místnost

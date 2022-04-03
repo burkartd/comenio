@@ -254,43 +254,47 @@ function zpravaZakovi(element)
     document.getElementById('zpravaZakoviJmeno').innerHTML = jmeno;
     divZpravaZakovi.classList.add('active');
 
-    zpravaForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-  
-        // Get message text
-        let zprava = e.target.elements.msg3.value;
     
-        zprava = zprava.trim();
-    
-        e.target.elements.msg3.value = '';
-
-        socket.emit('zpravaZakovi', {msg: zprava, zakid: id})
-
-        setTimeout(()=>{
-            divZpravaZakovi.classList.remove('active');
-        }, 200)
-
-        
-    })
-
-    document.getElementById('prednastavena1').addEventListener('click', () => {
-        socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: id});
-        setTimeout(()=>{
-            divZpravaZakovi.classList.remove('active');
-        }, 200)
-    })
-
-    document.getElementById('prednastavena2').addEventListener('click', () => {
-        socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: id});
-        setTimeout(()=>{
-            divZpravaZakovi.classList.remove('active');
-        }, 200)
-    })
-
-    document.getElementById('svgZavritZpravu').addEventListener('click', () => {
-        divZpravaZakovi.classList.remove('active');
-    })
 }
+
+zpravaForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get message text
+    let zprava = e.target.elements.msg3.value;
+
+    zprava = zprava.trim();
+
+    e.target.elements.msg3.value = '';
+
+    socket.emit('zpravaZakovi', {msg: zprava, zakid: id})
+
+    console.log(zprava);
+
+    setTimeout(()=>{
+        divZpravaZakovi.classList.remove('active');
+    }, 200)
+
+    
+})
+
+document.getElementById('prednastavena1').addEventListener('click', () => {
+    socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: id});
+    setTimeout(()=>{
+        divZpravaZakovi.classList.remove('active');
+    }, 200)
+})
+
+document.getElementById('prednastavena2').addEventListener('click', () => {
+    socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: id});
+    setTimeout(()=>{
+        divZpravaZakovi.classList.remove('active');
+    }, 200)
+})
+
+document.getElementById('svgZavritZpravu').addEventListener('click', () => {
+    divZpravaZakovi.classList.remove('active');
+})
 
 
 async function vlastniZprava(data)

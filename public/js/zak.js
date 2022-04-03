@@ -114,7 +114,7 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
     });
 });
 
-socket.on('zpravaZakovi', (msg) => {
+socket.on('zpravaOdUcitele', (msg) => {
   zpravaOdUcitele(msg);
 })
 
@@ -199,12 +199,13 @@ async function zpravaOdUcitele(msg)
 {
   if(jazyk === 'uk')
   {
-    msg = await translate(msg, {from: "cs", to: "uk" });
+    const foo = await translate(msg, {from: "cs", to: "uk" });
+    msg = foo;
   }
 
   divZpravaOdUcitele.classList.add('active');
 
-  document.getElementById('zpravaTxt').innerHTML = msg;
+  document.getElementById('zpravaTxt').innerText = msg;
 
   document.getElementById('zpravaZavrit').addEventListener('click', () => {
     divZpravaOdUcitele.classList.remove('active');
