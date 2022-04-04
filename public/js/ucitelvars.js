@@ -56,3 +56,5 @@ const zrusitOtazku = document.getElementById('zrusitOtazku');
 const divZpravaZakovi = document.getElementById('divZpravaZakovi');
 
 const zpravaForm = document.getElementById('ZpravaZakoviForm');
+
+const ukrajinacb = document.getElementById('cbukrajina');
