@@ -51,7 +51,7 @@ nesplneno.addEventListener('click', () => {
 
 function openClose()
 {
-  console.log('otevřeno zavřeno');
+  //console.log('otevřeno zavřeno');
   var elements = document.getElementsByClassName('modal');
   Array.from(elements).forEach(element => openCloseModal(element));
   jsouOtevrene = !jsouOtevrene;
@@ -99,7 +99,7 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
           window.location.href = 'index.html';
       } 
        
-      console.log('tady');
+      //console.log('tady');
       divRoomNumber.innerHTML = '#' + roomNumber;
       if(data.anketa)
       {
@@ -115,7 +115,7 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
 });
 
 socket.on('zpravaZakovi', (msg) => {
-  console.log(msg);
+  //console.log(msg);
   zpravaOdUcitele(msg);
 })
 
@@ -142,7 +142,7 @@ socket.on('spustitOdpovedi', (data) => {
 })
 
 socket.on('ukoncitOdpovedi', () => {
-  console.log('ahoj');
+  //console.log('ahoj');
   odpovedidiv.classList.remove('active');
 })
 
