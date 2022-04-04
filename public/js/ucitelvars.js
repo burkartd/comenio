@@ -20,6 +20,7 @@ var AnketaSplneno = []; //list žáků - splněno/nesplněno
 var nazevOtazky = '';
 
 var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Potřebuji pomoc']; //předvolené zprávy
+var zpravyuk = ['Я не можу зловити рекорд', 'Я не розумію навчальної програми', 'мені потрібна допомога']
 
 const divRoomNumber = document.getElementById('roomNumber'); //číslo místnosti
 
