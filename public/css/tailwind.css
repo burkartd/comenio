@@ -707,6 +707,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.5rem;
 }
 
+.mt-\[-5\%\]{
+  margin-top: -5%;
+}
+
+.mt-\[-3\%\]{
+  margin-top: -3%;
+}
+
+.mb-\[5\%\]{
+  margin-bottom: 5%;
+}
+
+.mb-\[3\%\]{
+  margin-bottom: 3%;
+}
+
 .box-content{
   box-sizing: content-box;
 }
@@ -761,6 +777,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[50vh\]{
   height: 50vh;
+}
+
+.h-\[8vh\]{
+  height: 8vh;
+}
+
+.h-\[10vh\]{
+  height: 10vh;
+}
+
+.h-\[\E1vh\]{
+  height: ávh;
 }
 
 .max-h-screen{
@@ -825,6 +853,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-14{
   width: 3.5rem;
+}
+
+.w-10{
+  width: 2.5rem;
 }
 
 .max-w-\[100\%\]{
@@ -1801,6 +1833,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: -50%;
   }
 
+  .lg\:mt-\[-4\%\]{
+    margin-top: -4%;
+  }
+
+  .lg\:mb-\[4\%\]{
+    margin-bottom: 4%;
+  }
+
   .lg\:h-\[35vh\]{
     height: 35vh;
   }
@@ -1811,6 +1851,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:h-24{
     height: 6rem;
+  }
+
+  .lg\:h-\[10vh\]{
+    height: 10vh;
   }
 
   .lg\:w-36{
