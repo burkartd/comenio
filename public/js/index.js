@@ -11,8 +11,11 @@ const upJmeno2 = document.getElementById('upozornenijmeno2');
 const upMistnost = document.getElementById('upozornenimistnost');
 
 const vlajka = document.getElementById('vlajka');
-const vlajkauk = document.getElementById('ua');
-const vlajkacz = document.getElementById('cz');
+const vlajka1 = document.getElementById('vlajka1');
+const vlajka2 = document.getElementById('vlajka2');
+const vlajka3 = document.getElementById('vlajka3');
+const vlajka4 = document.getElementById('vlajka4');
+const vlajka5 = document.getElementById('vlajka5');
 
 var jazyk = 'cz';
 
@@ -25,22 +28,88 @@ roomInput.addEventListener("keyup", function(event) {
   });
 
 
-vlajkauk.addEventListener('click', () => {
-  vlajkacz.classList.add('border-comeniowhiteblue');
-  vlajkacz.classList.remove('border-comeniodark');
-  vlajkauk.classList.add('border-comeniodark');
-  vlajkauk.classList.remove('border-comeniowhiteblue');
+vlajka1.addEventListener('click', () => { //uk
+  vlajka2.classList.add('border-comeniowhiteblue');
+  vlajka2.classList.remove('border-comeniodark');
+  vlajka1.classList.add('border-comeniodark');
+  vlajka1.classList.remove('border-comeniowhiteblue');
   jazyk = 'uk';
-  IndexText(1);
+  IndexText('ua');
 })
 
-vlajkacz.addEventListener('click', () => {
-  vlajkauk.classList.add('border-comeniowhiteblue');
-  vlajkauk.classList.remove('border-comeniodark');
-  vlajkacz.classList.add('border-comeniodark');
-  vlajkacz.classList.remove('border-comeniowhiteblue');
-  jazyk = 'cz';
-  IndexText(0);
+vlajka2.addEventListener('click', () => { //ostatni
+  vlajka1.classList.add('border-comeniowhiteblue');
+  vlajka1.classList.remove('border-comeniodark');
+  vlajka2.classList.add('border-comeniodark');
+  vlajka2.classList.remove('border-comeniowhiteblue');
+  jazyk = vlajka2.dataset.jazyk;
+  IndexText(jazyk);
+})
+
+vlajka3.addEventListener('click', () => { //ostatni
+  vlajka1.classList.add('border-comeniowhiteblue');
+  vlajka1.classList.remove('border-comeniodark');
+  vlajka2.classList.add('border-comeniodark');
+  vlajka2.classList.remove('border-comeniowhiteblue');
+  
+  let jazykOrig = vlajka2.dataset.jazyk;
+  let jazykNovy = vlajka3.dataset.jazyk;
+  let vlajkaOrig = vlajka2.src;
+  let vlajkaNova = vlajka3.src;
+
+  vlajka3.dataset.jazyk = jazykOrig
+  vlajka3.src = vlajkaOrig
+
+  vlajka2.dataset.jazyk = jazykNovy
+  vlajka2.src = vlajkaNova
+
+  jazyk = jazykNovy;
+
+  IndexText(jazykNovy);
+})
+
+vlajka4.addEventListener('click', () => { //ostatni
+  vlajka1.classList.add('border-comeniowhiteblue');
+  vlajka1.classList.remove('border-comeniodark');
+  vlajka2.classList.add('border-comeniodark');
+  vlajka2.classList.remove('border-comeniowhiteblue');
+  
+  let jazykOrig = vlajka2.dataset.jazyk;
+  let jazykNovy = vlajka4.dataset.jazyk;
+  let vlajkaOrig = vlajka2.src;
+  let vlajkaNova = vlajka4.src;
+
+  vlajka4.dataset.jazyk = jazykOrig
+  vlajka4.src = vlajkaOrig
+
+  vlajka2.dataset.jazyk = jazykNovy
+  vlajka2.src = vlajkaNova
+
+  jazyk = jazykNovy;
+
+  IndexText(jazykNovy);
+})
+
+vlajka5.addEventListener('click', () => { //ostatni
+  vlajka1.classList.add('border-comeniowhiteblue');
+  vlajka1.classList.remove('border-comeniodark');
+  vlajka2.classList.add('border-comeniodark');
+  vlajka2.classList.remove('border-comeniowhiteblue');
+  
+  let jazykOrig = vlajka2.dataset.jazyk;
+  let jazykNovy = vlajka5.dataset.jazyk;
+  let vlajkaOrig = vlajka2.src;
+  let vlajkaNova = vlajka5.src;
+
+  vlajka5.dataset.jazyk = jazykOrig
+  vlajka5.src = vlajkaOrig
+
+  vlajka2.dataset.jazyk = jazykNovy
+  vlajka2.src = vlajkaNova
+
+  jazyk = jazykNovy;
+
+  IndexText(jazykNovy);
 })
   //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
