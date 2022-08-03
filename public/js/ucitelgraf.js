@@ -120,8 +120,10 @@ function updateGraf(splnenozaku, celkem, typ)
     }
 
     myChart.update();
-    if(typ === 1) nadpis.innerHTML = `Hotových žáků: ${splnenozaku}/${celkem}`;
-    if(typ === 2) nadpis.innerHTML = `Odpovědí: ${splnenozaku}/${celkem}`;
+    // if(typ === 1) nadpis.innerHTML = `Hotových žáků: ${splnenozaku}/${celkem}`;
+    
+    if(typ === 1) nadpis.innerHTML = `${ucitelDataChart["typ1"][JazykUcitelGlob]}: ${splnenozaku}/${celkem}`;
+    if(typ === 2) nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: ${splnenozaku}/${celkem}`;
 }
 
 function SkrytGraf()

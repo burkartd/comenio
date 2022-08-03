@@ -54,13 +54,13 @@ socket.on('newUser', (zak) => {
     if(jeAnketaAktivni)
     {
         AnketaSplneno.push({id: zak.id, splneno: false});
-        nadpis.innerHTML = `Hotových žáků: ${hotovychZaku}/${pocetZaku}`;
+        nadpis.innerHTML = `${ucitelDataChart["typ1"][JazykUcitelGlob]}: ${hotovychZaku}/${pocetZaku}`;;
         updateGraf(hotovychZaku, pocetZaku, 1);
     }
     if(jeOdpovedAktivni)
     {
         AnketaSplneno.push({id: zak.id, splneno: false});
-        nadpis.innerHTML = `Odpovědí: ${hotovychZaku}/${pocetZaku}`;
+        nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: ${hotovychZaku}/${pocetZaku}`;
         updateGraf(hotovychZaku, pocetZaku, 2);
     }
 
@@ -135,7 +135,7 @@ function zacitAnketu()
         AnketaSplneno.push({id: zak.id, splneno: false});
     });
     jeAnketaAktivni = true;
-    nazevOtazky = 'název pičo'
+    //nazevOtazky = 'název pičo'
     socket.emit('spustitAnketu');
 }
 
@@ -186,14 +186,15 @@ function odhlaseni(id)
         {
             if(AnketaSplneno[index].splneno == true){hotovychZaku--;}
             AnketaSplneno.splice(index, 1);
-            nadpis.innerHTML = `Hotových žáků: ${hotovychZaku}/${pocetZaku}`;
+            //nadpis.innerHTML = `Hotových žáků: ${hotovychZaku}/${pocetZaku}`;
+            nadpis.innerHTML = `${ucitelDataChart["typ1"][JazykUcitelGlob]}: ${hotovychZaku}/${pocetZaku}`
             updateGraf(hotovychZaku, pocetZaku, 1);
         }
         if(jeOdpovedAktivni)
         {
             if(AnketaSplneno[index].splneno == true){hotovychZaku--;}
             AnketaSplneno.splice(index, 1);
-            nadpis.innerHTML = `Odpovědí: ${hotovychZaku}/${pocetZaku}`;
+            nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}:  ${hotovychZaku}/${pocetZaku}`;
             updateGraf(hotovychZaku, pocetZaku, 2);
         }
         zaci.splice(index, 1);
@@ -209,13 +210,13 @@ function prihlaseni(zak)
     if(jeAnketaAktivni)
     {
         AnketaSplneno.push({id: zak.id, splneno: false});
-        nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+        nadpis.innerHTML = `${ucitelDataChart["typ1"][JazykUcitelGlob]}: 0/${pocetZaku}`;
         updateGraf(hotovychZaku, pocetZaku, 1);
     }
     if(jeOdpovedAktivni)
     {
         AnketaSplneno.push({id: zak.id, splneno: false});
-        nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
+        nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: 0/${pocetZaku}`;
         updateGraf(hotovychZaku, pocetZaku, 2);
     }
     

@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="./css/tailwind.css">
 </head>
 <body class="noselect">
-    <div class="block md:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
+    <div id="prihlas" class="block md:hidden text-center text-3xl text-comenioblue pt-20 font-nunito font-semi-bold"><!--mobil-->
         Přihlas se na počítači
     </div>
     <div class="hidden md:grid h-screen auto-rows-auto grid-cols-12 grid-rows-6 bg-white"> <!--celej dashboard pocitac-->
         
-        <div title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-1 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
+        <div id="roomNumberTitle" title="Číslo místnosti - Díky tomuto číslu se žák připojí do místnosti." class="col-start-4 col-span-1 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14 rounded-2xl p-4 bg-comeniodark text-center"><!--cislo mistnosti-->
             <h1 id ="roomNumber" class="text-white text-3xl font-bold "></h1>
         </div>
-        <div title="Výběr jazyka" class="col-start-5 col-span-1 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14"><!--vyber jazyka pro ucitele-->
+        <div id="vyberJazyka" title="Výběr jazyka" class="col-start-5 col-span-1 row-start-1 row-span-1 box-content h-10 w-20 flex items-center justify-center my-auto mx-14"><!--vyber jazyka pro ucitele-->
             <div class="dropdown w-22">
                 <div class="flex ">
                 <button class="dropbtn flex">
@@ -38,10 +38,12 @@
     
                     <a href="#">
                         <img src="./img/pl.png" id="vlajka3" data-jazyk="pl" class="md:w-14  w-10  md:h-10 h-8 mt-2 border-2 border-comeniowhiteblue hover:border-sky-600">
+                        <img src="./img/pl.png" id="vlajka3" data-jazyk="pl" class="md:w-14  w-10  mt-2 border-2 border-comeniowhiteblue hover:border-sky-600">
+                        <img src="./img/pl.png" id="vlajka3" data-jazyk="pl" class="md:w-14  w-10  mt-2 border-2 border-comeniowhiteblue hover:border-sky-600">
     
                     </a>
                     <a href="#">
-                        <img src="./img/uk.png" id="vlajka4" data-jazyk="en" class="md:w-14  w-10  md:h-10 h-8 mt-2 border-2 border-comeniowhiteblue hover:border-sky-600">
+                        <img src="./img/uk.png" id="vlajka4" data-jazyk="en" class="md:w-14  w-10  mt-2 border-2 border-comeniowhiteblue hover:border-sky-600">
                     </a>
 
                     <a href="#">
@@ -55,20 +57,20 @@
 
 
         <div class="col-start-6 col-span-3 row-start-1 row-span-1 flex items-center justify-center" ><!--pocet zaku-->
-            <div title="Počet připojených žáků" class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
-                <span class="text-lg">Žáků v místnosti:</span>
+            <div id="pocetTitle" title="Počet připojených žáků" class="h-22 w-[60%] p-4 rounded-2xl text-center my-6 bg-comenioblue text-white ">
+                <span id="pocetText" class="text-lg">Žáků v místnosti:</span>
                 <span id="pocetzaku" class="font-bold text-xl ">0</span>
             </div>
         </div>
         <div id="konecmistnosti" class="col-start-10 col-span-3 row-span-1  flex items-center justify-center"><!--ukonceni mistnosti-->
-            <div class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center " title="Ukončit místnost - Tímto tlačítkem ukončíte místnost i pro všechny připojené žáky."> 
+            <div id="konecTitle" class="flex items-center h-22 w-18 my-auto border-2 border-black mx-16 rounded-2xl text-center " title="Ukončit místnost - Tímto tlačítkem ukončíte místnost i pro všechny připojené žáky."> 
                 <a href="index.html"><svg class="h-9 text-sky-900 pl-2 self-center mx-auto " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></a>
-                <span class="text-black text-base px-4 py-2 font-semibold cursor-pointer block "><a href="index.html">Ukončit místnost</a></span>
+                <span id="konecText" class="text-black text-base px-4 py-2 font-semibold cursor-pointer block "><a href="index.html">Ukončit místnost</a></span>
         </div>
         </div>
         <div class="col-start-1 row-start-1 col-span-3 row-span-6 bg-comeniodark pl-[5%] h-screen rounded-r-3xl mr-[20%]"> <!--prvni sloupec se zaky-->
             <div class="py-[5%]">
-                <h1 class="text-white font-ubuntu text-3xl font-semibold pt-8" title="Připojení žáci do místnosti, kliknutím na žáka mu můžete poslat upozornění">Přehled žáků</h1>
+                <h1 id="prehled" class="text-white font-ubuntu text-3xl font-semibold pt-8" title="Připojení žáci do místnosti, kliknutím na žáka mu můžete poslat upozornění">Přehled žáků</h1>
             </div>
             <div id="seznamZaku" class="pt-[5%]"><!--seznam žáků-->
                 
@@ -76,10 +78,10 @@
         </div>
         <div class="col-start-4 row-start-2 col-span-7 row-span-4 mr-[5%] max-h-[70vh] mt-[7vh]"><!--hlavni tabulka s popisem-->
             <div class="flex items-center justify-between px-8"><!--popis tabulky +mazaci tlacitko-->
-                <div class="text-3xl text-black font-ubuntu font-semibold" title="Upozornění od žáků rozlišené ikonami na přednastavená, vlastní zprávy a odpovědi na otázky">
+                <div id="upozorneni" class="text-3xl text-black font-ubuntu font-semibold" title="Upozornění od žáků rozlišené ikonami na přednastavená, vlastní zprávy a odpovědi na otázky">
                     Upozornění
                 </div>
-                <div class="flex items-center lg:mr-[-38%] xl:mr-[-48%] 2xl:mr-[-57%]" title="Zobrazovat zprávy taky v ukrajinštině">
+                <div id="zpravyuk" class="flex items-center lg:mr-[-38%] xl:mr-[-48%] 2xl:mr-[-57%]" title="Zobrazovat zprávy taky v ukrajinštině">
                     <div class="mr-6">
                         <img src="./img/ua.png" class="w-10">
                     </div>
@@ -88,7 +90,7 @@
                 </div>
                 <div id="odstranitvse" class="justify-center cursor-pointer" title="Vymaže všechna upozornění od žáků">
                     <svg class="w-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    <span class="text-xs">Odstranit vše</span>
+                    <span id="odstranitvseText" class="text-xs">Odstranit vše</span>
                 </div>
             </div>
             <div id="seznamUpozorneni" class="bg-white shadow-lg rounded-lg py-4 max-h-[80%] h-[80%] overflow-auto scrollbar"><!--actuall tabulka-->
@@ -150,7 +152,7 @@
 
         <div class="col-start-11 row-start-6 col-span-2 row-span-1 bg-white flex items-center">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJauO5N7XXu0lGJbni8W06t5sjWAheWoQTslk5RU7azTTZfg/viewform" target="_blank">
-                <div class="opacity-50 text-sky-800 text-sm text-center mx-6 hover:underline hover:opacity-100">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
+                <div id="feedback" class="opacity-50 text-sky-800 text-sm text-center mx-6 hover:underline hover:opacity-100">Zašlete nám zpětnou vazbu, ať můžeme aplikaci vylepšit</div>
             </a>
         </div>
 
@@ -190,6 +192,7 @@
     </div>
     <script src="/scripts/chart.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/uciteldata.js"></script>
     <script src="/js/ucitelvars.js"></script>
     <script src="/js/ucitelgraf.js"></script>
     <script src="/js/ucitel.js"></script>

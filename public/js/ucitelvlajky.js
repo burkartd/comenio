@@ -9,7 +9,8 @@ const vlajka5 = document.getElementById('vlajka5');
 vlajka1.addEventListener('click', () => { //ostatni
     
     // let jazykOrig = vlajka2.dataset.jazyk;
-    // let jazykNovy = vlajka3.dataset.jazyk;
+    let jazykNovy = vlajka1.dataset.jazyk;
+    JazykUcitelGlob = jazykNovy
     // let vlajkaOrig = vlajka2.src;
     // let vlajkaNova = vlajka3.src;
   
@@ -21,7 +22,7 @@ vlajka1.addEventListener('click', () => { //ostatni
   
     //jazyk = jazykNovy;
   
-    //IndexText(jazykNovy);
+    UcitelPreklad(jazykNovy)
   })
 
   vlajka2.addEventListener('click', () => { //ostatni
@@ -37,9 +38,9 @@ vlajka1.addEventListener('click', () => { //ostatni
     vlajka1.dataset.jazyk = jazykNovy
     vlajka1.src = vlajkaNova
   
-    // jazyk = jazykNovy;
+    JazykUcitelGlob = jazykNovy
   
-    // IndexText(jazykNovy);
+    UcitelPreklad(jazykNovy)
   })
 
   vlajka3.addEventListener('click', () => { //ostatni
@@ -55,9 +56,9 @@ vlajka1.addEventListener('click', () => { //ostatni
     vlajka1.dataset.jazyk = jazykNovy
     vlajka1.src = vlajkaNova
   
-    // jazyk = jazykNovy;
+    JazykUcitelGlob = jazykNovy
   
-    // IndexText(jazykNovy);
+    UcitelPreklad(jazykNovy)
   })
 
   vlajka4.addEventListener('click', () => { //ostatni
@@ -72,10 +73,10 @@ vlajka1.addEventListener('click', () => { //ostatni
   
     vlajka1.dataset.jazyk = jazykNovy
     vlajka1.src = vlajkaNova
-  
-    // jazyk = jazykNovy;
-  
-    // IndexText(jazykNovy);
+
+    JazykUcitelGlob = jazykNovy
+
+    UcitelPreklad(jazykNovy)
   })
 
   vlajka5.addEventListener('click', () => { //ostatni
@@ -91,7 +92,7 @@ vlajka1.addEventListener('click', () => { //ostatni
     vlajka1.dataset.jazyk = jazykNovy
     vlajka1.src = vlajkaNova
   
-    // jazyk = jazykNovy;
+    JazykUcitelGlob = jazykNovy
   
-    // IndexText(jazykNovy);
+    UcitelPreklad(jazykNovy)
   })
