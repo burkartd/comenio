@@ -20,23 +20,23 @@ overlay.addEventListener('click', () => { //zavření tlačítek kliknutím mimo
   openClose();
 })
 
-vlajkauk.addEventListener('click', () => {
-  vlajkacz.classList.add('border-comeniowhiteblue');
-  vlajkacz.classList.remove('border-comeniodark');
-  vlajkauk.classList.add('border-comeniodark');
-  vlajkauk.classList.remove('border-comeniowhiteblue');
-  jazyk = 'uk';
-  ZakText(1);
-})
+// vlajkauk.addEventListener('click', () => {
+//   vlajkacz.classList.add('border-comeniowhiteblue');
+//   vlajkacz.classList.remove('border-comeniodark');
+//   vlajkauk.classList.add('border-comeniodark');
+//   vlajkauk.classList.remove('border-comeniowhiteblue');
+//   jazyk = 'uk';
+//   ZakText(1);
+// })
 
-vlajkacz.addEventListener('click', () => {
-  vlajkauk.classList.add('border-comeniowhiteblue');
-  vlajkauk.classList.remove('border-comeniodark');
-  vlajkacz.classList.add('border-comeniodark');
-  vlajkacz.classList.remove('border-comeniowhiteblue');
-  jazyk = 'cz';
-  ZakText(0);
-})
+// vlajkacz.addEventListener('click', () => {
+//   vlajkauk.classList.add('border-comeniowhiteblue');
+//   vlajkauk.classList.remove('border-comeniodark');
+//   vlajkacz.classList.add('border-comeniodark');
+//   vlajkacz.classList.remove('border-comeniowhiteblue');
+//   jazyk = 'cz';
+//   ZakText(0);
+// })
 
 splneno.addEventListener('click', () => {
   socket.emit('splneno', true);

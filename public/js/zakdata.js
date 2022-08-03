@@ -4,13 +4,13 @@
 var zakData = {
     "nadpis": 
         {"cz" :"Upozornit učitele", 
-        "ua":"Попередьте вчителя",
+        "uk":"Попередьте вчителя",
         "de": "nemecky",
         "pl": "polsky",
-        "en": "ingliš"}
+        "en": "ingliš"},
     "sendbtn": 
         {"cz": "Odeslat", 
-        "ua": "Надіслати",
+        "uk": "Надіслати",
         "de": "nemecky",
         "pl": "polsky",
         "en": "ingliš"}
