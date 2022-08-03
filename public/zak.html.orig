@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comenio</title>
+    <link rel="stylesheet" href="./css/tailwind.css">
+</head>
+<body class="noselect">
+    <div class="text-sky-900 font-nunito max-h-screen"><!--container-->
+
+       
+        <div class="grid grid-cols-3 text-3xl font-bold p-4 pt-4 flex justify-center md:text-5xl lg:text-5xl lg:pt-4 pb-[5%] lg:z-20 items-center max-h-[35vh] lg:h-[35vh]"><!--main_nadpis-->
+            <div class="font-ubuntu text-4xl justify-start col-span-1 ml-4 md:text-5xl lg:text-left lg:text-5xl">
+                <h1 id ="roomNumber" class="text-sky-700">#333</h1>
+            </div>
+            <!--vlajky-->
+            <div id="vlajka" class="sm:flex block justify-center items-end col-span-1 sm:flex">
+                <div class="w-36 sm:w-36 md:w-36 lg:w-40 m-6 text-center">
+                    <div class="text-sm text-comenioblue mb-2 mr-2">Vyberte jazyk<br>Виберіть мову</div>
+                    <div class="flex text-center">
+                        <div class="mr-6 bg-blend-luminosity">
+<<<<<<< HEAD
+                            <img src="./img/ua.png" id="vlajka1" data-jazyk="uk" class="md:w-14 w-10 md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+=======
+                            <img src="./img/ua.png" id="uk" class="md:w-14 w-10 md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+>>>>>>> origin/novavetef
+                        </div>
+                        <div class="dropdown">
+                            <div class="flex">
+                            <button class="dropbtn flex">
+                                
+                                <img src="./img/cz.png" id="vlajka2" data-jazyk="cz" class="md:w-14 w-10 md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+                
+                                
+                            </button>
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-5 ml-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="black" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                </path>
+                            </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <a href="#" class="mt-2">
+                                    <img src="./img/de.png" id="vlajka3" data-jazyk="de" class="md:w-14  w-10  md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+                                </a>
+                
+                                <a href="#" class="mt-2">
+                                    <img src="./img/pl.png" id="vlajka4" data-jazyk="pl" class="md:w-14  w-10  md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+                
+                                </a>
+                                <a href="#" class="mt-2">
+<<<<<<< HEAD
+                                    <img src="./img/uk.png" id="vlajka5" data-jazyk="en" class="md:w-14  w-10  md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+=======
+                                    <img src="./img/uk.png" id="en" class="md:w-14  w-10  md:h-10 h-8 border-2 border-comeniowhiteblue hover:border-sky-600">
+>>>>>>> origin/novavetef
+                                </a>
+                                
+                            </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+                
+            <div id="odhlasit" class="justify-end col-span-1 text-center">
+                <svg class="w-12 ml-auto mr-4 md:w-16 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div class="text-center items-start mt-4 col-span-3">
+            <h1 id="nadpis" class="text-4xl">Upozornit učitele</h1>
+            </div>
+        </div>
+        <div id = "divMenu" class="text-xl max-h-[10vh] py-1 text-comeniowhiteblue grid grid-cols-1 z-2"><!--tlacitka-->
+            <div class="justify-center lg:col-span-1">
+                <form id="VlastniZpravaForm" class="bg-white block justify-center appearance-none rounded-xl py-2 md:py-8 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
+                    <input
+                    id="msg"
+                    type="text"
+                    class="border-2 block border-comenioblue rounded-xl p-6 py-4 focus:border-2 focus:outline-none md:py-6 focus:border-sky-700 mx-auto text-center"
+                    placeholder="Vlastní zpráva"
+                    required
+                    autocomplete="off"
+                    />
+                    <button id="sendbtn" class="pt-2 text-base hover:underline md:text-xl">Odeslat</button>
+                </form>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 grid-rows-3 max-h-[50vh] h-[50vh] auto-rows-auto pt-[20%] lg:h-[55vh] lg:pt-[5%]"><!--predvolene-->
+            <div id="opencloseold" class="col-span-1 row-start-2 cursor-pointer row-span-2 items-center lg:row-start-3 lg:row-span-1 mt-auto mr-auto z-50"><!--plusko-->
+                <div id="openclose" class="bg-comenioblue cursor-pointer p-2 m-6 rounded-full">
+                <svg class="h-14 w-14 md:h-20 md:w-20 lg:h-24 lg:w-24" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </div>
+            </div>
+            <div class="col-span-2 col-start-2 justify-center cursor-pointer items-center mb-auto mr-[40%] ml-[-40%] z-10 lg:mr-[80%] lg:ml-[-80%]">
+                <div id="Tlacitko1" class=" modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Nestíhám zápis
+                </div>
+            </div>
+            <div class="col-span-2 col-start-2 justify-center items-center cursor-pointer mb-auto mr-[20%] ml-[-20%] z-10 lg:mr-[65%] lg:ml-[-65%]">
+                <div id="Tlacitko2" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Nerozumím učivu
+                </div>
+            </div>
+            <div class="col-span-2 justify-center items-center mb-auto z-10 cursor-pointer lg:mr-[50%] lg:ml-[-50%]">
+                <div id="Tlacitko3" class="modal px-6 py-4 bg-comenioblue text-white rounded-3xl justify-center text-center mx-[10%] hover:shadow-xl hover:bg-sky-700 md:mx-[20%] md:text-xl md:py-6 md:rounded-full lg:mx-[35%]">
+                    Potřebuji pomoc
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- popup pro anketu  -->
+        
+
+
+    </div>
+
+    <div class="popupa" id="divZpravaOdUcitele">
+        <div class="items-center h-full pt-2 sm:pt-2 font-nunito">
+            <div id="zpravaZavrit" class="mb-4">
+                <svg class="w-8 ml-auto mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h1 id="hUpozorneni" class="text-center text-2xl">Upozornění od učitele</h1>
+            <div class="justify-center flex items-center mt-6 sm:mt-12">
+                <svg class="w-12 text-red-700 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span id="zpravaTxt" class="text-xl font-semibold"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="anketapopup">
+        <div class="items-center h-full pt-2 sm:pt-2 font-nunito">
+            <div id="anketazavrit" class="mb-4">
+                <svg class="w-8 ml-auto mr-4 md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h1 id="hsplneni" class="text-center text-2xl">Potvrď splnění úkolu</h1>
+            <div class="justify-center flex mt-6 sm:mt-12">
+                <div>
+                </div>
+                <button itemid="btnsplneno" class="px-6 py-2 mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnsplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                    Splněno
+                </button>
+                <button id="btnnesplneno" class="px-6 py-2 mx-2 sm:px-10 sm:py-4 sm:mx-4 bg-sky-700 rounded text-comeniowhiteblue hover:bg-sky-800 disabled:bg-comenioblue" type="button" id="btnnesplneno">
+                    <svg class="w-14 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    Nesplněno
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="popup" id="odpovedipopup">
+        <div class="items-center h-full pt-8 sm:pt-12 font-nunito">
+            <div id="anketazavrit" class="mb-2 flex items-center">
+                <h1 id="hodpoved" class="text-center text-xl">Napiš odpověď</h1>
+                <svg id="zavritOdpoved" class="w-8 mr-4 ml-auto md:w-10 cursor-pointer text-comenioblue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            
+            <div class="justify-center flex mt-2 sm:mt-2">
+                <div>
+                </div>
+                <form id="OdpovedForm" class="bg-comeniowhiteblue block justify-center appearance-none rounded-xl py-2 md:py-4 px-auto mx-auto text-center md:px-8 text-lg md:text-2xl lg:mx-20 text-comenioblue block">
+                    <input
+                    id="msg"
+                    type="text"
+                    class="border-2 block border-comenioblue rounded-xl p-6 py-4 focus:border-2 focus:outline-none md:py-6 focus:border-sky-700 mx-auto text-center"
+                    placeholder=""
+                    required
+                    autocomplete="off"
+                    />
+                    <button id="sendbtn2" class="pt-2 text-base hover:underline md:text-xl">Odeslat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="overlay"></div> <!--na tohle nehrab-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" 
+    integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/zakvars.js"></script>
+    <script src="/js/zakdata.js"></script>
+    <script src="/js/zakvlajky.js"></script>
+    <script src="/js/zak.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
+    
+</body>
+</html>
