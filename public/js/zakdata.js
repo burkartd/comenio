@@ -7,7 +7,7 @@ var zakData = {
         "ua":"Попередьте вчителя",
         "de": "nemecky",
         "pl": "polsky",
-        "en": "ingliš"}
+        "en": "ingliš"},
     "sendbtn": 
         {"cz": "Odeslat", 
         "ua": "Надіслати",
