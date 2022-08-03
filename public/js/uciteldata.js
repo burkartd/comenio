@@ -30,6 +30,13 @@ var ucitelDataText = {
         "pl": "Przegląd uczniów",
         "en": "Overview of pupils"},
 
+    "upozorneni": 
+        {"cz": "Upozornění", 
+        "uk": "Сповіщення",
+        "de": "Benachrichtigungen",
+        "pl": "Powiadomienia",
+        "en": "Notifications"},
+
     "odstranitvseText": 
         {"cz": "Odstranit vše", 
         "uk": "Видалити все",

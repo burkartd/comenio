@@ -56,7 +56,8 @@ btnZacitAnketu.addEventListener('click', () => { //začít anketu
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
-    nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+    // nadpis.innerHTML = `Hotových žáků: 0/${pocetZaku}`;
+    nadpis.innerHTML = `${ucitelDataChart["typ1"][JazykUcitelGlob]}: 0/${pocetZaku}`
     zacitAnketu();
 }); 
 
@@ -102,7 +103,8 @@ inputNazevOtazky.addEventListener('submit', (e) => {
     ctx = document.getElementById('myChart').getContext('2d');
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
-    nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
+    // nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
+    nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: 0/${celkem}`
     
     zacitOdpovedi(nazevOtazky);
   });
