@@ -17,6 +17,8 @@ const vlajka3 = document.getElementById('vlajka3');
 const vlajka4 = document.getElementById('vlajka4');
 const vlajka5 = document.getElementById('vlajka5');
 
+const zalozit = document.getElementById('zalozitmistnost');
+
 var jazyk = 'cz';
 
 //Enter == zmáčknutí tlačítka
@@ -111,6 +113,16 @@ vlajka5.addEventListener('click', () => { //ostatni
 
   IndexText(jazykNovy);
 })
+
+zalozit.addEventListener('click', () => {
+  const params = new URLSearchParams({
+    lang: jazyk,
+  });
+  window.location.href = '/ucitel.html?' + params.toString();
+})
+
+
+
   //tlačítko potvrzení formu
 btn.addEventListener('click', () => {
     

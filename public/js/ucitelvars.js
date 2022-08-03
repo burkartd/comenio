@@ -60,3 +60,24 @@ const divZpravaZakovi = document.getElementById('divZpravaZakovi');
 const zpravaForm = document.getElementById('ZpravaZakoviForm');
 
 const ukrajinacb = document.getElementById('cbukrajina');
+
+const {lang} = Qs.parse(location.search, {
+    ignoreQueryPrefix: true,
+  });
+
+  JazykUcitelGlob = lang;
+
+function NastavJazyk()
+{
+  let vlajky = [vlajka1, vlajka2, vlajka3, vlajka4, vlajka5];
+  const jazyky = ['uk', 'cz', 'de', 'pl', 'en']
+
+  if(!jazyky.includes(JazykUcitelGlob)) JazykUcitelGlob = 'en'; //kdyby něco jazyk se nastaví na angličtinu
+
+  vlajky.forEach(element => {
+    if(JazykUcitelGlob === element.dataset.jazyk){
+      console.log(element.dataset.jazyk)
+      element.click();
+    }
+  })
+}

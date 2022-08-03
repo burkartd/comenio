@@ -1,3 +1,5 @@
+
+
 //const { emit } = require("nodemon");
 vymazatvse.addEventListener('click', () => {
     seznamUpozorneni.innerHTML = '';
@@ -44,6 +46,8 @@ socket.on('connect', () =>
 
     pocetZaku = 0;
     zaku.innerHTML = pocetZaku;
+
+    NastavJazyk();
 });
 
 socket.on('newUser', (zak) => {
