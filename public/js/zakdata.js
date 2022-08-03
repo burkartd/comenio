@@ -8,6 +8,12 @@ var zakData = {
         "de": "nemecky",
         "pl": "polsky",
         "en": "ingliš"}
+    "sendbtn": 
+        {"cz": "Odeslat", 
+        "ua": "Надіслати",
+        "de": "nemecky",
+        "pl": "polsky",
+        "en": "ingliš"}
     // "sendbtn": ["Odeslat", "Надіслати"],
     // "Tlacitko1": ["Nestíhám zápis", "Я не можу зловити рекорд"],
     // "Tlacitko2": ["Nerozumím učivu", "Я не розумію навчальної програми"],

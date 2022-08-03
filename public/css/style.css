@@ -205,11 +205,16 @@
 }
 
 .dropbtn {
-    color: white;
+    color: transparent;
     border: none;
     cursor: pointer;
 }
-
+.z-2{
+    z-index: 2;
+}
+.z-12{
+    z-index: 12;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -219,8 +224,6 @@
     display: none;
     position: absolute;
     background-color: transparent;
-    box-shadow: 0px 8px 16px
-        0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -231,7 +234,7 @@
 }
 
 .dropdown-content a:hover {
-    background-color: white;
+    background-color: transparent;
 }
 
 .dropdown:hover .dropdown-content {
@@ -239,5 +242,5 @@
 }
 
 .dropdown:hover .dropbtn {
-    background-color: white;
+    background-color: transparent;
 }
