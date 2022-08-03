@@ -51,3 +51,18 @@ var ucitelDataChart = {
     "typ1":{"cz":"Hotových žáků"},
     "typ2":{"cz":"Odpovědí"}
 }
+
+function UcitelPreklad(jazyk)
+{
+    Object.keys(ucitelDataText).forEach((key)=>{
+        document.getElementById(key).innerText = ucitelDataText[key][jazyk]; 
+    });
+    
+    Object.keys(ucitelDataTitle).forEach((key)=>{
+        document.getElementById(key).title = ucitelDataTitle[key][jazyk]; 
+    });
+
+    Object.keys(ucitelDataPlaceholder).forEach((key)=>{
+        document.getElementById(key).placeholder = ucitelDataPlaceholder[key][jazyk]; 
+    });
+}
