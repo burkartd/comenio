@@ -29,6 +29,7 @@ socket.on('connect', () =>
         roomName = data;
         roomNum = data.substring(4);
         divRoomNumber.innerHTML = ('#' + roomNum);
+        document.title = 'Comenio #' + roomNum;
     });
     
     id = socket.id; 
