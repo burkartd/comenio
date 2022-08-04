@@ -104,7 +104,7 @@ inputNazevOtazky.addEventListener('submit', (e) => {
     myChart = new Chart(ctx, config);
     //updateGraf(0, pocetZaku);
     // nadpis.innerHTML = `Odpovědí: 0/${pocetZaku}`;
-    nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: 0/${celkem}`
+    nadpis.innerHTML = `${ucitelDataChart["typ2"][JazykUcitelGlob]}: 0/${pocetZaku}`
     
     zacitOdpovedi(nazevOtazky);
   });

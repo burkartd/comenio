@@ -92,11 +92,13 @@ io.on('connection', socket => {
         })
 
         socket.on('zpravaZakovi', (data) => {
-            //console.log(data);
+            console.log(data);
             
             const tmp = io.sockets.sockets.get(data.zakid);
             
-            if(tmp) tmp.emit('zpravaZakovi', data.msg);
+            let zprava = {typ: data.typ, msg: data.msg, lang: data.lang, typ: data.typ};
+
+            if(tmp) tmp.emit('zpravaZakovi', zprava);
 
             //io.sockets.sockets.get(data.zakid).emit('zpravaZakovi', data.msg);
             

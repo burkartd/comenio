@@ -38,7 +38,7 @@ jazyk = lang;
 function NastavJazyk()
 {
   let vlajky = [vlajka1, vlajka2, vlajka3, vlajka4, vlajka5];
-  const jazyky = ['uk', 'cz', 'de', 'pl', 'en']
+  const jazyky = ['uk', 'cs', 'de', 'pl', 'en']
 
   if(!jazyky.includes(jazyk)) jazyk = 'en'; //kdyby něco jazyk se nastaví na angličtinu
 

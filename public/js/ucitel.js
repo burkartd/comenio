@@ -16,7 +16,8 @@ socket.on('getinfo', (cb) =>{
         pripojit: true,
         anketa: jeAnketaAktivni,
         odpovedi: jeOdpovedAktivni,
-        odpovediNazev: nazevOtazky
+        odpovediNazev: nazevOtazky,
+        lang: JazykUcitelGlob
     });
 })
 
@@ -149,7 +150,7 @@ function zacitOdpovedi(lokNazev)
         AnketaSplneno.push({id: zak.id, splneno: false});
     });
     jeOdpovedAktivni = true;
-    socket.emit('spustitOdpovedi', {nazev: lokNazev});
+    socket.emit('spustitOdpovedi', {nazev: lokNazev, lang: JazykUcitelGlob});
 }
 
 function ukoncitAnketu()
@@ -270,7 +271,7 @@ zpravaForm.addEventListener('submit', (e) => {
 
     e.target.elements.msg3.value = '';
 
-    socket.emit('zpravaZakovi', {msg: zprava, zakid: zakovoid})
+    socket.emit('zpravaZakovi', {msg: zprava, zakid: zakovoid, lang: JazykUcitelGlob, typ: 'vlastni'})
 
     console.log(zprava);
 
@@ -283,7 +284,10 @@ zpravaForm.addEventListener('submit', (e) => {
 
 document.getElementById('prednastavena1').addEventListener('click', () => {
     
-    socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: zakovoid});
+    let data = {typ: 'prednastavena', msg: 1, zakid: zakovoid, lang: JazykUcitelGlob};
+    
+    // socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: zakovoid});
+    socket.emit('zpravaZakovi', data)
     setTimeout(()=>{
         divZpravaZakovi.classList.remove('active');
     }, 200)
@@ -291,11 +295,16 @@ document.getElementById('prednastavena1').addEventListener('click', () => {
 
 document.getElementById('prednastavena2').addEventListener('click', () => {
     
-    socket.emit('zpravaZakovi', {msg: 'Dej prostor ostatním', zakid: zakovoid});
+    let data = {typ: 'prednastavena', msg: 2, zakid: zakovoid, lang: JazykUcitelGlob};
+    
+    // socket.emit('zpravaZakovi', {msg: 'Buď aktivnější', zakid: zakovoid});
+    socket.emit('zpravaZakovi', data)
     setTimeout(()=>{
         divZpravaZakovi.classList.remove('active');
     }, 200)
 })
+
+
 
 document.getElementById('svgZavritZpravu').addEventListener('click', () => {
     divZpravaZakovi.classList.remove('active');
@@ -309,12 +318,19 @@ async function vlastniZprava(data)
     const div = document.createElement('div');
     div.classList.add('zaznamodpoved');
     div.classList.add('stin');
-    if(data.jazyk === 'uk')
+    if(data.jazyk === JazykUcitelGlob)
     {
-        const bar = await translate(msg, {from: "uk", to: "cs" });
-        
+        div.innerHTML = `
+        <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+        <span class="ml-2">${jmeno}: </span>
+        <span class="ml-2 font-semibold" style="word-wrap: break-word">${msg}</span>
+        <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+        <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
 
-
+    }
+    else
+    {   
+        const bar = await translate(msg, {from: data.jazyk, to: JazykUcitelGlob });
         div.innerHTML = `
                     <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                     <span class="w-8 ml-2">
@@ -323,17 +339,8 @@ async function vlastniZprava(data)
                     <span class="ml-2">${jmeno}: </span>
                     <span class="ml-2 font-semibold" style="word-wrap: break-word">${bar} ${document.getElementById('cbukrajina').checked ?` | ${msg}` : ``}</span>
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
-    }
-    else
-    {
-        div.innerHTML = `
-        <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-        <span class="ml-2">${jmeno}: </span>
-        <span class="ml-2 font-semibold" style="word-wrap: break-word">${msg}</span>
-        <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-        <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
-    }
+                    <span class="justify-end ml-4 mr-4">${casFormat()}</span>`   
+    
     
 
     //div.classList.add('vlastni');
@@ -341,7 +348,7 @@ async function vlastniZprava(data)
     seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
     pocetUpozorneni++;
 }
-
+}
 function prednastavenaZprava(data)
 {
     const msg = data.zprava;
@@ -388,9 +395,20 @@ async function odpovedZprava(data)
     div.classList.add('zaznamodpoved');
     div.classList.add('stin');
     
-    if(data.jazyk === 'uk')
+    if(data.jazyk === JazykUcitelGlob)
     {
-        const bar = await translate(msg, {from: "uk", to: "cs" });
+        div.innerHTML = `
+        <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="ml-2">${jmeno}: </span>
+                        <span class="ml-2 font-semibold" style="word-wrap: break-word">${msg}</span>
+                        <svg onclick="smazJeden(this)" class="w-8 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
+        
+    }
+    else
+    {
+        
+        const bar = await translate(msg, {from: data.jazyk, to: JazykUcitelGlob });
         
         div.innerHTML = `
         <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -401,15 +419,6 @@ async function odpovedZprava(data)
                     <span class="ml-2 font-semibold" style="word-wrap: break-word">${bar} ${document.getElementById('cbukrajina').checked ?` | ${msg}` : ``}</span>
                     <svg onclick="smazJeden(this)" class="w-8 ml-auto cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
-    }
-    else
-    {
-        div.innerHTML = `
-        <svg class="w-12 text-red-700 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="ml-2">${jmeno}: </span>
-                        <span class="ml-2 font-semibold" style="word-wrap: break-word">${msg}</span>
-                        <svg onclick="smazJeden(this)" class="w-8 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        <span class="justify-end ml-4 mr-4">${casFormat()}</span>`
     
     }
     
@@ -435,6 +444,4 @@ function smazJeden(el) //smaže vybranou zprávu
     var element = el;
     element.parentElement.remove();
 }
-
-
 

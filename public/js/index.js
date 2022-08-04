@@ -19,7 +19,7 @@ const vlajka5 = document.getElementById('vlajka5');
 
 const zalozit = document.getElementById('zalozitmistnost');
 
-var jazyk = 'cz';
+var jazyk = 'cs';
 
 //Enter == zmáčknutí tlačítka
 roomInput.addEventListener("keyup", function(event) {

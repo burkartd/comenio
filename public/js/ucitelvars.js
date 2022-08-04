@@ -19,7 +19,7 @@ var AnketaSplneno = []; //list žáků - splněno/nesplněno
 
 var nazevOtazky = '';
 
-var JazykUcitelGlob = 'cz'
+var JazykUcitelGlob = 'cs'
 
 var zpravy = ['Nestíhám zápis', 'Nerozumím učivu', 'Potřebuji pomoc']; //předvolené zprávy
 var zpravyuk = ['Я не можу зловити рекорд', 'Я не розумію навчальної програми', 'мені потрібна допомога']
@@ -70,7 +70,7 @@ const {lang} = Qs.parse(location.search, {
 function NastavJazyk()
 {
   let vlajky = [vlajka1, vlajka2, vlajka3, vlajka4, vlajka5];
-  const jazyky = ['uk', 'cz', 'de', 'pl', 'en']
+  const jazyky = ['uk', 'cs', 'de', 'pl', 'en']
 
   if(!jazyky.includes(JazykUcitelGlob)) JazykUcitelGlob = 'en'; //kdyby něco jazyk se nastaví na angličtinu
 

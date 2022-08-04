@@ -109,16 +109,16 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       }
       if(data.odpovedi)
       {
-        ZakOdpovediZacit(data.odpovediNazev);
+        ZakOdpovediZacit({nazev:data.odpovediNazev, lang:data.lang});
       }
       
        
     });
 });
 
-socket.on('zpravaZakovi', (msg) => {
-  //console.log(msg);
-  zpravaOdUcitele(msg);
+socket.on('zpravaZakovi', (data) => {
+  console.log(data);
+  zpravaOdUcitele(data);
 })
 
 socket.on('disconnect', () => { //při odpojení se pošle event
@@ -140,7 +140,7 @@ socket.on('ukoncitAnketu', () => { //ukončí probíhající anketu
 
 socket.on('spustitOdpovedi', (data) => {
   
-  ZakOdpovediZacit(data.nazev);
+  ZakOdpovediZacit(data);
 })
 
 socket.on('ukoncitOdpovedi', () => {
@@ -169,13 +169,19 @@ function ZakAnketaZacit()
   nesplneno.disabled = true;
 }
 
-async function ZakOdpovediZacit(nazev)
+async function ZakOdpovediZacit(data)
 {
   odpovedidiv.classList.add('active');
 
-  if(jazyk === 'uk')
+  let nazev = data.nazev;
+
+  if(data.lang === jazyk)
   {
-    const bar = await translate(nazev, {from: "cs", to: "uk" });
+    nazev = data.nazev;
+  }
+  else
+  {
+    const bar = await translate(nazev, {from: data.lang, to: jazyk });
     nazev = bar;
   }
   hNazevAnkety.innerHTML = nazev;
@@ -198,17 +204,26 @@ odpovedidiv.addEventListener('submit', (e) => {
 
 });
 
-async function zpravaOdUcitele(msg)
+async function zpravaOdUcitele(data)
 {
-  if(jazyk === 'uk')
+  let text = '';
+  console.log(data)
+  if(data.typ === 'prednastavena'){
+    text = zakDataZpravy[data.msg-1][jazyk];
+  }
+  else if(data.typ === 'vlastni')
   {
-    const foo = await translate(msg, {from: "cs", to: "uk" });
-    msg = foo;
+    console.log('vlastni')
+    if(data.lang === jazyk) text = data.msg;
+    else {
+      const foo = await translate(data.msg, {from: data.lang, to: jazyk }); // přeloží se z jazyka učitele do jazyka žáka
+      text = foo;
+    } 
   }
 
   divZpravaOdUcitele.classList.add('active');
 
-  document.getElementById('zpravaTxt').innerText = msg;
+  document.getElementById('zpravaTxt').innerText = text;
 
   document.getElementById('zpravaZavrit').addEventListener('click', () => {
     divZpravaOdUcitele.classList.remove('active');

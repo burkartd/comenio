@@ -3,32 +3,32 @@
 
 var indexData = {
     "upozornenijmeno": 
-                    {"cz":"Takové jméno už je v místnosti", 
-                    "ua": "Така назва вже є в кімнаті",
+                    {"cs":"Takové jméno už je v místnosti", 
+                    "uk": "Така назва вже є в кімнаті",
                     "de": "Dieser Name steht bereits im Raum",
                     "pl": "To nazwisko jest już w pokoju",
                     "en": "The name is already in the room!"},
      "upozornenijmeno2":
-                    {"cz":"Zadej své jméno", 
-                    "ua": "Введіть ім'я!",
+                    {"cs":"Zadej své jméno", 
+                    "uk": "Введіть ім'я!",
                     "de": "Geben Sie Ihren Namen ein",
                     "pl": "Wpisz swoje imię i nazwisko",
                     "en": "Type your name!"},
      "upozornenimistnost": 
-                    {"cz":"Tato místnost neexistuje!", 
-                    "ua": "Цієї кімнати не існує!",
+                    {"cs":"Tato místnost neexistuje!", 
+                    "uk": "Цієї кімнати не існує!",
                     "de": "Diesen Raum gibt es nicht!",
                     "pl": "Ten pokój nie istnieje!",
                     "en": "This room does not exist!"},
      "btnSubmit": 
-                    {"cz":"Připojit se", 
-                    "ua": "Приєднуйтесь",
+                    {"cs":"Připojit se", 
+                    "uk": "Приєднуйтесь",
                     "de": "Beitreten",
                     "pl": "Dołącz do",
                     "en": "Join room"},
      "zalozitmistnost":
-                    {"cz":"Založit místnost", 
-                    "ua": "Розпочніть кімнату",
+                    {"cs":"Založit místnost", 
+                    "uk": "Розпочніть кімнату",
                     "de": "Einen Raum einrichten",
                     "pl": "Ustawić pokój",
                     "en": "Create room"}
@@ -40,14 +40,14 @@ function IndexText(jazyk)
         document.getElementById(key).innerText = indexData[key][jazyk]; 
     });
     let phjmeno = 
-                    {"cz":"Jméno", 
-                    "ua": "Ім'я",
+                    {"cs":"Jméno", 
+                    "uk": "Ім'я",
                     "de": "Name",
                     "pl": "Nazwa",
                     "en": "Name"};
     let phmistnost =
-                    {"cz":"Kód místnosti", 
-                    "ua": "Код номеру",
+                    {"cs":"Kód místnosti", 
+                    "uk": "Код номеру",
                     "de": "Raum-Code",
                     "pl": "Kod pomieszczenia",
                     "en": "Room code"};
