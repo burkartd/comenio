@@ -105,7 +105,13 @@ var ucitelDataText = {
         "uk": "Дайте простір іншим",
         "de": "Geben Sie anderen Raum",
         "pl": "Daj przestrzeń innym",
-        "en": "Give space to others"}
+        "en": "Give space to others"},
+    "original": 
+        {"cs": "Zobrazit\noriginál", 
+        "uk": "переглянути\nоригінал",
+        "de": "das Original\nansehen",
+        "pl": "zobacz\noryginał",
+        "en": "Show\noriginal"}
 
 }
 
@@ -223,6 +229,27 @@ var ucitelDataChart = {
         "pl": "Odpowiedzi",
         "en": "Answers"},
 }
+
+
+var ucitelDataZpravy = [{"cs": "Nestíhám zápis", 
+                "uk": "Я не можу зловити рекорд",
+                "de": "Ich kann mich nicht registrieren",
+                "pl": "nie mogę się zarejestrować",
+                "en": "I can't take notes"},
+                {"cs": "Nerozumím učivu", 
+                "uk": "Я не розумію навчальної програми",
+                "de": "Ich verstehe die Lektion nicht",
+                "pl": "nie rozumiem lekcji",
+                "en": "I don't understand the lesson"}, 
+                {"cs": "Potřebuji pomoc", 
+                "uk": "мені потрібна допомога",
+                "de": "Ich brauche Hilfe",
+                "pl": "potrzebuję pomocy",
+                "en": "I need help"}]
+            
+            
+            //'Nerozumím učivu', 'Potřebuji pomoc']; //předvolené zprávy
+//var zpravyuk = ['Я не можу зловити рекорд', 'Я не розумію навчальної програми', 'мені потрібна допомога']
 
 function UcitelPreklad(jazyk)
 {
