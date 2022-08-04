@@ -342,12 +342,12 @@ async function vlastniZprava(data)
                     <span class="justify-end ml-4 mr-4">${casFormat()}</span>`   
     
     
-
+    }
     //div.classList.add('vlastni');
     seznamUpozorneni.appendChild(div);
     seznamUpozorneni.scrollTop = seznamUpozorneni.scrollHeight;
     pocetUpozorneni++;
-}
+
 }
 function prednastavenaZprava(data)
 {
