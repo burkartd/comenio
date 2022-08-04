@@ -36,7 +36,7 @@ vlajka1.addEventListener('click', () => { //uk
   vlajka1.classList.add('border-comeniodark');
   vlajka1.classList.remove('border-comeniowhiteblue');
   jazyk = 'uk';
-  IndexText('ua');
+  IndexText('uk');
 })
 
 vlajka2.addEventListener('click', () => { //ostatni
