@@ -115,7 +115,7 @@ function ZakText(jazyk)
     });
     let ph = 
                     {"cs":"Vlastní zpráva", 
-                    "ua": "Спеціальне повідомлення",
+                    "uk": "Спеціальне повідомлення",
                     "de": "Benutzerdefinierte Nachricht",
                     "pl": "Niestandardowy komunikat",
                     "en": "Custom message"};
