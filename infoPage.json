@@ -1,0 +1,43 @@
+{
+    "InfoPocet" : 2,
+    "Infoslide" : [
+        {
+            "id": 1,
+            "text": " Webová aplikace Comenio pomáhá s integrací ukrajinských dětí nejen do výuky ve školách, ale dá se využít při jakékoliv komunikaci s lektorem, učitelem, vedoucím, školitelem či přednášejícím."
+        },
+        {
+            "id": 2,
+            "text": "comenio je epic"
+        }
+    ],
+    
+    "posledni" : "konec",
+    
+    "OtazkyPocet": 3,
+    "Otazky" : [
+        {
+            "id": 1, 
+            "otazka" : "otázka pičo",
+            "odpovedi" : [{"text" :"odpověď 1", "cislo" : 1}, 
+                          {"text" :"odpověď 2", "cislo" : 2}, 
+                          {"text" :"odpověď 3", "cislo" : 3}],
+            "spravna" : 1
+        },
+        {
+            "id": 2,
+            "otazka" : "otázka mrtko",
+            "odpovedi" : [{"text" :"odpověď 1", "cislo" : 1}, 
+                          {"text" :"odpověď 2", "cislo" : 2}, 
+                          {"text" :"odpověď 3", "cislo" : 3}],
+            "spravna" : 1
+        },
+        {
+            "id": 3,
+            "otazka" : "otázka kundo",
+            "odpovedi" : [{"text" :"odpověď 1", "cislo" : 1}, 
+                          {"text" :"odpověď 2", "cislo" : 2}, 
+                          {"text" :"odpověď 3", "cislo" : 3}],
+            "spravna" : 1
+        }
+    ]
+}

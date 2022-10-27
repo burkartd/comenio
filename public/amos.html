@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comenio - minigame</title>
+    <link rel="stylesheet" href="./css/tailwind.css">
+</head>
+<body>
+
+    <div id="info" class="bg-white h-screen w-[100%] grid grid-cols-10 grid-rows-10"><!--informace o comeniu-->
+        <div class="col-start-5 col-span-2 row-span-1 row-start-2 flex items-center justify-center"><!--nadpis a logo-->
+            <h1 class='font-ubuntu text-[58px] text-ukrajinska font-bold'>
+                Comenio
+            </h1>
+        </div>
+        <div class="col-start-8 col-span-2 row-span-1 row-start-2 flex text-center items-center justify-center"><!--Zmena vlajecek-->
+            <div class="mr-6 bg-blend-luminosity">
+                <img src="./img/ua.png" id="vlajka1" data-jazyk="uk" class="w-16 border-2 border-comeniowhiteblue hover:border-sky-600">
+            </div>
+            <div class="mr-6 bg-blend-luminosity">
+                <img src="./img/cz.png" id="vlajka2" data-jazyk="cz" class="w-16 border-2 border-comeniowhiteblue hover:border-sky-600">
+            </div>
+        </div>
+        <div class="col-start-3 col-span-6 row-start-4 row-span-5 "><!--hlavni prostor-->
+            <div class=""><!--obrazek-->
+                <img src="./img/my.jpg" class="w-[60%] ml-[20%] justify-center">
+            </div>
+            <div class="justify-center px-16 mt-12"><!--text s informacemi-->
+                <p id="textinfo" class="font-nunito text-black text-2xl text-center font-semi-bold">
+                   
+                </p>
+            </div>
+        </div>
+        <div id="leve" class="col-start-2 col-span-1 row-start-9 row-span-1 bg-ukrajinska rounded-full h-24 w-24 justify-center items-center cursor-pointer hover:bg-comenioblue"><!--leve tlacitko-->
+            <div class="">
+                <svg class="h-16 w-16 mt-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+            </div>
+        </div>
+        
+        <div id="startkviz" class="hidden col-start-5 col-span-2 row-start-9 row-span-1 flex justify-center items-center"><!--tlacitko start-->
+            <div class="bg-ukrajinska w-44 h-16 rounded text-white text-2xl flex items-center justify-center">
+                Start kvízu
+            </div>
+        </div>
+        
+        <div id="prave" class="col-start-9 col-span-1 row-start-9 row-span-1 bg-ukrajinska rounded-full h-24 w-24 justify-center items-center cursor-pointer hover:bg-comenioblue"><!--prave tlacitko-->
+            <div class="">
+                <svg class="h-16 w-16 mt-4 ml-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                  
+            </div>
+        </div>
+        </div>
+
+
+        <div id="kviz" class="hidden bg-white h-screen w-[100%] grid grid-cols-10 grid-rows-10"><!--kviz potom-->
+
+            <div class="col-start-5 col-span-2 row-span-1 row-start-2 flex items-center justify-center"><!--nadpis a logo-->
+                <h1 class='font-ubuntu text-[58px] text-ukrajinska font-bold'>
+                    Comenio
+                </h1>
+            </div>
+            <div class="col-start-8 col-span-2 row-start-2 row-span-1 flex justify-center items-center"><!--timer-->
+                <h3 class="text-4xl font-nunito text-black">
+                    01:42
+                </h3>
+            </div>
+            
+            <div class="col-start-3 col-span-6 row-start-3 row-span-2 flex justify-center items-center">
+                <div id="otazka" class="text-ukrajinska text-3xl font-semi-bold"><!--zadani otazky-->
+                    Zadani otazky: Zadani otazky:
+                </div>
+            </div>
+            
+            <div class="col-start-3 col-span-6 row-start-5 row-span-1 flex justify-center items-end">
+                <div id="prvni" class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--prvni odpoved-->
+                    Prvni odpoved lorem ipsum dolor sit amet
+                </div>
+            </div>
+            
+            <div class="col-start-3 col-span-6 row-start-6 row-span-1 flex justify-center items-end">
+                <div id="druha" class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--druha odpoved-->
+                    Druha odpoved lorem ipsum dolor sit amet
+                </div>
+            </div>
+            
+            <div class="col-start-3 col-span-6 row-start-7 row-span-1 flex justify-center items-end">
+                <div id="treti" class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--treti odpoved-->
+                    Treti odpoved lorem ipsum dolor sit amet
+                </div>
+            </div>
+            </div>
+
+            <div id="rozcesti" class="bg-white h-screen w-[100%] grid grid-cols-10 grid-rows-10"><!--kviz potom-->
+
+                <div class="col-start-5 col-span-2 row-span-1 row-start-2 flex items-center justify-center"><!--nadpis a logo-->
+                    <h1 class='font-ubuntu text-[58px] text-ukrajinska font-bold'>
+                        Comenio
+                    </h1>
+                </div>
+                
+                <div id="otazka" class="col-start-3 col-span-6 row-start-3 row-span-2 flex justify-center items-center">
+                    <div class="text-ukrajinska text-3xl font-bold font-nunito"><!--zadani otazky-->
+                        Zajímá vás více?
+                    </div>
+                </div>
+                
+                <div class="col-start-3 col-span-6 row-start-5 row-span-1 flex justify-center items-end">
+                    <div class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--web-->
+                       <a href="https://comenio.eu/">Webové stránky</a>
+                    </div>
+                </div>
+                
+                <div class="col-start-3 col-span-6 row-start-6 row-span-1 flex justify-center items-end">
+                    <div id="znovukviz" class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--kviz-->
+                        Zkus kvíz znovu
+                    </div>
+                </div>
+                </div>
+</body>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./js/infoPage.js"></script>
+        <script src="./js/infoPagedata.js"></script>
+</html>

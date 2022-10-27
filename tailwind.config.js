@@ -9,6 +9,7 @@ module.exports = {
           comenioblue: '#00AEC9',
           comeniowhiteblue: '#EAF0F7',
           graf: '#E7F5F6',
+          ukrajinska: '#06C',
         },
         fontFamily: {
           ubuntu: ['Ubuntu'],

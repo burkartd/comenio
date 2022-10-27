@@ -4,6 +4,11 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const { disconnect } = require('process');
+const fs = require('fs');
+const { data } = require('jquery');
+
+// let rawdata = fs.readFileSync('student.json');
+let InfoRoomObject = JSON.parse(fs.readFileSync('infoPage.json'));
 
 const app = express();
 const server = http.createServer(app);
@@ -183,7 +188,46 @@ io.on('connection', socket => {
         else cb({pripojit: false});        
     });
 
+    socket.on('infoPageConnect', (cb) => {
+
+        var data = {pripojit: true, pocet: 0};
+        data.pripojit = true;
+        data.pocet = InfoRoomObject.Infoslide.Length;
+        cb(data);
+    })
+
+    socket.on('ziskejInfoSlide', (CisloSlidu, cb)=>{
+        var data = {posledni :false, text: ""};
+        if(CisloSlidu >= InfoRoomObject.InfoPocet)
+        {
+            data.posledni = true;
+            data.text = InfoRoomObject.posledni;
+            cb(data);
+        }
+        else
+        {
+            data.posledni = false;
+            console.log(CisloSlidu + " " + InfoRoomObject.InfoPocet);
+            data.text = InfoRoomObject.Infoslide[CisloSlidu].text;
+            cb(data);
+        }
         
+    })
+
+    socket.on('ziskejInfoOtazka', (cisloOtazky, cb)=>{
+        var data = {posledni: false, otazka: null, odpovedi: null};
+        if(cisloOtazky >= InfoRoomObject.OtazkyPocet)
+        {
+            data.posledni = true;
+            cb(data);
+        }
+        else
+        {
+            data.otazka = InfoRoomObject.Otazky[cisloOtazky].otazka;
+            data.odpovedi = InfoRoomObject.Otazky[cisloOtazky].odpovedi;
+            cb(data);
+        }
+    })
 });
 
 

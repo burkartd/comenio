@@ -244,3 +244,11 @@
 .dropdown:hover .dropbtn {
     background-color: transparent;
 }
+
+.grid-rows-10 {
+    grid-template-rows: repeat(10, minmax(0, 1fr));
+}
+
+.row-start-9 {
+    grid-row-start: 9;
+}
