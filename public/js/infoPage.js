@@ -16,7 +16,7 @@ var beziInfo = false;
 var beziKviz = false;
 
 socket.on('connect', () => { //připojení - ohlášení uživatele
-    console.log('halooo');
+   
     socket.emit('infoPageConnect', (data)=> {
       if(data.pripojit == false)
       {
@@ -24,7 +24,6 @@ socket.on('connect', () => { //připojení - ohlášení uživatele
       } 
        
     });
-    console.log('zacitinfo');
     ZacitInfo();
 });
 
@@ -32,7 +31,7 @@ tlacitkoVpred.addEventListener('click', ()=> {
     DalsiSlide(); 
 })
 tlacitkoZpet.addEventListener('click', ()=> {
-    console.log('zpet'); PredchoziSlide();
+    PredchoziSlide();
     startkviz.classList.add('hidden');
 })
 
@@ -47,7 +46,6 @@ function DalsiSlide()
         }
         else
         {
-            console.log('dalsiii' + CisloSlidu)
             textovePole.innerHTML = data.text;
             CisloSlidu++; 
         }
@@ -91,7 +89,7 @@ function Rozcesti()
 function DalsiOtazka()
 {
     socket.emit('ziskejInfoOtazka', CisloOtazky, (data)=>{
-        console.log(data);
+        
         if(data.posledni === true)
         {
             document.getElementById('kviz').classList.add('hidden');
@@ -100,7 +98,7 @@ function DalsiOtazka()
         }
         else
         {
-            console.log(data);
+            
             otazka.innerHTML = data.otazka;
             prvni.innerHTML = data.odpovedi[0].text;
             druha.innerHTML = data.odpovedi[1].text;
@@ -111,16 +109,20 @@ function DalsiOtazka()
 
 function Odpoved(cislo, tlacitko)
 {
-    socket.emit('kontrolaOdpovedi', CisloOtazky, cislo, (data)=>{
+    socket.emit('kontrolaOdpovedi', CisloOtazky, (data)=>{
         var spravna = data.spravna;
+        console.log(spravna, cislo);
         if(spravna === cislo)
         {
             // spravne
+            console.log('spravne');
             SpravnychOdpovedi++;
-            tlacitko.classList.add('');
+            //tlacitko.classList.add('');
         }
         else
         {
+            
+            console.log('spatne');
             var arr = ['prvni','druha','treti'];
             const odpovedspravna = document.getElementById(arr[spravna-1]);
         }

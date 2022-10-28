@@ -207,7 +207,6 @@ io.on('connection', socket => {
         else
         {
             data.posledni = false;
-            console.log(CisloSlidu + " " + InfoRoomObject.InfoPocet);
             data.text = InfoRoomObject.Infoslide[CisloSlidu].text;
             cb(data);
         }
@@ -227,6 +226,17 @@ io.on('connection', socket => {
             data.odpovedi = InfoRoomObject.Otazky[cisloOtazky].odpovedi;
             cb(data);
         }
+    })
+
+    socket.on('kontrolaOdpovedi', (cisloOtazky, cb)=>{
+
+        var data = {spravna: null}
+        //const odpoved_i = InfoRoomObject.Otazky.findIndex(tmp => tmp.id === cisloOtazky);
+        //console.log(odpoved_i);
+        const ota = InfoRoomObject.Otazky[cisloOtazky];
+        data.spravna = ota.spravna;
+        cb(data);
+
     })
 });
 
