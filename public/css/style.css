@@ -5,6 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.good{
+background-color: green;
+}
+
+.bad{
+background-color: red;
+}
+
 .tlacitko{
     @apply bg-comenioblue mx-8 my-4 flex justify-center rounded-xl block;
 }

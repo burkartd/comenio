@@ -32,7 +32,7 @@ const InfoHtml = `<div id="info" class="bg-white h-screen w-[100%] grid grid-col
 </div>
 
 <div id="startkviz" class="hidden col-start-5 col-span-2 row-start-9 row-span-1 flex justify-center items-center"><!--tlacitko start-->
-    <div class="bg-ukrajinska w-44 h-16 rounded text-white text-2xl flex items-center justify-center">
+    <div class="bg-ukrajinska w-44 h-16 rounded text-white text-2xl flex items-center justify-center hover:bg-comenioblue">
         Start kvízu
     </div>
 </div>

@@ -41,7 +41,7 @@
         </div>
         
         <div id="startkviz" class="hidden col-start-5 col-span-2 row-start-9 row-span-1 flex justify-center items-center"><!--tlacitko start-->
-            <div class="bg-ukrajinska w-44 h-16 rounded text-white text-2xl flex items-center justify-center">
+            <div class="bg-ukrajinska w-44 h-16 rounded text-white text-2xl flex items-center justify-center hover:bg-comenioblue">
                 Start kvízu
             </div>
         </div>
@@ -58,6 +58,12 @@
 
 
         <div id="kviz" class="hidden bg-white h-screen w-[100%] grid grid-cols-10 grid-rows-10"><!--kviz potom-->
+
+            <div class="col-start-2 col-span-2 row-start-2 row-span-1 flex justify-center items-center"><!--timer-->
+                <h3 class="text-[48px] font-nunito text-black font-bold">
+                    0/3
+                </h3>
+            </div>
 
             <div class="col-start-5 col-span-2 row-span-1 row-start-2 flex items-center justify-center"><!--nadpis a logo-->
                 <h1 class='font-ubuntu text-[58px] text-ukrajinska font-bold'>
@@ -102,20 +108,27 @@
                         Comenio
                     </h1>
                 </div>
+
+                <div class="col-start-3 col-span-6 row-start-3 row-span-1 flex justify-center items-end">
+                    <div class="text-ukrajinska text-3xl font-bold font-nunito"><!--vysledek kvízu-->
+                        <div class="flex justify-center"><span class="pr-2"> Získali jste: </span> <span id="spravne">3/3</span></div>
+                        <div class="flex justify-center pt-4"><span class="pr-2"> Váš čas byl:  </span> <span id="cas">0:22</span></div>
+                    </div>
+                </div>
                 
-                <div id="otazka" class="col-start-3 col-span-6 row-start-3 row-span-2 flex justify-center items-center">
-                    <div class="text-ukrajinska text-3xl font-bold font-nunito"><!--zadani otazky-->
+                <div id="otazka" class="col-start-3 col-span-6 row-start-4 row-span-2 flex justify-center items-center">
+                    <div class="text-ukrajinska text-2xl font-bold font-nunito"><!--zadani otazky-->
                         Zajímá vás více?
                     </div>
                 </div>
                 
-                <div class="col-start-3 col-span-6 row-start-5 row-span-1 flex justify-center items-end">
+                <div class="col-start-3 col-span-6 row-start-6 row-span-1 flex justify-center items-end">
                     <a href="https://comenio.eu/"></a><div class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--web-->
                        Webové stránky
                     </div></a>
                 </div>
                 
-                <div class="col-start-3 col-span-6 row-start-6 row-span-1 flex justify-center items-end">
+                <div class="col-start-3 col-span-6 row-start-7 row-span-1 flex justify-center items-end">
                     <div id="znovukviz" class="text-white rounded text-2xl font-semi-bold py-4 px-10 flex items-center justify-center bg-ukrajinska hover:bg-comenioblue"><!--kviz-->
                         Zkus kvíz znovu
                     </div>
