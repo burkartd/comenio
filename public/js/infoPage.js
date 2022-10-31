@@ -15,6 +15,12 @@ var SpravnychOdpovedi = 0;
 var beziInfo = false;
 var beziKviz = false;
 
+var seconds = 0;
+var tens = 0;
+const OutputSeconds = document.getElementById('seconds');
+const OutputTens = document.getElementById('tens');
+var Interval;
+
 socket.on('connect', () => { //připojení - ohlášení uživatele
    
     socket.emit('infoPageConnect', (data)=> {
@@ -60,12 +66,29 @@ function PredchoziSlide()
 
 }
 
+//začátek kvízu
 startkviz.addEventListener('click', ()=>{
     document.getElementById('info').classList.add('hidden');
     document.getElementById('kviz').classList.remove('hidden');
     startkviz.classList.add('hidden');
+    CisloOtazky =  0;
+    SpravnychOdpovedi = 0;
+    seconds = 0;
+    tens = 0;
+    Interval = setInterval(startTime, 100);
     DalsiOtazka();
 })
+
+function startTime(){
+    tens++;
+    if(tens > 9)
+    {
+        seconds++;
+        tens = 0;
+    }
+    OutputSeconds.innerHTML = seconds;
+    OutputTens.innerHTML = tens;
+}
 
 function ZacitInfo()
 {
@@ -92,6 +115,7 @@ function DalsiOtazka()
         
         if(data.posledni === true)
         {
+            clearInterval(Interval);
             document.getElementById('kviz').classList.add('hidden');
             document.getElementById('rozcesti').classList.remove('hidden');
             Rozcesti();
@@ -103,12 +127,37 @@ function DalsiOtazka()
             prvni.innerHTML = data.odpovedi[0].text;
             druha.innerHTML = data.odpovedi[1].text;
             treti.innerHTML = data.odpovedi[2].text;
+            prvni.addEventListener('click', PrvniClick);
+            
+            druha.addEventListener('click', DruhaClick);
+            
+            treti.addEventListener('click', TretiClick);
+            
         }
     })
 }
 
+
+function PrvniClick()
+{
+    Odpoved(1, prvni);
+}
+function DruhaClick()
+{
+    Odpoved(2, druha);
+}
+function TretiClick()
+{
+    Odpoved(3, treti);
+}
+
 function Odpoved(cislo, tlacitko)
 {
+    prvni.removeEventListener('click', PrvniClick);
+    druha.removeEventListener('click', DruhaClick);
+    treti.removeEventListener('click', TretiClick);
+    
+    
     socket.emit('kontrolaOdpovedi', CisloOtazky, (data)=>{
         var spravna = data.spravna;
         console.log(spravna, cislo);
@@ -135,15 +184,7 @@ function Odpoved(cislo, tlacitko)
     
 }
 
-prvni.addEventListener('click', ()=>{
-    Odpoved(1, prvni);
-})
-druha.addEventListener('click', ()=>{
-    Odpoved(2, druha);
-})
-treti.addEventListener('click', ()=>{
-    Odpoved(3, treti);
-})
+
 
 znovu.addEventListener('click', ()=>{
     ZacitInfo();

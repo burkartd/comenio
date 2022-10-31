@@ -1,5 +1,4 @@
 {
-    "InfoPocet" : 2,
     "Infoslide" : [
         {
             "id": 1,
@@ -13,7 +12,6 @@
     
     "posledni" : "konec",
     
-    "OtazkyPocet": 3,
     "Otazky" : [
         {
             "id": 1, 

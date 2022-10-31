@@ -198,7 +198,10 @@ io.on('connection', socket => {
 
     socket.on('ziskejInfoSlide', (CisloSlidu, cb)=>{
         var data = {posledni :false, text: ""};
-        if(CisloSlidu >= InfoRoomObject.InfoPocet)
+
+        var pocetSlidu = Array.from(InfoRoomObject.Infoslide).length;
+
+        if(CisloSlidu >= pocetSlidu)
         {
             data.posledni = true;
             data.text = InfoRoomObject.posledni;
@@ -215,7 +218,8 @@ io.on('connection', socket => {
 
     socket.on('ziskejInfoOtazka', (cisloOtazky, cb)=>{
         var data = {posledni: false, otazka: null, odpovedi: null};
-        if(cisloOtazky >= InfoRoomObject.OtazkyPocet)
+        var pocetOtazek = Array.from(InfoRoomObject.Otazky).length;
+        if(cisloOtazky >= pocetOtazek)
         {
             data.posledni = true;
             cb(data);
@@ -234,6 +238,7 @@ io.on('connection', socket => {
         //const odpoved_i = InfoRoomObject.Otazky.findIndex(tmp => tmp.id === cisloOtazky);
         //console.log(odpoved_i);
         const ota = InfoRoomObject.Otazky[cisloOtazky];
+        if (!ota) return;
         data.spravna = ota.spravna;
         cb(data);
 
